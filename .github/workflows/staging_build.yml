@@ -1,0 +1,8 @@
+name: Staging_build
+on: workflow_dispatch
+  jobs:
+    env_job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print Hello World
+          run: echo "Hello World"

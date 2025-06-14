@@ -1,4 +1,4 @@
-namespace LKT268.CommonConst
+namespace LKT268.Utils
 {
     /// <summary>
     /// Enumeration for different types of entities in the game.

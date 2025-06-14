@@ -1,8 +1,9 @@
 using UnityEngine;
+using LKT268.Interface;
 
-namespace LKT268.CommonBase
+namespace LKT268.Model.CommonBase
 {
-    public class EntityBase
+    public class EntityBase : IEntity
     {
         #region Public Properties
         public int Id
@@ -131,5 +132,4 @@ namespace LKT268.CommonBase
         }
         #endregion
     }
-
 }

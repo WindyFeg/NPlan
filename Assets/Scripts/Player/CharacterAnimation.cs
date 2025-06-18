@@ -20,7 +20,6 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     {
         if (currentAnimation == "Walking") return;
         anim.Play("Walking" + lastDirection);
-        Debug.Log("Walking" + lastDirection);
         currentAnimation = "Walking";
     }
     public void PlayRunningAnimation()

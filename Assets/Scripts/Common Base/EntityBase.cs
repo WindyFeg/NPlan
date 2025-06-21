@@ -1,8 +1,10 @@
 using UnityEngine;
+using LKT268.Interface;
+using LKT268.Utils;
 
-namespace LKT268.CommonBase
+namespace LKT268.Model.CommonBase
 {
-    public class EntityBase
+    public class EntityBase : MonoBehaviour, IEntity
     {
         #region Public Properties
         public int Id
@@ -13,8 +15,8 @@ namespace LKT268.CommonBase
 
         public string Name
         {
-            get => name;
-            set => name = value;
+            get => entityName;
+            set => entityName = value;
         }
 
         public int CurrentHealth
@@ -44,26 +46,33 @@ namespace LKT268.CommonBase
             get => armor;
             set => armor = value < 0 ? 0 : value;
         }
+        public EntityType EntityType
+        {
+            get => entityType;
+            set => entityType = value;
+        }
         #endregion
 
         #region Private Fields
-        private int id;
-        private string name;
-        private int currentHealth;
-        private int maxHealth;
-        private int level;
-        private int damage;
-        private int armor;
+        [SerializeField] private int id;
+        [SerializeField] private string entityName;
+        [SerializeField] private int currentHealth;
+        [SerializeField] private int maxHealth;
+        [SerializeField] private int level;
+        [SerializeField] private int damage;
+        [SerializeField] private int armor;
+        [SerializeField] private EntityType entityType = EntityType.None;
         #endregion
 
         #region Public Methods
         /// <summary>
         /// Initializes a new instance of the EntityBase class with default values.
         /// </summary>
+
         public EntityBase(int id, string name, int maxHealth, int level, int damage)
         {
             this.id = id;
-            this.name = name;
+            this.entityName = name;
             this.maxHealth = maxHealth;
             this.currentHealth = maxHealth; // Start with full health
             this.level = level;
@@ -127,9 +136,40 @@ namespace LKT268.CommonBase
         /// </summary>
         public override string ToString()
         {
-            return $"EntityBase: Name={Name}, ID={Id}, Level={Level}, Health={CurrentHealth}/{MaxHealth}, Damage={Damage}, Armor={Armor}";
+            return $"EntityBase: Name={Name}, ID={Id}, Level={Level}, Health={CurrentHealth}/{MaxHealth}, Damage={Damage}, Armor={Armor}\n";
+        }
+
+        /// <summary>
+        /// Initializes the entity with default values.
+        /// </summary>
+        public virtual void Initialization()
+        {
+            Id = 0;
+            Name = "Default Entity";
+            MaxHealth = 100;
+            CurrentHealth = MaxHealth;
+            Level = 1;
+            Damage = 10;
+            Armor = 0;
+            EntityType = EntityType.None;
+            Debug.Log($"EntityBase Initialized: {this}");
         }
         #endregion
-    }
 
+        #region Private Unity Methods
+        private void Start()
+        {
+            Initialization();
+        }
+        #endregion
+
+        #region Private Methods
+
+        public bool IsNpc() => this.entityType == EntityType.NPC;
+
+        public bool IsPlayer() => this.entityType == EntityType.Player;
+
+        public bool IsObject() => this.entityType == EntityType.Object;
+        #endregion
+    }
 }

@@ -7,11 +7,26 @@ namespace LKT268.Model.CommonBase
     public class NPCBase : HumanBase, INPC
     {
         #region Private Field
+        [Header("NPC Type")]
+        [SerializeField] NPCType npcType;
         [SerializeField] private NPCFunctionType nPCFunctionType = NPCFunctionType.None;
         [SerializeField] private NPCWarriorType nPCWarriorType = NPCWarriorType.None;
+        [Header("NPC Unique Stats")]
+        [SerializeField] private int happiness;
         #endregion
 
         #region Public Properties
+        public NPCType NpcType
+        {
+            get => npcType;
+            set => npcType = value;
+        }
+        public int Happiness
+        {
+            set { happiness = value; }
+            get { return happiness; }
+        }
+        [Header("NPC Type")]
         public NPCFunctionType NPCFunctionType
         {
             set
@@ -27,7 +42,6 @@ namespace LKT268.Model.CommonBase
                 return nPCFunctionType;
             }
         }
-
         public NPCWarriorType NPCWarriorType
         {
             set
@@ -63,6 +77,12 @@ namespace LKT268.Model.CommonBase
         public bool IsFunctionNPC() => NPCFunctionType != NPCFunctionType.None;
 
         public bool IsWarriorNPC() => NPCWarriorType != NPCWarriorType.None;
+
+        public override string ToString()
+        {
+            return base.ToString() +
+               $"NPCBase: npcType={npcType}, nPCFunctionType={nPCFunctionType}, nPCWarriorType={nPCWarriorType}, happiness={happiness}\n";
+        }
         #endregion
 
 

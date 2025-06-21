@@ -7,15 +7,9 @@ namespace LKT268.Model.CommonBase
     public class NpcBehaviour : NPCBase
     {
         #region Public Properties
-        public NPCType NpcType
-        {
-            get => npcType;
-            set => npcType = value;
-        }
         #endregion
 
         #region Private Fields
-        [SerializeField] NPCType npcType;
         #endregion
 
         #region Public Constructors
@@ -30,6 +24,7 @@ namespace LKT268.Model.CommonBase
         #region Public Methods
         public override void Initialization()
         {
+            // This is temp initialization all if the init will be handle by game manager
             Id = 1;
             Name = "Default NPC";
             MaxHealth = 100;
@@ -39,7 +34,7 @@ namespace LKT268.Model.CommonBase
             Armor = 0;
             EntityType = EntityType.NPC;
             this.AssignFunctionJob(NPCFunctionType.Blacksmith);
-            Debug.Log($"EntityBase Initialized: {this}");
+            LTK268Log.LogEntity(this);
         }
         #endregion
     }

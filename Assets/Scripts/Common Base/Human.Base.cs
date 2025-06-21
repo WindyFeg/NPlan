@@ -40,6 +40,11 @@ namespace LKT268.Model.CommonBase
             LTK268Log.LogNotImplement(this);
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + "HumanBase: \n";
+        }
+
         public bool IsHuman() => this.EntityType == EntityType.Player || this.EntityType == EntityType.NPC;
         #endregion
     }

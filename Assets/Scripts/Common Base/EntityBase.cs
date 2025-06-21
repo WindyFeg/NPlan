@@ -136,7 +136,7 @@ namespace LKT268.Model.CommonBase
         /// </summary>
         public override string ToString()
         {
-            return $"EntityBase: Name={Name}, ID={Id}, Level={Level}, Health={CurrentHealth}/{MaxHealth}, Damage={Damage}, Armor={Armor}";
+            return $"EntityBase: Name={Name}, ID={Id}, Level={Level}, Health={CurrentHealth}/{MaxHealth}, Damage={Damage}, Armor={Armor}\n";
         }
 
         /// <summary>

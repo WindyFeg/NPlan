@@ -40,5 +40,21 @@ namespace LKT268.Utils
         {
             Debug.Log($"[258LTK LOG] - ENTITY: \n{entityBase}\n\n");
         }
+
+
+        public static void LogFalseConfig<T>(
+            string message,
+            T obj,
+            [CallerFilePath] string filePath = "",
+            [CallerLineNumber] int lineNumber = 0,
+            [CallerMemberName] string memberName = "")
+        {
+            string typeName = typeof(T).Name;
+            string fileName = Path.GetFileName(filePath);
+            string logMessage = $"[258LTK LOG] - FALSE CONFIG: \nFile: {fileName}, \nFunction: {memberName}, \nLine: {lineNumber}\n\n Message: {message}\n\n";
+
+            // *** Use Unity's Debug.LogWarning or Debug.LogError for better visibility in the Unity Console ***
+            Debug.LogWarning(logMessage);
+        }
     }
 }

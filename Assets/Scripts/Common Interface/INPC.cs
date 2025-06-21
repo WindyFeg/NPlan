@@ -18,6 +18,11 @@ namespace LKT268.Interface
         /// </summary>
         /// <param name="_type">Warrior Type</param>
         void AssignWarriorJob(NPCWarriorType _type);
+
+        /// <summary>
+        /// Turn Sickness Npc into normal one
+        /// </summary>
+        void CureSickness();
     }
 
     public interface INPCCommonChecking

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
-    public class NpcBehaviour : NPCBase
+    public class NpcModel : NPCBase
     {
         #region Public Properties
         #endregion
@@ -13,7 +13,7 @@ namespace LKT268.Model.CommonBase
         #endregion
 
         #region Public Constructors
-        public NpcBehaviour(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
+        public NpcModel(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {
         }
         #endregion
@@ -33,8 +33,7 @@ namespace LKT268.Model.CommonBase
             Damage = 10;
             Armor = 0;
             EntityType = EntityType.NPC;
-            this.AssignFunctionJob(NPCFunctionType.Blacksmith);
-            LTK268Log.LogEntity(this);
+            this.NpcType = NPCType.Sickness;
         }
         #endregion
     }

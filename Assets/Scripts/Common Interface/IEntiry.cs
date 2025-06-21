@@ -1,3 +1,5 @@
+using LKT268.Utils;
+
 namespace LKT268.Interface
 {
     public interface IEntityModel
@@ -9,6 +11,7 @@ namespace LKT268.Interface
         int Level { get; set; }
         int Damage { get; set; }
         int Armor { get; set; }
+        EntityType EntityType { get; set; }
     }
 
     public interface IEntityControl

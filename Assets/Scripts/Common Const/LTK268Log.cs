@@ -28,5 +28,11 @@ namespace LKT268.Utils
             // *** Use Unity's Debug.LogWarning or Debug.LogError for better visibility in the Unity Console ***
             Debug.LogWarning(logMessage);
         }
+
+        public static void LogInfo(string message)
+        {
+            // Log an informational message to the Unity Console
+            Debug.Log($"[258LTK LOG] - INFO: {message}");
+        }
     }
 }

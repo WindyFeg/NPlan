@@ -9,6 +9,7 @@ namespace LKT268.Utils
         Player = 0,
         NPC = 1,
         Enemy = 2,
+        Object = 3,
     }
 
     #region NPC

@@ -6,10 +6,20 @@ namespace LKT268.Model.CommonBase
 {
     public class HumanBase : EntityBase, IHumanControl
     {
+        #region Public Properties
+        #endregion
+
+        #region Private Fields
+        #endregion
+
+        #region Public Constructors
         public HumanBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {
         }
+        #endregion
 
+        #region Public Methods
+        public EntityType GetEntityType() => EntityType;
         public void InteractWithEntity(IEntity target)
         {
             OnInteractedByEntity(target);
@@ -20,14 +30,17 @@ namespace LKT268.Model.CommonBase
             OnInteractedByObject(target);
         }
 
-        protected void OnInteractedByEntity(IEntity target)
+        public void OnInteractedByEntity(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
 
-        protected void OnInteractedByObject(IEntity target)
+        public void OnInteractedByObject(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
+
+        #endregion
     }
+
 }

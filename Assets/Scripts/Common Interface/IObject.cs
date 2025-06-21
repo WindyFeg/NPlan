@@ -1,6 +1,9 @@
 namespace LKT268.Interface
 {
-    public interface IObject : IObject
+    /// <summary>
+    /// Interface for objects that can be interacted with in the game.
+    /// </summary>
+    public interface IObject
     {
 
     }

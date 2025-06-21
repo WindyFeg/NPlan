@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
-    public class NPCBase : HumanBase
+    public class NPCBase : HumanBase, INPCControl
     {
         public NPCBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {

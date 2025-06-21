@@ -1,4 +1,4 @@
-namespace LKT268.CommonConst
+namespace LKT268.Utils
 {
     /// <summary>
     /// Enumeration for different types of entities in the game.
@@ -9,6 +9,7 @@ namespace LKT268.CommonConst
         Player = 0,
         NPC = 1,
         Enemy = 2,
+        Object = 3,
     }
 
     #region NPC
@@ -44,6 +45,21 @@ namespace LKT268.CommonConst
         None = -1,
         Archer = 0,
         Warrior = 1,
+    }
+    #endregion
+
+    /// <summary>
+    /// Enumeration for different types of objects in the game.
+    /// </summary>
+    #region Object
+    public enum ObjectType
+    {
+        None = -1,
+        House = 0,
+        PickableObject = 1,
+        NonPickableObject = 2,
+        Resource = 3,
+        Weapon = 4,
     }
     #endregion
 

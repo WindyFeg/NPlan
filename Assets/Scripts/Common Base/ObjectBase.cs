@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
-    public class HumanBase : EntityBase, IHumanControl
+    public class ObjectBase : EntityBase, IHumanControl
     {
-        public HumanBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
+        public ObjectBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {
         }
 

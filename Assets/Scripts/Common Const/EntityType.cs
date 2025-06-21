@@ -47,4 +47,19 @@ namespace LKT268.Utils
     }
     #endregion
 
+    /// <summary>
+    /// Enumeration for different types of objects in the game.
+    /// </summary>
+    #region Object
+    public enum ObjectType
+    {
+        None = -1,
+        House = 0,
+        PickableObject = 1,
+        NonPickableObject = 2,
+        Resource = 3,
+        Weapon = 4,
+    }
+    #endregion
+
 }

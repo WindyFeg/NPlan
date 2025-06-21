@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
-    public class HumanBase : EntityBase, IHumanControl
+    public class HumanBase : EntityBase, IHuman
     {
         #region Public Properties
         #endregion
@@ -40,6 +40,7 @@ namespace LKT268.Model.CommonBase
             LTK268Log.LogNotImplement(this);
         }
 
+        public bool IsHuman() => this.EntityType == EntityType.Player || this.EntityType == EntityType.NPC;
         #endregion
     }
 

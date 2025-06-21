@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
-    public class NpcBehaviour : HumanBase, IHumanControl
+    public class NpcBehaviour : NPCBase
     {
         #region Public Properties
         public NPCType NpcType
@@ -30,7 +30,16 @@ namespace LKT268.Model.CommonBase
         #region Public Methods
         public override void Initialization()
         {
-            base.Initialization();
+            Id = 1;
+            Name = "Default NPC";
+            MaxHealth = 100;
+            CurrentHealth = MaxHealth;
+            Level = 1;
+            Damage = 10;
+            Armor = 0;
+            EntityType = EntityType.NPC;
+            this.AssignFunctionJob(NPCFunctionType.Blacksmith);
+            Debug.Log($"EntityBase Initialized: {this}");
         }
         #endregion
     }

@@ -162,5 +162,14 @@ namespace LKT268.Model.CommonBase
             Initialization();
         }
         #endregion
+
+        #region Private Methods
+
+        public bool IsNpc() => this.entityType == EntityType.NPC;
+
+        public bool IsPlayer() => this.entityType == EntityType.Player;
+
+        public bool IsObject() => this.entityType == EntityType.Object;
+        #endregion
     }
 }

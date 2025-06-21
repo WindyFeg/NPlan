@@ -29,4 +29,15 @@ namespace LKT268.Interface
         /// <param name="target">The target object to interact with.</param>
         void OnInteractedByObject(IEntity target);
     }
+
+    public interface IHumanCommonChecking
+    {
+        /// <summary>
+        /// Use to check if that NPC is an Functional NPC()
+        /// </summary>
+        /// <returns></returns>
+        public bool IsHuman();
+    }
+
+    public interface IHuman : IHumanCommonChecking, IHumanControl { }
 }

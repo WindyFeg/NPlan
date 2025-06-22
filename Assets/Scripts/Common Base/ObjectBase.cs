@@ -7,13 +7,17 @@ namespace LKT268.Model.CommonBase
     public class ObjectBase : EntityBase, IObject
     {
         #region Private Field
-        [SerializeField] int xPos;
-        [SerializeField] int yPos;
+        [SerializeField] int xPosStart;
+        [SerializeField] int yPosStart;
+        [SerializeField] int xPosEnd;
+        [SerializeField] int yPosEnd;
         #endregion
 
         #region Public Properties
-        public int XPos { get; set; }
-        public int YPos { get; set; }
+        public int XPosStart { get; set; }
+        public int YPosStart { get; set; }
+        public int XPosEnd { get; set; }
+        public int YPosEnd { get; set; }
         #endregion
 
         #region Public Constructors
@@ -51,12 +55,22 @@ namespace LKT268.Model.CommonBase
 
         public void Spawn()
         {
-            Instantiate(this, new Vector3(xPos, yPos, 0), Quaternion.identity);
+            Instantiate(this, new Vector3(xPosStart, yPosStart, 0), Quaternion.identity);
         }
 
         public void Destroy()
         {
             LTK268Log.LogNotImplement(this);
+        }
+
+        public void Use()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Inspect()
+        {
+            throw new System.NotImplementedException();
         }
         #endregion
     }

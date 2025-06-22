@@ -14,5 +14,15 @@ namespace LKT268.Interface
         /// This current Object will be destroy (Not public)
         /// </summary>
         void Destroy();
+
+        /// <summary>
+        /// Use when this object belong to some entity
+        /// </summary>
+        void Use();
+
+        /// <summary>
+        /// use to inspect the information of the object
+        /// </summary>
+        void Inspect();
     }
 }

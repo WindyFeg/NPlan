@@ -23,6 +23,12 @@ namespace LKT268.Interface
         /// Turn Sickness Npc into normal one
         /// </summary>
         void CureSickness();
+
+
+        /// <summary>
+        /// Use this function to talk to NPC
+        /// </summary>
+        void Talk();
     }
 
     public interface INPCCommonChecking

@@ -8,6 +8,7 @@ namespace LKT268.Model.CommonBase
     {
         #region Private Field
         [SerializeField] BuildingType buildingType = BuildingType.None;
+        [SerializeField] BuildingSize buildingSize = BuildingSize.None;
         #endregion
 
         #region Public Properties

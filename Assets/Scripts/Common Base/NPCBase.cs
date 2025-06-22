@@ -115,6 +115,11 @@ namespace LKT268.Model.CommonBase
                $"NPCBase: npcType={npcType}, nPCFunctionType={nPCFunctionType}, nPCWarriorType={nPCWarriorType}, happiness={happiness}\n";
         }
 
+        public void Talk()
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
 
 

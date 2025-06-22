@@ -70,6 +70,21 @@ namespace LKT268.Utils
         Base = 1,
         NormalHouse = 2,
     }
+
+    public enum BuildingSize
+    {
+        None = 0,
+        Size_1X1 = 1,
+        Size_1X2 = 2,
+        Size_2X1 = 3,
+        Size_2X2 = 4,
+        Size_1X3 = 5,
+        Size_2X3 = 6,
+        Size_3X1 = 7,
+        Size_3X2 = 8,
+        Size_3X3 = 9,
+
+    }
     #endregion
 
 }

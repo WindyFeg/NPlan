@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerBehavior playerBehavior;
-    void Start()
+    void Awake()
     {
         playerBehavior = new PlayerBehavior(1, "Player", 100, 1, 10);
         

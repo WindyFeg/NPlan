@@ -18,6 +18,7 @@ namespace LKT268.Model.CommonBase
         public void InteractWithObject(IEntity target)
         {
             Debug.Log($"InteractWithObject: {target.Name} with ID {target.Id}");
+            target.TakeDamage(Damage);
             LTK268Log.LogNotImplement(this);
         }
 

@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 using LKT268.Interface;
 using LKT268.Model.CommonBase;
+using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
+    private InputAction interactAction;
     private PlayerBehavior playerBehavior;
     private List<IEntity> interactablesInRange = new List<IEntity>();
     private IEntity currentInteractable;
@@ -12,6 +14,13 @@ public class PlayerInteract : MonoBehaviour
     void Start()
     {
         playerBehavior = GetComponent<Player>().playerBehavior;
+        interactAction = InputSystem.actions.FindAction("Interact");
+    }
+    void OnEnable()
+    {
+    }
+    void OnDisable()
+    {
     }
 
     void OnTriggerEnter(Collider other)
@@ -37,7 +46,7 @@ public class PlayerInteract : MonoBehaviour
     {
         UpdateClosestInteractable();
 
-        if (Input.GetKeyDown(KeyCode.F) && currentInteractable != null)
+        if (interactAction.WasPressedThisFrame() && currentInteractable != null)
         {
             playerBehavior.InteractWithObject(currentInteractable);
         }

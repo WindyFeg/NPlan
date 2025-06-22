@@ -1,7 +1,7 @@
 using LKT268.Interface;
 using UnityEngine;
 
-public class ObjectBehavior : MonoBehaviour, IEntity
+public class TownHall : MonoBehaviour, IEntity
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -11,6 +11,10 @@ public class ObjectBehavior : MonoBehaviour, IEntity
     public int Damage { get; set; }
     public int Armor { get; set; }
 
+    void Start()
+    {
+        Name = "TownHall";
+    }
     public void Heal(int amount)
     {
         throw new System.NotImplementedException();
@@ -23,6 +27,6 @@ public class ObjectBehavior : MonoBehaviour, IEntity
 
     public void TakeDamage(int amount)
     {
-        throw new System.NotImplementedException();
+        StorageManager.Instance.UpdateResource(amount, ResourceType.Stone);
     }
 }

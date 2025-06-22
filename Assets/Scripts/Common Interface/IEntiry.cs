@@ -1,3 +1,5 @@
+using LKT268.Utils;
+
 namespace LKT268.Interface
 {
     public interface IEntityModel
@@ -9,6 +11,7 @@ namespace LKT268.Interface
         int Level { get; set; }
         int Damage { get; set; }
         int Armor { get; set; }
+        EntityType EntityType { get; set; }
     }
 
     public interface IEntityControl
@@ -18,7 +21,14 @@ namespace LKT268.Interface
         void LevelUp();
     }
 
-    public interface IEntity : IEntityModel, IEntityControl
+    public interface IEntityCommonChecking
+    {
+        public bool IsNpc();
+        public bool IsPlayer();
+        public bool IsObject();
+    }
+
+    public interface IEntity : IEntityModel, IEntityControl, IEntityCommonChecking
     {
         // This interface combines both IEntityModel and IEntityControl,
         // allowing for a single interface to manage entity data and behavior.

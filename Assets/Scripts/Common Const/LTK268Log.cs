@@ -1,6 +1,7 @@
 using UnityEngine; // Essential for Debug.Log
 using System.Runtime.CompilerServices; // For Caller attributes
-using System.IO; // For Path.GetFileName
+using System.IO;
+using LKT268.Model.CommonBase; // For Path.GetFileName
 
 namespace LKT268.Utils
 {
@@ -23,7 +24,34 @@ namespace LKT268.Utils
         {
             string typeName = typeof(T).Name;
             string fileName = Path.GetFileName(filePath);
-            string logMessage = $"[258LTK LOG] - NOT IMPLEMENTED Class: {typeName}, File: {fileName}, Function: {memberName}, Line: {lineNumber}";
+            string logMessage = $"[258LTK LOG] - NOT IMPLEMENTED \nClass: {typeName}, \nFile: {fileName}, \nFunction: {memberName}, \nLine: {lineNumber}\n\n";
+
+            // *** Use Unity's Debug.LogWarning or Debug.LogError for better visibility in the Unity Console ***
+            Debug.LogWarning(logMessage);
+        }
+
+        public static void LogInfo(string message)
+        {
+            // Log an informational message to the Unity Console
+            Debug.Log($"[258LTK LOG] - INFO: {message}");
+        }
+
+        public static void LogEntity(EntityBase entityBase)
+        {
+            Debug.Log($"[258LTK LOG] - ENTITY: \n{entityBase}\n\n");
+        }
+
+
+        public static void LogFalseConfig<T>(
+            string message,
+            T obj,
+            [CallerFilePath] string filePath = "",
+            [CallerLineNumber] int lineNumber = 0,
+            [CallerMemberName] string memberName = "")
+        {
+            string typeName = typeof(T).Name;
+            string fileName = Path.GetFileName(filePath);
+            string logMessage = $"[258LTK LOG] - FALSE CONFIG: \nFile: {fileName}, \nFunction: {memberName}, \nLine: {lineNumber}\n\n Message: {message}\n\n";
 
             // *** Use Unity's Debug.LogWarning or Debug.LogError for better visibility in the Unity Console ***
             Debug.LogWarning(logMessage);

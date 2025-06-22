@@ -4,22 +4,30 @@ using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
-    public class HumanBase : EntityBase, IHumanControl
+    public class HumanBase : EntityBase, IHuman
     {
+        #region Public Properties
+        #endregion
+
+        #region Private Fields
+        #endregion
+
+        #region Public Constructors
         public HumanBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {
         }
+        #endregion
 
+        #region Public Methods
+        public EntityType GetEntityType() => EntityType;
         public void InteractWithEntity(IEntity target)
         {
-            LTK268Log.LogNotImplement(this);
+            OnInteractedByEntity(target);
         }
 
         public void InteractWithObject(IEntity target)
         {
-            Debug.Log($"InteractWithObject: {target.Name} with ID {target.Id}");
-            target.TakeDamage(Damage);
-            LTK268Log.LogNotImplement(this);
+            OnInteractedByObject(target);
         }
 
         public void OnInteractedByEntity(IEntity target)
@@ -31,5 +39,14 @@ namespace LKT268.Model.CommonBase
         {
             LTK268Log.LogNotImplement(this);
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + "HumanBase: \n";
+        }
+
+        public bool IsHuman() => this.EntityType == EntityType.Player || this.EntityType == EntityType.NPC;
+        #endregion
     }
+
 }

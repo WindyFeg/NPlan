@@ -8,13 +8,13 @@ namespace LKT268.BehaviourTree.Condition
     public class IsHealthBelowHalf : BTNode
     {
         #region Private Field
-        private readonly Enemy enemy;
+        private readonly EnemyBehaviour enemy;
 
         #endregion
 
         #region Constructor
 
-        public IsHealthBelowHalf(Enemy enemy)
+        public IsHealthBelowHalf(EnemyBehaviour enemy)
         {
             this.enemy = enemy;
         }
@@ -40,7 +40,7 @@ namespace LKT268.BehaviourTree.Condition
         /// </summary>
         public override NodeState Run()
         {
-            if (enemy.EnemyEntity.CurrentHealth <= enemy.EnemyEntity.MaxHealth / 2)
+            if (enemy.entityBase.CurrentHealth <= enemy.entityBase.MaxHealth / 2)
             {
                 state = NodeState.Success;
             }

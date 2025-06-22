@@ -1,8 +1,11 @@
+using System;
+
 namespace LKT268.Utils
 {
     /// <summary>
     /// Enumeration for different types of entities in the game.
     /// </summary>
+    [Serializable]
     public enum EntityType
     {
         None = -1,

@@ -45,7 +45,7 @@ namespace LTK268.BehaviourTree.Actions
         /// </summary>
         public override NodeState Run()
         {
-            enemy.EntityBase.TakeDamage(damageAmount);
+            enemy.entityBase.TakeDamage(damageAmount);
             state = NodeState.Success;
             return state;
         }

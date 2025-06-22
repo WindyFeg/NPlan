@@ -49,7 +49,7 @@ namespace LTK268.BehaviourTree.Actions
             if (Vector3.Distance(enemy.transform.position, respawnPosition) > 0.1f)
             {
                 enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, respawnPosition,
-                    enemy.Speed * Time.deltaTime);
+                    enemy.speed * Time.deltaTime);
                 state = NodeState.Running;
             }
             else

@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using LTK268.BehaviourTree.Actions;
+using UnityEngine;
+
 namespace LKT268.BehaviourTree
 {
     /// <summary>
@@ -10,13 +15,13 @@ namespace LKT268.BehaviourTree
         public override NodeState State => state;
         protected NodeState state;
 
-        public override void AddChild(BTNode node)
+        public void AddChild(BTNode node)
         {
             node.Parent = this;
             children.Add(node);
         }
 
-        public override void Run()
+        public override NodeState Run()
         {
             throw new NotImplementedException("Tick method must be implemented in derived classes.");
         }
@@ -29,14 +34,14 @@ namespace LKT268.BehaviourTree
         /// If any child returns Failure or Running, the sequence stops and returns that state.
         /// If all children return Success, the sequence returns Success.
         /// </summary>
-        public override void Run()
+        public override NodeState Run()
         {
             // no child -> then failed (sometime designer forgot to add Leaf nodes)
-            if (childs.Count == 0) return NodeState.Failure;
+            if (children.Count == 0) return NodeState.Failure;
             // evaluate childs
-            for (int n = 0, amount = childs.Count; n < amount; n++)
+            for (int n = 0, amount = children.Count; n < amount; n++)
             {
-                var state = childs[n].Run();
+                var state = children[n].Run();
                 // break when reach any child that return Failure or Running
                 if (state != NodeState.Success) return state;
             }
@@ -50,11 +55,11 @@ namespace LKT268.BehaviourTree
         public override NodeState Run()
         {
             // no child -> then failed (sometime designer forgot to add Leaf node in tree)
-            if (childs.Count == 0) return NodeState.Failure;
+            if (children.Count == 0) return NodeState.Failure;
             // evaluate childs
-            for (int n = 0, amount = childs.Count; n < amount; n++)
+            for (int n = 0, amount = children.Count; n < amount; n++)
             {
-                var state = childs[n].Run();
+                var state = children[n].Run();
                 // break when reach the first child with status = Sucess or Running (not Failure)
                 if (state != NodeState.Failure) return state;
             }
@@ -63,20 +68,24 @@ namespace LKT268.BehaviourTree
         }
     }
 
-    public class Decorator : BTNode
+    public abstract class Decorator : BTNode
     {
-        public BtNode child;
+        public BTNode child;
+
         /// Derivered classes will override this function to modify children node's state
-        public virtual NodeState ProcessResult(NodeState childState) { }
+        public virtual NodeState ProcessResult(NodeState childState)
+        {
+            return NodeState.Failure;
+        }
 
         public override NodeState Run()
         {
             var childState = child.Run();
-            return ProcesssResult(childState);
+            return ProcessResult(childState);
         }
     }
 
-    public class Inverter : Decorator
+    public abstract class Inverter : Decorator
     {
         public virtual NodeState ProcessResult(NodeState childState)
         {
@@ -86,7 +95,7 @@ namespace LKT268.BehaviourTree
         }
     }
 
-    public class Succeeder : Decorator
+    public abstract class Succeeder : Decorator
     {
         public virtual NodeState ProcessResult(NodeState childState)
         {

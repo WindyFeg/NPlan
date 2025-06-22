@@ -1,18 +1,20 @@
+using LKT268.Enemy;
+
 namespace LKT268.BehaviourTree.Condition
 {
     /// <summary>
     /// Checks if the enemy is dead.
     /// </summary>
     public class IsDead : BTNode
-    {
+    {   
         #region Private Field
-        private readonly Enemy enemy;
+        private readonly EnemyBehaviour enemy;
 
         #endregion
 
         #region Constructor
 
-        public IsDead(Enemy enemy)
+        public IsDead(EnemyBehaviour enemy)
         {
             this.enemy = enemy;
         }
@@ -38,7 +40,7 @@ namespace LKT268.BehaviourTree.Condition
         /// </summary>
         public override NodeState Run()
         {
-            if (enemy.IsDead)
+            if (enemy.GetIsDead())
             {
                 state = NodeState.Success;
             }

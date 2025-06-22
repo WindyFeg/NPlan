@@ -1,0 +1,83 @@
+name: Build Unity Project
+
+on:
+  push:
+    branches: 
+      - main
+      - 25.24.001/staging
+  workflow_dispatch:
+
+jobs:
+# --- WINDOWS ---
+  buildOnWindow:
+    name: Windows build staging
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Get artifact name from first line of README.md
+      - name: Get project version as artifact name
+        id: artifact-name
+        run: |
+          VERSION=$(grep -oP '(?<=bundleVersion: ).*' ProjectSettings/ProjectSettings.asset)
+          echo "artifact_name=Windows-$VERSION" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: ./Library
+          key: Library-.-StandaloneWindows64-${{ hashFiles('./**') }}
+          restore-keys: |
+            Library-.-StandaloneWindows64-
+            Library-.-
+
+      - uses: game-ci/unity-builder@v4
+        with:
+          unityVersion: 6000.0.49f1
+          targetPlatform: StandaloneWindows64
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.artifact-name.outputs.artifact_name }}
+          path: build/StandaloneWindows64
+
+# --- MACOS ---
+  buildOnMacOs:
+    name: Mac build staging
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Get artifact name from first line of README.md
+      - name: Get project version as artifact name
+        id: artifact-name
+        run: |
+          VERSION=$(grep 'bundleVersion:' ProjectSettings/ProjectSettings.asset | head -1 | sed 's/.*bundleVersion: //')
+          echo "artifact_name=MacOS-$VERSION" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: ./Library
+          key: Library-.-StandaloneOSX-${{ hashFiles('./**') }}
+          restore-keys: |
+            Library-.-StandaloneOSX-
+            Library-.-
+
+      - uses: game-ci/unity-builder@v4
+        with:
+          unityVersion: 6000.0.49f1
+          targetPlatform: StandaloneOSX
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.artifact-name.outputs.artifact_name }}
+          path: build/StandaloneOSX

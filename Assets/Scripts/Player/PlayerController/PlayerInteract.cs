@@ -23,6 +23,15 @@ public class PlayerInteract : MonoBehaviour
     {
     }
 
+    void Update()
+    {
+        UpdateClosestInteractable();
+
+        if (interactAction.WasPressedThisFrame() && currentInteractable != null)
+        {
+            // currentInteractable.InteractWithEntity(playerBehavior);
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         var interactable = other.GetComponent<IEntity>();
@@ -42,15 +51,6 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        UpdateClosestInteractable();
-
-        if (interactAction.WasPressedThisFrame() && currentInteractable != null)
-        {
-            playerBehavior.InteractWithObject(currentInteractable);
-        }
-    }
 
     void UpdateClosestInteractable()
     {

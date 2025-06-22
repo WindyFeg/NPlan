@@ -1,4 +1,5 @@
 using LKT268.Interface;
+using LKT268.Utils;
 using UnityEngine;
 
 public class TownHall : MonoBehaviour, IEntity
@@ -10,6 +11,7 @@ public class TownHall : MonoBehaviour, IEntity
     public int Level { get; set; }
     public int Damage { get; set; }
     public int Armor { get; set; }
+    public EntityType EntityType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     void Start()
     {
@@ -28,5 +30,20 @@ public class TownHall : MonoBehaviour, IEntity
     public void TakeDamage(int amount)
     {
         StorageManager.Instance.UpdateResource(amount, ResourceType.Stone);
+    }
+
+    public bool IsNpc()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsPlayer()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsObject()
+    {
+        throw new System.NotImplementedException();
     }
 }

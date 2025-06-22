@@ -1,4 +1,5 @@
 using LKT268.Interface;
+using LKT268.Utils;
 using UnityEngine;
 
 public class ResourceObject : MonoBehaviour, IEntity
@@ -12,6 +13,7 @@ public class ResourceObject : MonoBehaviour, IEntity
     public int Level { get; set; }
     public int Damage { get; set; }
     public int Armor { get; set; }
+    public EntityType EntityType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     void Start()
     {
@@ -46,5 +48,20 @@ public class ResourceObject : MonoBehaviour, IEntity
         {
             Debug.LogError("ResourceData is not assigned.");
         }
+    }
+
+    public bool IsNpc()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsPlayer()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsObject()
+    {
+        throw new System.NotImplementedException();
     }
 }

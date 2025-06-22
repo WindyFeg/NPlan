@@ -63,6 +63,13 @@ namespace LKT268.Utils
         Resource = 4,
         Weapon = 5,
     }
+
+    public enum BuildingType
+    {
+        None = 0,
+        Base = 1,
+        NormalHouse = 2,
+    }
     #endregion
 
 }

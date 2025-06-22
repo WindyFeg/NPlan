@@ -25,7 +25,17 @@ namespace LKT268.Model.CommonBase
         }
         #endregion
 
-        #region Public Properties
+        #region Public Unity Methods
+        void OnValidate()
+        {
+            if (!gameObject.CompareTag("Building"))
+            {
+                gameObject.tag = "Building";
+            }
+        }
+        #endregion
+
+        #region Public Methods
 
         #endregion
         public void Build()

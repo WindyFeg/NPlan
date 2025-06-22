@@ -85,6 +85,16 @@ namespace LKT268.Model.CommonBase
         }
         #endregion
 
+        #region Public Unity Methods
+        void OnValidate()
+        {
+            if (!gameObject.CompareTag("NPC"))
+            {
+                gameObject.tag = "NPC";
+            }
+        }
+        #endregion
+
         #region Public Method
         public NPCBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {

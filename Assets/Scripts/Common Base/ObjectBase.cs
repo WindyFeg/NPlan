@@ -7,6 +7,7 @@ namespace LKT268.Model.CommonBase
     public class ObjectBase : EntityBase, IObject
     {
         #region Private Field
+        [Header("Object Unique Stats")]
         [SerializeField] int xPosStart;
         [SerializeField] int yPosStart;
         [SerializeField] int xPosEnd;
@@ -26,7 +27,7 @@ namespace LKT268.Model.CommonBase
         }
         #endregion
 
-        #region Public Properties
+        #region Public Methods
         public EntityType GetEntityType() => EntityType.Object;
         public void InteractWithEntity(IEntity target)
         {

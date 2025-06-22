@@ -62,6 +62,7 @@ namespace LKT268.Utils
         NonPickableObject = 3,
         Resource = 4,
         Weapon = 5,
+        Food = 6,
     }
 
     public enum BuildingType

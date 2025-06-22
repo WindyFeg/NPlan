@@ -7,9 +7,11 @@ namespace LKT268.Model.CommonBase
     public class FoodBase : ObjectBase, IFood
     {
         #region Private Field
+        [SerializeField] ObjectType objectType = ObjectType.Food;
         #endregion
 
         #region Public Properties
+        public ObjectType ObjectType { set => objectType = ObjectType.Food; get => ObjectType.Food; }
         #endregion
 
         #region Public Constructors
@@ -18,7 +20,17 @@ namespace LKT268.Model.CommonBase
         }
         #endregion
 
-        #region Public Properties
+        #region Public Unity Methods
+        void OnValidate()
+        {
+            if (!gameObject.CompareTag("Food"))
+            {
+                gameObject.tag = "Food";
+            }
+        }
+        #endregion
+
+        #region Public Methods
         #endregion
         public void DroppedBy(IEntity entity)
         {
@@ -33,6 +45,7 @@ namespace LKT268.Model.CommonBase
         public void PickedUpBy(IEntity entity)
         {
             LTK268Log.LogNotImplement(this);
+            this.Destroy();
         }
     }
 }

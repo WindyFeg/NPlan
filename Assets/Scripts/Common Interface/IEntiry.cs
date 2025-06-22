@@ -16,15 +16,42 @@ namespace LKT268.Interface
 
     public interface IEntityControl
     {
+        /// <summary>
+        /// Play attack 
+        /// </summary>
+        void Attack();
+        /// <summary>
+        /// Handle logic for getting damage
+        /// </summary>
+        /// <param name="amount"></param>
         void TakeDamage(int amount);
+        /// <summary>
+        /// Heal current player
+        /// </summary>
+        /// <param name="amount"></param>
         void Heal(int amount);
+        /// <summary>
+        /// Upgrade player model
+        /// </summary>
         void LevelUp();
     }
 
     public interface IEntityCommonChecking
     {
+        /// <summary>
+        /// Check if current entity is  NPC
+        /// </summary>
+        /// <returns></returns>
         public bool IsNpc();
+        /// <summary>
+        /// Check if current entity is Player
+        /// </summary>
+        /// <returns></returns>
         public bool IsPlayer();
+        /// <summary>
+        /// Check if current entity is Object
+        /// </summary>
+        /// <returns></returns>
         public bool IsObject();
     }
 
@@ -39,21 +66,10 @@ namespace LKT268.Interface
         void InteractWithEntity(IEntity target);
 
         /// <summary>
-        /// Method to interact with objects in the game world.
-        /// </summary>
-        /// <param name="target">The target object to interact with.</param>
-        void InteractWithObject(IEntity target);
-
-        /// <summary>
         /// Method to handle interaction with an entity.
         /// </summary>
         ///    <param name="target">The target entity to interact with.</param>
         void OnInteractedByEntity(IEntity target);
 
-        /// <summary>
-        /// Method to handle interaction with an object.
-        /// </summary>
-        /// <param name="target">The target object to interact with.</param>
-        void OnInteractedByObject(IEntity target);
     }
 }

@@ -29,27 +29,11 @@ namespace LKT268.Model.CommonBase
 
         #region Public Methods
         public EntityType GetEntityType() => EntityType.Object;
-        public void InteractWithEntity(IEntity target)
+        public new void InteractWithEntity(IEntity target)
         {
             OnInteractedByEntity(target);
         }
-
-        public void InteractWithObject(IEntity target)
-        {
-            OnInteractedByObject(target);
-        }
-
-        public bool IsHuman()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void OnInteractedByEntity(IEntity target)
-        {
-            LTK268Log.LogNotImplement(this);
-        }
-
-        public void OnInteractedByObject(IEntity target)
+        public new void OnInteractedByEntity(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
@@ -66,12 +50,17 @@ namespace LKT268.Model.CommonBase
 
         public void Use()
         {
-            throw new System.NotImplementedException();
+            LTK268Log.LogNotImplement(this);
         }
 
         public void Inspect()
         {
-            throw new System.NotImplementedException();
+            LTK268Log.LogNotImplement(this);
+        }
+
+        public void Dead()
+        {
+            LTK268Log.LogNotImplement(this);
         }
         #endregion
     }

@@ -3,11 +3,13 @@ public enum ResourceType
 {
     Wood,
     Stone,
+    Food,
 }
 public class StorageManager : MonoBehaviour
 {
     public int wood = 0;
     public int stone = 0;
+    public int food = 0;
     public static StorageManager Instance;
     private void Awake()
     {
@@ -31,6 +33,10 @@ public class StorageManager : MonoBehaviour
             case ResourceType.Stone:
                 stone += amount;
                 break;
+            case ResourceType.Food:
+                food += amount;
+                break;
+
         }
     }
 }

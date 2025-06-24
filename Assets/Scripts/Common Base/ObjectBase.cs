@@ -29,12 +29,12 @@ namespace LKT268.Model.CommonBase
 
         #region Public Methods
         public EntityType GetEntityType() => EntityType.Object;
-        public void InteractWithEntity(IEntity target)
+        public new void InteractWithEntity(IEntity target)
         {
             OnInteractedByEntity(target);
         }
 
-        public void InteractWithObject(IEntity target)
+        public new void InteractWithObject(IEntity target)
         {
             OnInteractedByObject(target);
         }
@@ -44,12 +44,12 @@ namespace LKT268.Model.CommonBase
             throw new System.NotImplementedException();
         }
 
-        public void OnInteractedByEntity(IEntity target)
+        public new void OnInteractedByEntity(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
 
-        public void OnInteractedByObject(IEntity target)
+        public new void OnInteractedByObject(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }

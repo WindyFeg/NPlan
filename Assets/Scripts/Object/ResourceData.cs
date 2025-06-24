@@ -8,6 +8,6 @@ public class ResourceData : ScriptableObject
     public string Name;
     public int CurrentHealth;
     public int MaxHealth;
-
+    public int SupplyQuantity;
 
 }

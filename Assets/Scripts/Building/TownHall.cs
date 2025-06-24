@@ -1,49 +1,19 @@
 using LKT268.Interface;
+using LKT268.Model.CommonBase;
 using LKT268.Utils;
 using UnityEngine;
 
-public class TownHall : MonoBehaviour, IEntity
+public class TownHall : BuildingBase
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int CurrentHealth { get; set; }
-    public int MaxHealth { get; set; }
-    public int Level { get; set; }
-    public int Damage { get; set; }
-    public int Armor { get; set; }
-    public EntityType EntityType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
-    void Start()
+    public TownHall(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
-        Name = "TownHall";
     }
-    public void Heal(int amount)
+    public new void InteractWithEntity(IEntity target)
     {
-        throw new System.NotImplementedException();
+        OnInteractedByEntity(target);
     }
-
-    public void LevelUp()
+    public new void OnInteractedByEntity(IEntity target)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void TakeDamage(int amount)
-    {
-        StorageManager.Instance.UpdateResource(amount, ResourceType.Stone);
-    }
-
-    public bool IsNpc()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public bool IsPlayer()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public bool IsObject()
-    {
-        throw new System.NotImplementedException();
+        
     }
 }

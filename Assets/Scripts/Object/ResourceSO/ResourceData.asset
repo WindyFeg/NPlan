@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43498597016aa44f59841f0b744979be, type: 3}
-  m_Name: WoodData
+  m_Name: ResourceData
   m_EditorClassIdentifier: 
-  ResourceType: 0
-  Id: 0
-  Name: Wood
-  CurrentHealth: 10
-  MaxHealth: 10
+  ResourceType: 2
+  Id: 2
+  Name: small-berry
+  CurrentHealth: 1
+  MaxHealth: 1
+  SupplyQuantity: 1

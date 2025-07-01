@@ -1,26 +1,51 @@
+using LKT268.Model.CommonBase;
 using UnityEngine;
-
-public class CharacterState : MonoBehaviour
+using LKT268.Interface;
+using LKT268.Utils;
+public enum State
 {
-    public enum State
+    Idle,
+    Walking,
+    Running,
+    Gathering,
+    Attacking,
+    Hit,
+    Dead
+}
+
+public class PlayerModel : HumanBase
+{
+    private State currentState = State.Idle;
+    private ICharacterAnimation characterAnimation;
+    private string currentDirection = "Down";
+    public string CurrentDirection
     {
-        Idle,
-        Walking,
-        Running,
-        Gathering,
-        Attacking,
-        Hit,
-        Dead
+        get => currentDirection;
+        set
+        {
+            currentDirection = value;
+            OnStateChanged();
+    
+        }
+}
+    public PlayerModel(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
+    {
     }
 
-    [SerializeField] private State currentState = State.Idle;
-    private ICharacterAnimation characterAnimation;
-    private void Awake()
+    public override void Initialization()
     {
+        // This is temp initialization all if the init will be handle by game manager
+        Id = 1;
+        Name = "Default Player";
+        MaxHealth = 100;
+        CurrentHealth = MaxHealth;
+        Level = 1;
+        Damage = 10;
+        Armor = 0;
+        EntityType = EntityType.Player;
+
         characterAnimation = GetComponent<ICharacterAnimation>();
     }
-
-
     public State CurrentState
     {
         get { return currentState; }
@@ -71,4 +96,5 @@ public class CharacterState : MonoBehaviour
 
         Debug.Log("Character state changed to: " + currentState);
     }
+    
 }

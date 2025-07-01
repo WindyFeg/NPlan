@@ -1,7 +1,17 @@
 using UnityEngine;
-
+public static class AnimNames
+{
+    public const string Idle = "Idle";
+    public const string Walking = "Walking";
+    public const string Running = "Running";
+    public const string Gathering = "Gathering";
+    public const string Attack = "Attack";
+    public const string Hit = "Hit";
+    public const string Death = "Death";
+}
 public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 {
+    [SerializeField] private PlayerModel characterModel;
     private Animator anim;
     public string currentAnimation;
     private string lastDirection = "Down";
@@ -10,53 +20,26 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         anim = GetComponent<Animator>();
     }
 
-    public void PlayIdleAnimation()
+    private void PlayDirectionalAnimation(string baseName)
     {
-        if (currentAnimation == "Idle") return;
-        anim.Play("Idle");
-        currentAnimation = "Idle";
+        string animName = baseName + lastDirection;
+        if (currentAnimation == animName) return;
+        anim.Play(animName);
+        currentAnimation = animName;
     }
-    public void PlayWalkingAnimation()
-    {
-        if (currentAnimation == "Walking") return;
-        anim.Play("Walking" + lastDirection);
-        Debug.Log("Walking" + lastDirection);
-        currentAnimation = "Walking";
-    }
-    public void PlayRunningAnimation()
-    {
-        if (currentAnimation == "Running") return;
-        anim.Play("Running" + lastDirection);
-        currentAnimation = "Running";
-    }
-    public void PlayGatheringAnimation()
-    {
-        if (currentAnimation == "Gathering") return;
-        anim.Play("Gathering" + lastDirection);
-        currentAnimation = "Gathering";
-    }
-    public void PlayAttackAnimation()
-    {
-        if (currentAnimation == "Attack" + lastDirection) return;
-        anim.Play("Attack" + lastDirection);
-        currentAnimation = "Attack" + lastDirection;
-    }
-    public void PlayHitAnimation()
-    {
-        if (currentAnimation == "Hit" + lastDirection) return;
-        anim.Play("Hit" + lastDirection);
-        currentAnimation = "Hit" + lastDirection;
-    }
-    public void PlayDeathAnimation()
-    {
-        if (currentAnimation == "Death" + lastDirection) return;
-        anim.Play("Death" + lastDirection);
-        currentAnimation = "Death" + lastDirection;
-    }
+    public void PlayIdleAnimation() => PlayDirectionalAnimation(AnimNames.Idle);
+    public void PlayWalkingAnimation() => PlayDirectionalAnimation(AnimNames.Walking);
+    public void PlayRunningAnimation() => PlayDirectionalAnimation(AnimNames.Running);
+    public void PlayAttackAnimation() => PlayDirectionalAnimation(AnimNames.Attack);
+    public void PlayHitAnimation() => PlayDirectionalAnimation(AnimNames.Hit);
+    public void PlayDeathAnimation() => PlayDirectionalAnimation(AnimNames.Death);
+    public void PlayGatheringAnimation() => PlayDirectionalAnimation(AnimNames.Gathering);
+
 
     public void SetDirection(string direction)
     {
         lastDirection = direction;
+        characterModel.CurrentDirection = direction;
     }
     public void SetSpeed(float speed)
     {

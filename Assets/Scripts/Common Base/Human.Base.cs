@@ -20,22 +20,22 @@ namespace LKT268.Model.CommonBase
 
         #region Public Methods
         public EntityType GetEntityType() => EntityType;
-        public void InteractWithEntity(IEntity target)
+        public new void InteractWithEntity(IEntity target)
         {
             OnInteractedByEntity(target);
         }
 
-        public void InteractWithObject(IEntity target)
+        public new void InteractWithObject(IEntity target)
         {
             OnInteractedByObject(target);
         }
 
-        public void OnInteractedByEntity(IEntity target)
+        public new void OnInteractedByEntity(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
 
-        public void OnInteractedByObject(IEntity target)
+        public new void OnInteractedByObject(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
@@ -46,6 +46,11 @@ namespace LKT268.Model.CommonBase
         }
 
         public bool IsHuman() => this.EntityType == EntityType.Player || this.EntityType == EntityType.NPC;
+
+        public void Dead()
+        {
+            LTK268Log.LogNotImplement(this);
+        }
         #endregion
     }
 

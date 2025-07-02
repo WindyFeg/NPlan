@@ -141,6 +141,17 @@ namespace LKT268.Model.CommonBase
             return $"EntityBase: Name={Name}, ID={Id}, Level={Level}, Health={CurrentHealth}/{MaxHealth}, Damage={Damage}, Armor={Armor}\n";
         }
 
+        public void InteractWithEntity(IEntity target)
+        {
+            OnInteractedByEntity(target);
+        }
+
+        public void OnInteractedByEntity(IEntity target)
+        {
+            LTK268Log.LogNotImplement(this);
+        }
+
+
         /// <summary>
         /// Initializes the entity with default values.
         /// </summary>
@@ -172,6 +183,12 @@ namespace LKT268.Model.CommonBase
         public bool IsPlayer() => this.entityType == EntityType.Player;
 
         public bool IsObject() => this.entityType == EntityType.Object;
+
+        public void Attack()
+        {
+            LTK268Log.LogNotImplement(this);
+        }
+
         #endregion
     }
 }

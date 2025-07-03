@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3514204945858273858}
   - component: {fileID: 6551615516058937291}
   - component: {fileID: 343621257525179614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: small-branch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1.0000002, z: 3}
+  m_Size: {x: 1, y: 1.0000002, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &343621257525179614
 MonoBehaviour:
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1765274907451839214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: small-branch-root
   m_TagString: Untagged
   m_Icon: {fileID: 0}

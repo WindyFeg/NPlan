@@ -14,11 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private ICharacterAnimation characterAnimation;
     [SerializeField] private PlayerModel characterModel;
     private Rigidbody rb;
+    [SerializeField] private Transform rootTransform;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        characterAnimation = GetComponent<ICharacterAnimation>();
+        characterAnimation = GetComponentInChildren<ICharacterAnimation>();
         characterModel = GetComponent<PlayerModel>();
     }
 

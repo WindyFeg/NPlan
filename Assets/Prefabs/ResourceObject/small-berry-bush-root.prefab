@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2691592444698884166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: small-berry-bush-root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 549981367660231815}
   - component: {fileID: 2877773976542580938}
   - component: {fileID: 4030487374527079447}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: small-berry-bush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1.0000002, z: 3}
+  m_Size: {x: 1, y: 1.0000002, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4030487374527079447
 MonoBehaviour:

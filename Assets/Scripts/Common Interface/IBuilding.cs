@@ -1,7 +1,7 @@
 namespace LKT268.Interface
 {
 
-    public interface IBuilding
+    public interface IBuilding : IObject
     {
 
         /// <summary>

@@ -44,7 +44,7 @@ public class PlayerModel : HumanBase
         Armor = 0;
         EntityType = EntityType.Player;
 
-        characterAnimation = GetComponent<ICharacterAnimation>();
+        characterAnimation = GetComponentInChildren<ICharacterAnimation>();
     }
     public State CurrentState
     {

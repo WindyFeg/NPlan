@@ -3,101 +3,112 @@ using System.Collections.Generic;
 using LKT268.Interface;
 using LKT268.Model.CommonBase;
 using UnityEngine.InputSystem;
-
-/// <summary>
-/// Handles player interactions with nearby interactable entities (e.g., NPCs, items).
-/// Attach this script to the player GameObject that has a Collider with "IsTrigger" enabled.
-/// </summary>
-public class PlayerInteract : MonoBehaviour
+namespace LKT268
 {
-    #region Serialized Fields
-
-    [Tooltip("Reference to the player's data model.")]
-    [SerializeField] private PlayerModel playerModel;
-
-    #endregion
-
-    #region Private Fields
-
-    private IEntity currentInteractable;
-
-    #endregion
-
-    #region Unity Lifecycle
-
-    private void Start()
-    {
-
-    }
-
-    private void OnEnable()
-    {
-        // Hook input events if necessary.
-    }
-
-    private void OnDisable()
-    {
-        // Unhook input events to prevent memory leaks.
-    }
-
-    #endregion
-
-    #region Interaction Events
-
     /// <summary>
-    /// Called when the player performs an interact input.
-    /// Interacts with the current interactable entity if available.
+    /// Handles player interactions with nearby interactable entities (e.g., NPCs, items).
+    /// Uses Physics.OverlapSphere to detect nearby interactables.
     /// </summary>
-    public void OnInteract()
+    public class PlayerInteract : MonoBehaviour
     {
-        if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
+        #region Serialized Fields
 
-        currentInteractable.InteractWithEntity(playerModel);
-        currentInteractable = null;
-    }
+        [Tooltip("Reference to the player's data model.")]
+        [SerializeField] private PlayerModel playerModel;
 
-    /// <summary>
-    /// Called when the player performs an attack input.
-    /// Placeholder for combat logic.
-    /// </summary>
-    public void OnAttack()
-    {
-        // Implement attack logic if needed.
-    }
+        [Tooltip("LayerMask to detect which objects are interactable.")]
+        [SerializeField] private LayerMask interactableLayer;
 
-    #endregion
+        [Tooltip("Detection radius around the player.")]
+        [SerializeField] private float detectionRadius = 0.5f;
 
-    #region Trigger Handlers
+        #endregion
 
-    /// <summary>
-    /// Called continuously while another collider stays inside this trigger.
-    /// Sets the first detected interactable as the current one if none is active.
-    /// </summary>
-    /// <param name="other">Collider of the other object.</param>
-    private void OnTriggerStay(Collider other)
-    {
-        if (currentInteractable != null) return;
+        #region Private Fields
 
-        var interactable = other.GetComponent<IEntity>();
-        if (interactable != null)
+        private IEntity currentInteractable;
+
+        #endregion
+
+        #region Unity Lifecycle
+
+        private void Update()
         {
-            currentInteractable = interactable;
+            DetectNearbyInteractables();
         }
-    }
 
-    /// <summary>
-    /// Called when another collider exits this trigger.
-    /// Clears the current interactable reference if it's the one leaving.
-    /// </summary>
-    /// <param name="other">Collider of the other object.</param>
-    private void OnTriggerExit(Collider other)
-    {
-        var interactable = other.GetComponent<IEntity>();
-        if (interactable != null && interactable == currentInteractable)
+        #endregion
+
+        #region Interaction Events
+
+        public void OnInteract()
         {
+            if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
+
+            currentInteractable.InteractWithEntity(playerModel);
             currentInteractable = null;
         }
-    }
 
-    #endregion
+        public void OnAttack()
+        {
+            // Implement attack logic if needed.
+        }
+
+        #endregion
+
+        #region Detection Logic
+
+        private void DetectNearbyInteractables()
+        {
+            Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius, interactableLayer);
+
+            if (hits.Length > 0)
+            {
+                if (currentInteractable != null)
+                {
+                    // If we already have an interactable, we can skip the notification
+                    // to avoid redundant updates.
+                    return;
+                }
+                // Find the closest interactable (optional)
+                float minDistance = float.MaxValue;
+                IEntity closestInteractable = null;
+                Transform objectTransform = null;
+
+                foreach (var hit in hits)
+                {
+                    var entity = hit.GetComponent<IEntity>();
+                    if (entity != null)
+                    {
+                        float dist = Vector3.Distance(transform.position, hit.transform.position);
+                        if (dist < minDistance)
+                        {
+                            minDistance = dist;
+                            closestInteractable = entity;
+                            objectTransform = hit.transform;
+                        }
+                    }
+                }
+                this.notify_event((int)EventID.Game.OnObjectInOfRange, closestInteractable.Name, objectTransform);
+                currentInteractable = closestInteractable;
+            }
+            else
+            {
+                currentInteractable = null;
+                this.notify_event((int)EventID.Game.OnObjectOutOfRange);
+            }
+        }
+
+        #endregion
+
+        #region Debug
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        }
+
+        #endregion
+    }
 }

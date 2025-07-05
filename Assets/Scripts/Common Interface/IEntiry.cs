@@ -11,6 +11,7 @@ namespace LKT268.Interface
         int Level { get; set; }
         int Damage { get; set; }
         int Armor { get; set; }
+        // int AttackRange { get; set; }
         EntityType EntityType { get; set; }
     }
 

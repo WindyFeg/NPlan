@@ -30,10 +30,15 @@ namespace LKT268.Utils
             Debug.LogWarning(logMessage);
         }
 
-        public static void LogInfo(string message)
+        public static void LogInfo(string message,
+            [CallerFilePath] string filePath = "",
+            [CallerLineNumber] int lineNumber = 0,
+            [CallerMemberName] string memberName = "")
         {
-            // Log an informational message to the Unity Console
-            Debug.Log($"[258LTK LOG] - INFO: {message}");
+            string fileName = Path.GetFileName(filePath);
+            // Format the log so that the file and line are clickable in Unity Console
+            string logMessage = $"[258LTK LOG] - INFO: {message} \n({fileName}:{lineNumber}) in {memberName}";
+            Debug.Log(logMessage, null); // The null context allows Unity to make the file:line clickable
         }
 
         public static void LogEntity(EntityBase entityBase)

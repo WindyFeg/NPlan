@@ -1,7 +1,7 @@
 using LKT268.Utils;
 using UnityEngine;
 
-public class EntityController : MonoBehaviour
+public class EntityDetector : MonoBehaviour
 {
     [Header("Detection Settings")]
     [SerializeField] private float detectionRadius = 10f;

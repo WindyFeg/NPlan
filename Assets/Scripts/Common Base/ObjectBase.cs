@@ -34,22 +34,12 @@ namespace LKT268.Model.CommonBase
             OnInteractedByEntity(target);
         }
 
-        public new void InteractWithObject(IEntity target)
-        {
-            OnInteractedByObject(target);
-        }
-
         public bool IsHuman()
         {
             throw new System.NotImplementedException();
         }
 
         public new void OnInteractedByEntity(IEntity target)
-        {
-            LTK268Log.LogNotImplement(this);
-        }
-
-        public new void OnInteractedByObject(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }

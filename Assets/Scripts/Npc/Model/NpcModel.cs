@@ -1,8 +1,8 @@
-using LKT268.Interface;
-using LKT268.Utils;
+using LTK268.Interface;
+using LTK268.Utils;
 using UnityEngine;
 
-namespace LKT268.Model.CommonBase
+namespace LTK268.Model.CommonBase
 {
     public class NpcModel : NPCBase
     {
@@ -21,7 +21,7 @@ namespace LKT268.Model.CommonBase
         #region Public Methods
         #endregion
 
-        #region Public Methods
+        #region Public Methods  
         public override void Initialization()
         {
             // This is temp initialization all if the init will be handle by game manager

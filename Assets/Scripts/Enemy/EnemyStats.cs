@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace LKT268.Enemy
+namespace LTK268.Enemy
 {
     [CreateAssetMenu(fileName = "EnemyStats", menuName = "Enemy/New Stats", order = 0)]
     public class EnemyStats : ScriptableObject

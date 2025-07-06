@@ -1,20 +1,22 @@
+using LTK268.Utils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public AmbienceManager AmbienceManager { get; private set; }
-    public SaveManager SaveManager { get; private set; }
-    public EventManager EventManager { get; private set; }
-    public ProgressionManager ProgressionManager { get; private set; }
-    public EnemyManager EnemyManager { get; private set; }
-    public PopupManager PopupManager { get; private set; }
-    public SceneManager SceneManager { get; private set; }
-    public TutorialManager TutorialManager { get; private set; }
-    public PlayerManager PlayerManager { get; private set; }
-    public NpcManager NpcManager { get; private set; }
-    public BuildingManager BuildingManager { get; private set; }
+    // public AmbienceManager AmbienceManager { get; private set; }
+    // public SaveManager SaveManager { get; private set; }
+    // public EventManager EventManager { get; private set; }
+    // public ProgressionManager ProgressionManager { get; private set; }
+    // public EnemyManager EnemyManager { get; private set; }
+    // public PopupManager PopupManager { get; private set; }
+    // public SceneManager SceneManager { get; private set; }
+    // public TutorialManager TutorialManager { get; private set; }
+    // public PlayerManager PlayerManager { get; private set; }
+    // public NpcManager NpcManager { get; private set; }
+    // public BuildingManager BuildingManager { get; private set; }
 
     private void Awake()
     {
@@ -32,59 +34,59 @@ public class GameManager : MonoBehaviour
 
     private void InitializeManagers()
     {
-        if (AmbienceManager == null)
-        {
-            AmbienceManager = FindObjectOfType<AmbienceManager>();
-        }
-        if (SaveManager == null)
-        {
-            SaveManager = FindObjectOfType<SaveManager>();
-        }
-        if (EventManager == null)
-        {
-            EventManager = FindObjectOfType<EventManager>();
-        }
-        if (ProgressionManager == null)
-        {
-            ProgressionManager = FindObjectOfType<ProgressionManager>();
-        }
-        if (EnemyManager == null)
-        {
-            EnemyManager = FindObjectOfType<EnemyManager>();
-        }
-        if (PopupManager == null)
-        {
-            PopupManager = FindObjectOfType<PopupManager>();
-        }
-        if (SceneManager == null)
-        {
-            SceneManager = FindObjectOfType<SceneManager>();
-        }
-
-        if (AmbienceManager == null)
-        {
-            LTK268Log.ManagerError("AmbienceManager is missing!", this);
-        }
-        if (SaveManager == null)
-        {
-            LTK268Log.ManagerError("SaveManager is missing!", this);
-        }
-        if (EventManager == null)
-        {
-            LTK268Log.ManagerError("EventManager is missing!", this);
-        }
-        if (ProgressionManager == null)
-        {
-            LTK268Log.ManagerError("ProgressionManager is missing!", this);
-        }
-        if (EnemyManager == null)
-        {
-            LTK268Log.ManagerError("EnemyManager is missing!", this);
-        }
-        if (PopupManager == null)
-        {
-            LTK268Log.ManagerError("PopupManager is missing!", this);
-        }
+        // if (AmbienceManager == null)
+        // {
+        //     AmbienceManager = FindObjectOfType<AmbienceManager>();
+        // }
+        // if (SaveManager == null)
+        // {
+        //     SaveManager = FindObjectOfType<SaveManager>();
+        // }
+        // if (EventManager == null)
+        // {
+        //     EventManager = FindObjectOfType<EventManager>();
+        // }
+        // if (ProgressionManager == null)
+        // {
+        //     ProgressionManager = FindObjectOfType<ProgressionManager>();
+        // }
+        // if (EnemyManager == null)
+        // {
+        //     EnemyManager = FindObjectOfType<EnemyManager>();
+        // }
+        // if (PopupManager == null)
+        // {
+        //     PopupManager = FindObjectOfType<PopupManager>();
+        // }
+        // if (SceneManager == null)
+        // {
+        //     SceneManager = FindObjectOfType<SceneManager>();
+        // }
+        //
+        // if (AmbienceManager == null)
+        // {
+        //     LTK268Log.ManagerError("AmbienceManager is missing!", this);
+        // }
+        // if (SaveManager == null)
+        // {
+        //     LTK268Log.ManagerError("SaveManager is missing!", this);
+        // }
+        // if (EventManager == null)
+        // {
+        //     LTK268Log.ManagerError("EventManager is missing!", this);
+        // }
+        // if (ProgressionManager == null)
+        // {
+        //     LTK268Log.ManagerError("ProgressionManager is missing!", this);
+        // }
+        // if (EnemyManager == null)
+        // {
+        //     LTK268Log.ManagerError("EnemyManager is missing!", this);
+        // }
+        // if (PopupManager == null)
+        // {
+        //     LTK268Log.ManagerError("PopupManager is missing!", this);
+        // }
     }
 
     public void NewGame()
@@ -100,12 +102,13 @@ public class GameManager : MonoBehaviour
         LTK268Log.ManagerLog("Loading game...");
         // load into the game scene (seed if needed)
         // called SaveManager.LoadPlayerModel() -> Flooding data into player 
-        SaveManager.LoadProgressionManager(ref ProgressionManager);
-        SaveManager.LoadBuildingManager(ref BuildingManager);
-        SaveManager.LoadPlayerManager(ref PlayerManager);
-        SaveManager.LoadEnemyManager(ref EnemyManager);
-        SaveManager.LoadEventManager(ref EventManager);
-        SaveManager.LoadNpcManager(ref NpcManager);
+        
+        // SaveManager.LoadProgressionManager(ref ProgressionManager);
+        // SaveManager.LoadBuildingManager(ref BuildingManager);
+        // SaveManager.LoadPlayerManager(ref PlayerManager);
+        // SaveManager.LoadEnemyManager(ref EnemyManager);
+        // SaveManager.LoadEventManager(ref EventManager);
+        // SaveManager.LoadNpcManager(ref NpcManager);
     }
 
     public void PauseGame()

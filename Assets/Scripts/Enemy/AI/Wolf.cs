@@ -1,4 +1,4 @@
-﻿using LKT268.Enemy;
+﻿using LTK268.Enemy;
 using UnityEngine;
 
 namespace LTK268.Enemy.AI

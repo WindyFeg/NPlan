@@ -1,4 +1,4 @@
-namespace LKT268.Interface
+namespace LTK268.Interface
 {
     /// <summary>
     /// Interface for objects that can be interacted with in the game.

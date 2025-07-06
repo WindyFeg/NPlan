@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityBase: {fileID: 0}
-  entityType: 2
+  entityType: 3
+  enemyType: 1
   stats: {fileID: 11400000, guid: 5248f16c8d93b134baf4e0e2ff3219fe, type: 2}
   speed: 5
-  EnemyType: 1

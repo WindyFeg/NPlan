@@ -1,6 +1,6 @@
 using System;
 
-namespace LKT268.Utils
+namespace LTK268.Utils
 {
     /// <summary>
     /// Enumeration for different types of entities in the game.

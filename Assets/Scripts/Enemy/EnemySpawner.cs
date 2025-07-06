@@ -1,18 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Pool;
 
-namespace LKT268.Enemy
+namespace LTK268.Enemy
 {
     /// <summary>
     /// Handles spawning and pooling of enemies.
     /// </summary>
     public class EnemySpawner : MonoBehaviour
     {
+        [HideInInspector] public int killCounter;
+
         #region Serialized Fields
         [SerializeField] private EnemyBehaviour enemyPrefab;
         [SerializeField] private int defaultCapacity = 10;
         [SerializeField] private int maxCapacity = 50;
         #endregion
+
+        public Action<EnemyBehaviour> onInit;
+        public Action<EnemyBehaviour> onDead;
 
         #region Private Fields
         private ObjectPool<EnemyBehaviour> enemyPool;
@@ -36,7 +42,7 @@ namespace LKT268.Enemy
 
         #region Public Methods
 
-        public void SpawnEnemy(Vector3 position, System.Action<EnemyBehaviour> onInit = null)
+        public void SpawnEnemy(Vector3 position)
         {
             var enemy = enemyPool.Get();
             enemy.transform.position = position;
@@ -46,13 +52,12 @@ namespace LKT268.Enemy
 
         public void DespawnEnemy(EnemyBehaviour enemy)
         {
-            if (enemyPool != null)
-                enemyPool.Release(enemy);
+            if (enemy) Debug.Log("> Despawn");
+            killCounter++;
+            onDead?.Invoke(enemy);
+            enemyPool.Release(enemy);
         }
-
-        public int ActiveCount => enemyPool?.CountActive ?? 0;
-        public int InactiveCount => enemyPool?.CountInactive ?? 0;
-
+        
         #endregion
 
         #region Pool Callbacks
@@ -71,6 +76,7 @@ namespace LKT268.Enemy
 
         private void OnReleaseEnemy(EnemyBehaviour enemy)
         {
+            if (enemy) Debug.Log("> OnReleaseEnemy");
             enemy.gameObject.SetActive(false);
         }
 

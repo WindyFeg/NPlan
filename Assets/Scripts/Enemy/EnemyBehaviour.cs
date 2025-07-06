@@ -1,17 +1,17 @@
 ﻿using System;
-using LKT268.Model.CommonBase;
-using LKT268.Utils;
+using LTK268.Model.CommonBase;
+using LTK268.Utils;
 using LTK268.Define;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.Serialization;
 
-namespace LKT268.Enemy
+namespace LTK268.Enemy
 {
     public class EnemyBehaviour : MonoBehaviour
     {
         #region Public Properties
-        [HideInInspector] public EntityBase entityBase;
+        public EntityBase entityBase;
+        // public EnemyBase enemyBase;
         public IObjectPool<EnemyBehaviour> Pool { get; set; }
         public EntityType entityType = EntityType.Enemy;
         public EnemyType enemyType;

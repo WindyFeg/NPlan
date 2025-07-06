@@ -13,10 +13,13 @@ namespace LTK268.Manager
         private List<FoodBase> listOfFoods = new List<FoodBase>();
         [SerializeField]
         private List<ObjectBase> listOfObjects = new List<ObjectBase>();
+        [SerializeField]
+        private PlayerModel playerModel;
 
         // Expose lists as public properties for code access
         public List<FoodBase> ListOfFoods => listOfFoods;
         public List<ObjectBase> ListOfObjects => listOfObjects;
+        public PlayerModel PlayerModel => playerModel;
 
         private void Awake()
         {

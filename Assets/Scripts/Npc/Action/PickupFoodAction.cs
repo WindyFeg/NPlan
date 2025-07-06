@@ -4,14 +4,14 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using UnityEditor.UI;
+using LKT268.Interface;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "Pickup Food", story: "[Agent] pickup [Food]", category: "Action", id: "130400e302f197d8369aeffb424eb05a")]
+[NodeDescription(name: "Pickup Food", story: "[Agent] pickup [PickupObject]", category: "Action", id: "130400e302f197d8369aeffb424eb05a")]
 public partial class PickupFoodAction : Action
 {
     [SerializeReference] public BlackboardVariable<NpcModel> Agent;
-    [SerializeReference] public BlackboardVariable<FoodModel> Food;
+    [SerializeReference] public BlackboardVariable<GameObject> PickupObject;
     protected override Status OnStart()
     {
         return Status.Running;
@@ -19,14 +19,17 @@ public partial class PickupFoodAction : Action
 
     protected override Status OnUpdate()
     {
-        if (Food.Value != null && Agent.Value != null)
+        if (PickupObject.Value != null && Agent.Value != null)
         {
-            Food.Value.PickedUpBy(Agent.Value);
-            return Status.Success;
+            var food = PickupObject.Value.GetComponent<IFood>();
+            if (food != null)
+            {
+                food.PickedUpBy(Agent.Value);
+                return Status.Success;
+            }
         }
         return Status.Failure;
     }
-
     protected override void OnEnd()
     {
     }

@@ -5,7 +5,10 @@ namespace LKT268.Interface
     /// </summary>
     public interface IHumanControl : IEntityControl
     {
-
+        /// <summary>
+        /// Called when entity is dead
+        /// </summary>
+        void Dead();
     }
 
     public interface IHumanCommonChecking

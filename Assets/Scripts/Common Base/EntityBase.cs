@@ -141,23 +141,14 @@ namespace LKT268.Model.CommonBase
 
         public void InteractWithEntity(IEntity target)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void InteractWithObject(IEntity target)
-        {
-            throw new System.NotImplementedException();
+            OnInteractedByEntity(target);
         }
 
         public void OnInteractedByEntity(IEntity target)
         {
-            throw new System.NotImplementedException();
+            LTK268Log.LogNotImplement(this);
         }
 
-        public void OnInteractedByObject(IEntity target)
-        {
-            throw new System.NotImplementedException();
-        }
 
         /// <summary>
         /// Initializes the entity with default values.
@@ -190,6 +181,11 @@ namespace LKT268.Model.CommonBase
         public bool IsPlayer() => this.entityType == EntityType.Player;
 
         public bool IsObject() => this.entityType == EntityType.Object;
+
+        public void Attack()
+        {
+            LTK268Log.LogNotImplement(this);
+        }
 
         #endregion
     }

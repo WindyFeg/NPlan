@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Building
+  - Food
+  - NPC
+  - Object
   layers:
   - Default
   - TransparentFX

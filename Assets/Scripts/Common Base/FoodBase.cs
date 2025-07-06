@@ -1,9 +1,11 @@
 using LKT268.Interface;
+using LKT268.Manager;
 using LKT268.Utils;
 using UnityEngine;
 
 namespace LKT268.Model.CommonBase
 {
+    [System.Serializable]
     public class FoodBase : ObjectBase, IFood
     {
         #region Private Field
@@ -44,8 +46,9 @@ namespace LKT268.Model.CommonBase
 
         public void PickedUpBy(IEntity entity)
         {
-            LTK268Log.LogNotImplement(this);
-            this.Destroy();
+            PlayerManager.Instance.ListOfFoods.Add(this);
+            LTK268Log.LogEntityAction(this, $"Picked up by {entity.Name}");
+            this.gameObject.SetActive(false);
         }
     }
 }

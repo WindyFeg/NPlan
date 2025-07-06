@@ -27,16 +27,21 @@ namespace LKT268.Model.CommonBase
         }
         #endregion
 
+        #region Public Unity Methods
+        void OnValidate()
+        {
+            if (!gameObject.CompareTag("Object"))
+            {
+                gameObject.tag = "Object";
+            }
+        }
+        #endregion
+
         #region Public Methods
         public EntityType GetEntityType() => EntityType.Object;
         public new void InteractWithEntity(IEntity target)
         {
             OnInteractedByEntity(target);
-        }
-
-        public new void InteractWithObject(IEntity target)
-        {
-            OnInteractedByObject(target);
         }
 
         public bool IsHuman()
@@ -45,11 +50,6 @@ namespace LKT268.Model.CommonBase
         }
 
         public new void OnInteractedByEntity(IEntity target)
-        {
-            LTK268Log.LogNotImplement(this);
-        }
-
-        public new void OnInteractedByObject(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
@@ -66,12 +66,17 @@ namespace LKT268.Model.CommonBase
 
         public void Use()
         {
-            throw new System.NotImplementedException();
+            LTK268Log.LogNotImplement(this);
         }
 
         public void Inspect()
         {
-            throw new System.NotImplementedException();
+            LTK268Log.LogNotImplement(this);
+        }
+
+        public void Dead()
+        {
+            LTK268Log.LogNotImplement(this);
         }
         #endregion
     }

@@ -174,6 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ff43093d86140429b28c85ea07a2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &60977083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4256950796809413284, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
+  m_PrefabInstance: {fileID: 444592040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &444592040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,22 +231,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8561586408860731043, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
+      propertyPath: entityView
+      value: 
+      objectReference: {fileID: 60977083}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
---- !u!114 &444592041 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8561586408860731043, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
-  m_PrefabInstance: {fileID: 444592040}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df94a970711c14444969743b08424e2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &692949295
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +287,7 @@ MonoBehaviour:
   spawnerEntries:
   - type: 0
     spawner: {fileID: 0}
+  enemyBases: []
 --- !u!1 &704787001
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3967fdabeed49f141bbf76243eb52b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingBases: []
 --- !u!1 &769682273
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a8fba46262d2a428135dbf71abf596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 2
+  panSpeed: 1
   cinemachineFollow: {fileID: 769682276}
   tweenDuration: 0.3
 --- !u!114 &769682279
@@ -734,6 +734,11 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 462da9d51078db849bc9ee36c7740202, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1 &1046863364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8248041708744802567, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+  m_PrefabInstance: {fileID: 1875647423518440221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1054723882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7852711776189851391, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
@@ -785,7 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOfFoods: []
   listOfObjects: []
-  playerModel: {fileID: 444592041}
+  playerModel: {fileID: 0}
 --- !u!1 &1252376836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2158006215e2cf46ac2e2678c1b270b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcBases: []
 --- !u!114 &1777839102 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1272321186969891503, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
@@ -1257,7 +1263,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1904133342}
   - component: {fileID: 1904133341}
-  - component: {fileID: 1904133340}
   - component: {fileID: 1904133339}
   - component: {fileID: 1904133343}
   m_Layer: 0
@@ -1311,14 +1316,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1904133340
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904133338}
-  m_Enabled: 1
 --- !u!20 &1904133341
 Camera:
   m_ObjectHideFlags: 0
@@ -1756,6 +1753,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcDefault
       objectReference: {fileID: 0}
+    - target: {fileID: 1272321186969891503, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: NpcView
+      value: 
+      objectReference: {fileID: 1046863364}
+    - target: {fileID: 1272321186969891503, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: entityView
+      value: 
+      objectReference: {fileID: 1046863364}
     - target: {fileID: 3980433094304705190, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.59
@@ -1805,8 +1810,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5960882268760352444, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960882268760352444, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: m_Constraints
-      value: 96
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

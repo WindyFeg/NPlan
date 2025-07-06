@@ -1,4 +1,5 @@
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Utils;
 using UnityEngine;
 
@@ -32,6 +33,16 @@ namespace LTK268.Model.CommonBase
             {
                 gameObject.tag = "Building";
             }
+        }
+
+        void Start()
+        {
+            BuildingManager.Instance.RegisterBuilding(this);
+        }
+
+        void OnDestroy()
+        {
+            BuildingManager.Instance.UnregisterBuilding(this);
         }
         #endregion
 

@@ -2,6 +2,7 @@ using LTK268.Model.CommonBase;
 using UnityEngine;
 using LTK268.Interface;
 using LTK268.Utils;
+using LTK268.Manager;
 public enum State
 {
     Idle,
@@ -25,9 +26,9 @@ public class PlayerModel : HumanBase
         {
             currentDirection = value;
             OnStateChanged();
-    
+
         }
-}
+    }
     public PlayerModel(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
     }
@@ -59,6 +60,16 @@ public class PlayerModel : HumanBase
         }
     }
 
+    #region Unity Methods
+    private void Start()
+    {
+        PlayerManager.Instance.RegisterPlayer(this);
+    }
+    private void OnDestroy()
+    {
+        PlayerManager.Instance.UnregisterPlayer(this);
+    }
+    #endregion
     private void OnStateChanged()
     {
         // Handle state change logic here, e.g., update animations or UI
@@ -96,5 +107,4 @@ public class PlayerModel : HumanBase
 
         Debug.Log("Character state changed to: " + currentState);
     }
-    
 }

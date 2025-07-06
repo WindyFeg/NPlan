@@ -1,4 +1,5 @@
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Utils;
 using UnityEngine;
 
@@ -86,6 +87,10 @@ namespace LTK268.Model.CommonBase
         #endregion
 
         #region Public Unity Methods
+        void Start()
+        {
+            NpcManager.Instance.RegisterNPC(this);
+        }
         void OnValidate()
         {
             if (!gameObject.CompareTag("NPC"))

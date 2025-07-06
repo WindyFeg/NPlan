@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using LTK268.Enemy;
+using LTK268.Model.CommonBase;
+using LTK268.Utils;
 using UnityEngine;
 
 namespace LTK268.Manager
@@ -12,13 +15,12 @@ namespace LTK268.Manager
         #region Public Properties
 
         public static EnemyManager Instance { get; private set; }
-
-        [SerializeField] private List<EnemySpawnerEntry> spawnerEntries = new();
-
+        public List<EnemyBase> EnemyBases => enemyBases;
         #endregion
 
         #region Private Properties
-
+        [SerializeField] private List<EnemySpawnerEntry> spawnerEntries = new();
+        [SerializeField] private List<EnemyBase> enemyBases = new List<EnemyBase>();
         private Dictionary<EnemyType, EnemySpawner> spawnerByType = new();
         private bool isInEvent = false;
 
@@ -72,7 +74,48 @@ namespace LTK268.Manager
                 Debug.LogError($"[EnemyManager] No spawner found for enemy type: {type}");
             }
         }
+        /// <summary>
+        /// Call this from EnemyBase's OnEnable
+        /// </summary>
+        /// <param name="npc"></param>
+        public void RegisterEnemy(EnemyBase enemy)
+        {
+            if (!EnemyBases.Contains(enemy))
+            {
+                EnemyBases.Add(enemy);
+            }
+        }
 
+        /// <summary>
+        /// Call this from EnemyBase's OnDisable/OnDestroy
+        /// </summary>
+        /// <param name="npc"></param>
+        public void UnregisterEnemy(EnemyBase enemy)
+        {
+            EnemyBases.Remove(enemy);
+        }
+
+        public void CameraPanForEnemies(float panSpeed, float tweenDuration)
+        {
+            foreach (var enemy in EnemyBases)
+            {
+                if (enemy == null || enemy.transform == null) continue;
+
+                // Rotate each enemy by the specified pan speed
+                try
+                {
+                    enemy.EntityView.transform.DORotate(
+                        new Vector3(panSpeed * 5, 0, 0), // Rotate 5 degrees on X, 0 on Y, 0 on Z
+                        tweenDuration,
+                        RotateMode.LocalAxisAdd // Add this rotation to the current local rotation
+                    ).SetEase(Ease.InOutQuad);
+                }
+                catch (System.Exception)
+                {
+                    LTK268Log.ManagerError($"[EnemyManager] CameraPanForEnemies: {enemy.name} has no EntityView assigned.");
+                }
+            }
+        }
         #endregion
 
         #region Private Methods

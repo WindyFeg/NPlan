@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace LTK268.Interface
 {
     public interface IEnemy : IAnimal

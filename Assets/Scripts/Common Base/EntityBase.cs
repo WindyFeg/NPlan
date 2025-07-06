@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using LTK268.Interface;
 using LTK268.Utils;
+using LTK268.EventID;
 
 namespace LTK268.Model.CommonBase
 {
@@ -53,6 +54,11 @@ namespace LTK268.Model.CommonBase
             get => entityType;
             set => entityType = value;
         }
+        public GameObject EntityView
+        {
+            get => entityView;
+            set => entityView = value;
+        }
         #endregion
 
         #region Private Fields
@@ -64,6 +70,7 @@ namespace LTK268.Model.CommonBase
         [SerializeField] private int damage;
         [SerializeField] private int armor;
         [SerializeField] private EntityType entityType = EntityType.None;
+        [SerializeField] private GameObject entityView;
         #endregion
 
         #region Public Methods

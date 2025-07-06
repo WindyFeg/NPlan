@@ -3,7 +3,7 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using LKT268.Model.CommonBase;
+using LTK268.Model.CommonBase;
 using System.Xml.Schema;
 using LKT268.Interface;
 

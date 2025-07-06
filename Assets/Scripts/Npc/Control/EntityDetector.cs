@@ -1,4 +1,4 @@
-using LKT268.Utils;
+using LTK268.Utils;
 using UnityEngine;
 
 public class EntityDetector : MonoBehaviour

@@ -1,6 +1,6 @@
-using LKT268.Utils;
+using LTK268.Utils;
 
-namespace LKT268.Interface
+namespace LTK268.Interface
 {
     /// <summary>
     /// Interface for Npc control

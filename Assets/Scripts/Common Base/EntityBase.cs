@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
-using LKT268.Interface;
-using LKT268.Utils;
+using LTK268.Interface;
+using LTK268.Utils;
 
-namespace LKT268.Model.CommonBase
+namespace LTK268.Model.CommonBase
 {
+    [Serializable]
     public class EntityBase : MonoBehaviour, IEntity
     {
         #region Public Properties

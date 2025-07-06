@@ -1,8 +1,8 @@
-using LKT268.Interface;
-using LKT268.Utils;
+using LTK268.Interface;
+using LTK268.Utils;
 using UnityEngine;
 
-namespace LKT268.Model.CommonBase
+namespace LTK268.Model.CommonBase
 {
     public class BuildingBase : ObjectBase, IBuilding
     {

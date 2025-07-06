@@ -1,9 +1,9 @@
 using UnityEngine; // Essential for Debug.Log
 using System.Runtime.CompilerServices; // For Caller attributes
 using System.IO;
-using LKT268.Model.CommonBase; // For Path.GetFileName
+using LTK268.Model.CommonBase; // For Path.GetFileName
 
-namespace LKT268.Utils
+namespace LTK268.Utils
 {
     public static class LTK268Log
     {

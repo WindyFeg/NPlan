@@ -16,7 +16,6 @@ namespace LTK268.Manager
                 return;
             }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
     }

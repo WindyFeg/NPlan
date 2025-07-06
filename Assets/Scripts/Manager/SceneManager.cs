@@ -17,7 +17,6 @@ namespace LTK268.Manager
                 return;
             }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             CurrentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
             PreviousScene = string.Empty;
         }

@@ -37,31 +37,31 @@ namespace LTK268.Manager
         {
             if (AmbienceManager == null)
             {
-                AmbienceManager = FindFirstObjectByType<AmbienceManager>();
+                AmbienceManager = GetComponentInChildren<AmbienceManager>();
             }
             if (SaveManager == null)
             {
-                SaveManager = FindFirstObjectByType<SaveManager>();
+                SaveManager = GetComponentInChildren<SaveManager>();
             }
             if (EventManager == null)
             {
-                EventManager = FindFirstObjectByType<EventManager>();
+                EventManager = GetComponentInChildren<EventManager>();
             }
             if (ProgressionManager == null)
             {
-                ProgressionManager = FindFirstObjectByType<ProgressionManager>();
+                ProgressionManager = GetComponentInChildren<ProgressionManager>();
             }
             if (EnemyManager == null)
             {
-                EnemyManager = FindFirstObjectByType<EnemyManager>();
+                EnemyManager = GetComponentInChildren<EnemyManager>();
             }
             if (PopupManager == null)
             {
-                PopupManager = FindFirstObjectByType<PopupManager>();
+                PopupManager = GetComponentInChildren<PopupManager>();
             }
             if (SceneManager == null)
             {
-                SceneManager = FindFirstObjectByType<SceneManager>();
+                SceneManager = GetComponentInChildren<SceneManager>();
             }
 
             if (AmbienceManager == null)

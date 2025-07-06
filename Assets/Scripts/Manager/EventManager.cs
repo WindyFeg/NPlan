@@ -18,7 +18,6 @@ namespace LTK268.Manager
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -65,9 +64,9 @@ namespace LTK268.Manager
 //     public class EventManager : MonoBehaviour
 //     {
 //         public static EventManager Instance;
-        
+
 //         public List<EventBase> events;
-        
+
 //         private EventBase currentEvent;
 //         private void Awake()
 //         {
@@ -80,7 +79,7 @@ namespace LTK268.Manager
 //             Instance = this;
 //             DontDestroyOnLoad(gameObject);
 //         }
-        
+
 //         public void TriggerRandomEvent()
 //         {
 //             currentEvent = Instantiate(events[Random.Range(0, events.Count)]);
@@ -95,7 +94,7 @@ namespace LTK268.Manager
 //             currentEvent = null;
 //             EnemyManager.Instance.SetIsInEvent(false);
 //         }
-        
+
 // #if UNITY_EDITOR
 //         private void Update()
 //         {

@@ -1002,6 +1002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOfFoods: []
   listOfObjects: []
+  playerModel: {fileID: 0}
 --- !u!4 &1788226114
 Transform:
   m_ObjectHideFlags: 0

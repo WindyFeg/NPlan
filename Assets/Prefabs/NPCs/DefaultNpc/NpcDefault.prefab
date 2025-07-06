@@ -81,10 +81,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8770211762042509678
 MonoBehaviour:
@@ -123,6 +123,7 @@ MonoBehaviour:
   damage: 0
   armor: 0
   entityType: 2
+  entityView: {fileID: 8248041708744802567}
   npcType: 0
   nPCFunctionType: 0
   nPCWarriorType: 0
@@ -212,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 3246140831467171264}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.453, z: 0.474}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

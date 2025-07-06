@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using aclf;
+using LKT268;
 
 public static class EventBusEnumExtension {
 
@@ -185,7 +185,7 @@ public static class EventBusEnumExtension {
     // -----------------
     // -- @zero-params
     // -----------------
-    public static void on(
+    public static void SubcribeEvent(
       this object @this,
       int event_id,
       Action callback,
@@ -244,7 +244,7 @@ public static class EventBusEnumExtension {
     // ---------------
     // -- @one-param
     // ---------------
-    public static void on<TParam1>(
+    public static void SubcribeEvent<TParam1>(
       this object @this,
       int event_id,
       Action<TParam1> callback,
@@ -294,7 +294,7 @@ public static class EventBusEnumExtension {
     // -----------------
     // -- @two-params
     // -----------------
-    public static void on<TParam1, TParam2>(
+    public static void SubcribeEvent<TParam1, TParam2>(
       this object @this,
       int event_id,
       Action<TParam1, TParam2> callback,

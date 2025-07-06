@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using LKT268.Interface;
-using LKT268.Model.CommonBase;
-using UnityEngine.InputSystem;
+using LKT268.Utils;
 namespace LKT268
 {
     /// <summary>
@@ -51,7 +50,19 @@ namespace LKT268
 
         public void OnAttack()
         {
+            this.notify_event((int)EventID.Game.OnOpenJobList, NPCFunctionType.Lumber);
             // Implement attack logic if needed.
+        }
+
+        public void OnPrevious()
+        {
+            // Implement logic for previous interaction if needed.
+            this.notify_event((int)EventID.Game.OnSwipeLeftJobList);
+        }
+        public void OnNext()
+        {
+            // Implement logic for next interaction if needed.
+            this.notify_event((int)EventID.Game.OnSwipeRightJobList);
         }
 
         #endregion
@@ -91,6 +102,7 @@ namespace LKT268
                 }
                 this.notify_event((int)EventID.Game.OnObjectInOfRange, closestInteractable.Name, objectTransform);
                 currentInteractable = closestInteractable;
+                
             }
             else
             {

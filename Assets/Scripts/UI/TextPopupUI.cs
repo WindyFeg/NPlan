@@ -1,4 +1,3 @@
-using aclf;
 using DG.Tweening;
 using LKT268.Interface;
 using TMPro;
@@ -14,9 +13,11 @@ namespace LKT268
         void Start()
         {
             textPopup = GetComponentInChildren<TextMeshProUGUI>();
-            this.on((int)EventID.Game.OnObjectInOfRange, (string text, Transform objectTransform) => ShowTextPopup(text, objectTransform));
-            this.on((int)EventID.Game.OnObjectOutOfRange, () => HidePopup());
+            this.SubcribeEvent((int)EventID.Game.OnObjectInOfRange, (string text, Transform objectTransform) => ShowTextPopup(text, objectTransform));
+            this.SubcribeEvent((int)EventID.Game.OnObjectOutOfRange, () => HidePopup());
             this.deactive();
+
+            // EnventUIManager.Instance.Subscribe(EnventUIID.ID, ShowTextPopup());
         }
 
         void ShowTextPopup(string text, Transform objectTransform)

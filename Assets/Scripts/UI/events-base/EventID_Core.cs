@@ -10,6 +10,10 @@ namespace LKT268.EventID {
     OnNPCInteract = 1,
     OnObjectInOfRange = 2,
     OnObjectOutOfRange = 3,
+    OnOpenJobList = 4,
+    OnCloseJobList = 5,
+    OnSwipeLeftJobList = 6,
+    OnSwipeRightJobList = 7,
 
   }
 

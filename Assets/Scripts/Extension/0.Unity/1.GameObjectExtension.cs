@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LKT268
+namespace LTK268
 {
     public static class GameObjectExtension
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LKT268.Manager
+namespace LTK268.Manager
 {
     public class SaveManager : MonoBehaviour
     {

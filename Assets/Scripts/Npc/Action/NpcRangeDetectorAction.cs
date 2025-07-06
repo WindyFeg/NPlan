@@ -5,7 +5,7 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using LTK268.Model.CommonBase;
 using System.Xml.Schema;
-using LKT268.Interface;
+using LTK268.Interface;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "NPC Range Detector", story: "[NPC] [UpdateDetector] and detect [Object]", category: "Action", id: "1167330c883563c2e81aa867017da88f")]

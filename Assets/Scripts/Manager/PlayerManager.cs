@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using LKT268.Model.CommonBase;
+using LTK268.Model.CommonBase;
 using UnityEngine;
 
-namespace LKT268.Manager
+namespace LTK268.Manager
 {
     [System.Serializable]
     public class PlayerManager : MonoBehaviour

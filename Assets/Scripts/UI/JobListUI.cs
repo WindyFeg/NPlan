@@ -1,10 +1,10 @@
 using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
-using LKT268.Utils;
+using LTK268.Utils;
 using System.Collections.Generic;
 using DG.Tweening;
 
-namespace LKT268
+namespace LTK268
 {
     public class JobListUI : MonoBehaviour
     {

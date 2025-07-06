@@ -1,4 +1,4 @@
-namespace LKT268.Interface
+namespace LTK268.Interface
 {
     public interface IEnemy : IAnimal
     {

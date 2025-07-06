@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-namespace LKT268.Manager
+namespace LTK268.Manager
 {
     public class SceneManager : MonoBehaviour
     {

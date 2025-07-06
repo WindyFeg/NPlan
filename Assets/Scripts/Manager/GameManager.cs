@@ -1,7 +1,7 @@
-using LKT268.Utils;
+using LTK268.Utils;
 using UnityEngine;
 
-namespace LKT268.Manager
+namespace LTK268.Manager
 {
     public class GameManager : MonoBehaviour
     {

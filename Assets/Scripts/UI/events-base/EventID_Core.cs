@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LKT268.EventID {
+namespace LTK268.EventID {
 
   public enum Game : int
   {

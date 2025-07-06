@@ -1,10 +1,10 @@
 using DG.Tweening;
-using LKT268.Interface;
+using LTK268.Interface;
 using TMPro;
 using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.LightTransport;
-namespace LKT268
+namespace LTK268
 {
     public class TextPopupUI : MonoBehaviour
     {

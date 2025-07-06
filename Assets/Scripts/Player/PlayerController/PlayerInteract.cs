@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-using LKT268.Interface;
-using LKT268.Utils;
-namespace LKT268
+using LTK268.Interface;
+using LTK268.Utils;
+namespace LTK268
 {
     /// <summary>
     /// Handles player interactions with nearby interactable entities (e.g., NPCs, items).

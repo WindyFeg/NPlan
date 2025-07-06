@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using LKT268;
+using LTK268;
 
 public class EventBusString {
     public static readonly EventBusString Global = new EventBusString();

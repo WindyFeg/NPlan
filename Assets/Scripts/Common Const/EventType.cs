@@ -1,4 +1,4 @@
-namespace LKT268.Utils
+namespace LTK268.Utils
 {
     public enum EventType
     {

@@ -46,6 +46,10 @@ namespace LKT268.Utils
             Debug.Log($"[258LTK LOG] - ENTITY: \n{entityBase}\n\n");
         }
 
+        public static void LogEntityAction(EntityBase entityBase, string action)
+        {
+            Debug.Log($"[258LTK LOG] - ENTITY ACTION: \nEntity: {entityBase.Name}, Action: {action}\n\n");
+        }
 
         public static void LogFalseConfig<T>(
             string message,

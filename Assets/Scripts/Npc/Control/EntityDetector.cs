@@ -18,11 +18,20 @@ public class EntityDetector : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, detectionMask);
 
-        LTK268Log.LogInfo(colliders.Length.ToString());
-        if (colliders.Length > 0)
+        // Filter colliders by tag
+        var filtered = System.Array.FindAll(
+            colliders,
+            c =>
+                c.gameObject.CompareTag("NPC") ||
+                c.gameObject.CompareTag("Food") ||
+                c.gameObject.CompareTag("Object")
+        );
+
+        LTK268Log.LogInfo(filtered.Length.ToString());
+        if (filtered.Length > 0)
         {
-            int randomIndex = Random.Range(0, colliders.Length);
-            DetectedTarget = colliders[randomIndex].gameObject;
+            int randomIndex = Random.Range(0, filtered.Length);
+            DetectedTarget = filtered[randomIndex].gameObject;
         }
         else
         {

@@ -27,6 +27,16 @@ namespace LKT268.Model.CommonBase
         }
         #endregion
 
+        #region Public Unity Methods
+        void OnValidate()
+        {
+            if (!gameObject.CompareTag("Object"))
+            {
+                gameObject.tag = "Object";
+            }
+        }
+        #endregion
+
         #region Public Methods
         public EntityType GetEntityType() => EntityType.Object;
         public new void InteractWithEntity(IEntity target)

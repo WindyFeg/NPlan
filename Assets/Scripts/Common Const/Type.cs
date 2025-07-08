@@ -90,6 +90,25 @@ namespace LTK268.Utils
         Size_3X3 = 9,
 
     }
+
+    public enum BuildingState
+    {
+        None = 0,
+        Blueprint = 1,
+        Building = 2,
+        Destroyed = 3,
+        Complete = 4,
+    }
+
+    public enum ResourceType
+    {
+        None = 0,
+        Wood = 1,
+        Stone = 2,
+        Iron = 3,
+        Food = 4,
+        Gold = 5,
+    }
     #endregion
 
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using LTK268.Interface;
 using LTK268.Utils;
 using UnityEngine;
@@ -7,9 +8,21 @@ namespace LTK268.Model.CommonBase
     public class HumanBase : EntityBase, IHuman
     {
         #region Public Properties
+        public List<ObjectBase> HoldItems
+        {
+            get => holdItems;
+            set => holdItems = value;
+        }
+        public int MaxNumberOfHoldItems
+        {
+            get => maxNumberOfHoldItems;
+            set => maxNumberOfHoldItems = value;
+        }
         #endregion
 
         #region Private Fields
+        [SerializeField] private List<ObjectBase> holdItems = new List<ObjectBase>();
+        [SerializeField] private int maxNumberOfHoldItems = 1;
         #endregion
 
         #region Public Constructors

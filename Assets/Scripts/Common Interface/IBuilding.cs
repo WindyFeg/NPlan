@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using LTK268.Model.CommonBase;
+
 namespace LTK268.Interface
 {
 
@@ -8,12 +11,12 @@ namespace LTK268.Interface
         /// Defines the basic operations that can be performed on a building entity,
         /// such as building
         /// </summary>
-        void Build();
+        void Build(List<ObjectBase> buildingObject);
         /// <summary>
         /// Defines the basic operations that can be performed on a building entity,
         /// such as Upgrade
         /// </summary>
-        void Upgrade();
+        void Upgrade(List<ObjectBase> buildingObject);
         /// <summary>
         /// Defines the basic operations that can be performed on a building entity,
         /// such as Destroy
@@ -24,5 +27,16 @@ namespace LTK268.Interface
         /// such as moving
         /// </summary>
         void Move();
+        /// <summary>
+        /// Defines the basic operations that can be performed on a building entity,
+        /// such as repairing
+        /// </summary>
+        void Repair();
+
+        /// <summary>
+        /// Assigns a worker to the building for tasks such as construction, repair, or operation.
+        /// </summary>
+        /// <param name="worker"></param>
+        void AssignWorker(NPCBase worker);
     }
 }

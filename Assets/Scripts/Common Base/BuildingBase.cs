@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Utils;
@@ -10,6 +11,11 @@ namespace LTK268.Model.CommonBase
         #region Private Field
         [SerializeField] BuildingType buildingType = BuildingType.None;
         [SerializeField] BuildingSize buildingSize = BuildingSize.None;
+        [SerializeField] private NPCBase assignedWorker;
+        [SerializeField] private List<EntityBase> residents = new List<EntityBase>();
+        [SerializeField] private Dictionary<ResourceType, int> buildingMaterials = new Dictionary<ResourceType, int>();
+        [SerializeField] private Dictionary<ResourceType, int> buildingStorage = new Dictionary<ResourceType, int>();
+        [SerializeField] private BuildingState buildingState = BuildingState.None;
         #endregion
 
         #region Public Properties
@@ -17,6 +23,36 @@ namespace LTK268.Model.CommonBase
         {
             get => buildingType;
             set => buildingType = value;
+        }
+        public BuildingSize BuildingSize
+        {
+            get => buildingSize;
+            set => buildingSize = value;
+        }
+        public NPCBase AssignedWorker
+        {
+            get => assignedWorker;
+            set => assignedWorker = value;
+        }
+        public Dictionary<ResourceType, int> BuildingMaterials
+        {
+            get => buildingMaterials;
+            set => buildingMaterials = value;
+        }
+        public Dictionary<ResourceType, int> BuildingStorage
+        {
+            get => buildingStorage;
+            set => buildingStorage = value;
+        }
+        public BuildingState BuildingState
+        {
+            get => buildingState;
+            set => buildingState = value;
+        }
+        public List<EntityBase> Residents
+        {
+            get => residents;
+            set => residents = value;
         }
         #endregion
 
@@ -49,7 +85,7 @@ namespace LTK268.Model.CommonBase
         #region Public Methods
 
         #endregion
-        public void Build()
+        public void Build(List<ObjectBase> buildingObject)
         {
             throw new System.NotImplementedException();
         }
@@ -64,7 +100,7 @@ namespace LTK268.Model.CommonBase
             throw new System.NotImplementedException();
         }
 
-        public void Upgrade()
+        public void Upgrade(List<ObjectBase> buildingObject)
         {
             throw new System.NotImplementedException();
         }
@@ -75,6 +111,16 @@ namespace LTK268.Model.CommonBase
         public new void OnInteractedByEntity(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
+        }
+
+        public void Repair()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void AssignWorker(NPCBase worker)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

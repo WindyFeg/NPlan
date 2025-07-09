@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using LTK268.Interface;
 using LTK268.Utils;
-using LTK268.EventID;
 
 namespace LTK268.Model.CommonBase
 {

@@ -62,8 +62,8 @@ namespace LTK268.Interface
         // allowing for a single interface to manage entity data and behavior.
         /// <summary>
         /// Method to interact with other entities.
-        /// </summary>
         /// <param name="target">The target entity to interact with.</param>
+        /// </summary>
         void InteractWithEntity(IEntity target);
 
         /// <summary>

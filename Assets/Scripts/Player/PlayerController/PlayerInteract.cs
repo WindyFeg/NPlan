@@ -50,19 +50,19 @@ namespace LTK268
 
         public void OnAttack()
         {
-            this.notify_event((int)EventID.Game.OnOpenJobList, NPCFunctionType.Lumber);
+            // this.notify_event((int)EventID.Game.OnOpenJobList, NPCFunctionType.Lumber);
             // Implement attack logic if needed.
         }
 
         public void OnPrevious()
         {
             // Implement logic for previous interaction if needed.
-            this.notify_event((int)EventID.Game.OnSwipeLeftJobList);
+            // this.notify_event((int)EventID.Game.OnSwipeLeftJobList);
         }
         public void OnNext()
         {
             // Implement logic for next interaction if needed.
-            this.notify_event((int)EventID.Game.OnSwipeRightJobList);
+            // this.notify_event((int)EventID.Game.OnSwipeRightJobList);
         }
 
         #endregion
@@ -100,14 +100,14 @@ namespace LTK268
                         }
                     }
                 }
-                this.notify_event((int)EventID.Game.OnObjectInOfRange, closestInteractable.Name, objectTransform);
+                // this.notify_event((int)EventID.Game.OnObjectInOfRange, closestInteractable.Name, objectTransform);
                 currentInteractable = closestInteractable;
-                
+
             }
             else
             {
                 currentInteractable = null;
-                this.notify_event((int)EventID.Game.OnObjectOutOfRange);
+                // this.notify_event((int)EventID.Game.OnObjectOutOfRange);
             }
         }
 

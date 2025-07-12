@@ -8,6 +8,7 @@ TagManager:
   - Food
   - NPC
   - Object
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,13 @@
 
+using System;
+using System.Collections.Generic;
+using LTK268.Utils;
+
 namespace LTK268.Manager
 {
-    public class MessageBus : IMessageBus
+    public class MessageBus
     {
-		private Dictionary<MessageType, List<Action>> observers = new Dictionary<MessageBusType, List<Action>>(50);
+        private Dictionary<MessageType, List<Action>> observers = new Dictionary<MessageType, List<Action>>(50);
 
         public void Subscribe(MessageType type, Action observer)
         {

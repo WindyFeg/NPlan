@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3980433094304705190}
-  - component: {fileID: 2996647860062120651}
   - component: {fileID: 5960882268760352444}
   - component: {fileID: 8770211762042509678}
   - component: {fileID: 1272321186969891503}
@@ -38,27 +37,6 @@ Transform:
   - {fileID: 4215941049894393480}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2996647860062120651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770025913466669864}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5960882268760352444
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,10 +102,13 @@ MonoBehaviour:
   armor: 0
   entityType: 2
   entityView: {fileID: 8248041708744802567}
+  holdItems: []
+  maxNumberOfHoldItems: 0
   npcType: 0
   nPCFunctionType: 0
   nPCWarriorType: 0
   happiness: 0
+  pickupDistance: 0
 --- !u!195 &3178965445660654782
 NavMeshAgent:
   m_ObjectHideFlags: 0

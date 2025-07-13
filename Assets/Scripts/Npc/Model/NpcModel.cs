@@ -7,9 +7,11 @@ namespace LTK268.Model.CommonBase
     public class NpcModel : NPCBase
     {
         #region Public Properties
+        public int PickupDistance { get => pickupDistance; set => pickupDistance = value; }
         #endregion
 
         #region Private Fields
+        [SerializeField] private int pickupDistance = 2;
         #endregion
 
         #region Public Constructors
@@ -34,6 +36,7 @@ namespace LTK268.Model.CommonBase
             Armor = 0;
             EntityType = EntityType.NPC;
             this.NpcType = NPCType.Sickness;
+            pickupDistance = 2;
         }
         #endregion
     }

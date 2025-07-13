@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4030487374527079447}
   m_Layer: 6
   m_Name: small-berry-bush
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,8 +108,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1958091715
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1701441619, guid: 5408522e33a3e4b19b6004b9bf61127d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -168,8 +168,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.0000002, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.71766233, y: 1.0000002, z: 0.21182942}
+  m_Center: {x: -0.06483388, y: 0, z: -0.0760051}
 --- !u!114 &4030487374527079447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
   damage: 0
   armor: 0
   entityType: 0
+  entityView: {fileID: 0}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0

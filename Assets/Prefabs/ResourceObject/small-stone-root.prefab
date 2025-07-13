@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6035185634899457422}
   m_Layer: 6
   m_Name: small-stone
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,8 +136,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.0000002, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.46137488, y: 0.29192007, z: 0.4008553}
+  m_Center: {x: -0.021181881, y: 0.12406534, z: -0.04538977}
 --- !u!114 &6035185634899457422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   damage: 0
   armor: 0
   entityType: 0
+  entityView: {fileID: 0}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0

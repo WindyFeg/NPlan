@@ -1,4 +1,5 @@
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Utils;
 using UnityEngine;
 
@@ -78,6 +79,19 @@ namespace LTK268.Model.CommonBase
         {
             LTK268Log.LogNotImplement(this);
         }
+
+        public void PickedUpBy(IEntity entity)
+        {
+            PlayerManager.Instance.ListOfObjects.Add(this);
+            LTK268Log.LogEntityAction(this, $"Picked up by {entity.Name}");
+            this.gameObject.SetActive(false);
+        }
+
+        public void DroppedBy(IEntity entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
     }
 }

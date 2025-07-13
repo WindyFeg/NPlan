@@ -7,15 +7,5 @@ namespace LTK268.Interface
         /// </summary>
         /// <param name="entity"></param>
         void EatenBy(IEntity entity);
-        /// <summary>
-        /// called when player needed to pick this up
-        /// </summary>
-        /// <param name="entity"></param>
-        void PickedUpBy(IEntity entity);
-        /// <summary>
-        /// Drop this current object
-        /// </summary>
-        /// <param name="entity"></param>
-        void DroppedBy(IEntity entity);
     }
 }

@@ -34,7 +34,7 @@ namespace LTK268.Model.CommonBase
 
         #region Public Methods
         #endregion
-        public void DroppedBy(IEntity entity)
+        public new void DroppedBy(IEntity entity)
         {
             LTK268Log.LogNotImplement(this);
         }
@@ -44,7 +44,7 @@ namespace LTK268.Model.CommonBase
             LTK268Log.LogNotImplement(this);
         }
 
-        public void PickedUpBy(IEntity entity)
+        public new void PickedUpBy(IEntity entity)
         {
             PlayerManager.Instance.ListOfFoods.Add(this);
             LTK268Log.LogEntityAction(this, $"Picked up by {entity.Name}");

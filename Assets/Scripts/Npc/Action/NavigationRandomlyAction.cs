@@ -40,6 +40,7 @@ public partial class NavigationRandomlyAction : Action
             {
                 navMeshAgent.SetDestination(hit.position);
                 timer = 0;
+                this.GameObject.GetComponentInChildren<ICharacterAnimation>().PlayWalkingAnimation();
                 return Status.Success;
             }
             else

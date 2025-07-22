@@ -41,25 +41,25 @@ public class PlayerMovement : MonoBehaviour
         return Vector2.zero;
     }
 
-    private void UpdateLastDirection(Vector2 input)
-    {
-        if (Mathf.Abs(input.y) != 0)
-        {
+    // private void UpdateLastDirection(Vector2 input)
+    // {
+    //     if (Mathf.Abs(input.y) != 0)
+    //     {
     
-            characterAnimation.SetDirection(input.y > 0 ? "Up" : "Down");
-        }
-        else if (Mathf.Abs(input.x) != 0 && Mathf.Abs(input.y) == 0)
-        {
+    //         characterAnimation.SetDirection(input.y > 0 ? "Up" : "Down");
+    //     }
+    //     else if (Mathf.Abs(input.x) != 0 && Mathf.Abs(input.y) == 0)
+    //     {
 
-            characterAnimation.SetDirection(input.x > 0 ? "Right" : "Left");
-        }
-    }
+    //         characterAnimation.SetDirection(input.x > 0 ? "Right" : "Left");
+    //     }
+    // }
 
     #region Input Handling
     private void OnMove(InputValue value)
     {
         currentInput = value.Get<Vector2>();
-        UpdateLastDirection(currentInput);
+        // UpdateLastDirection(currentInput);
         movementInput = ProcessInput(currentInput);
 
     }

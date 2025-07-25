@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TownHall_2
   m_EditorClassIdentifier: 
   id: 0
-  buildingName: 
+  buildingName: TownHall_2
   maxHealth: 0
   level: 0
   damage: 0

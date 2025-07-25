@@ -36,25 +36,39 @@ namespace LTK268.Manager
         #region Public Methods
         public void RegisterPlayer(PlayerModel player)
         {
+            if (player == null)
+            {
+                LTK268Log.ManagerError("RegisterPlayer: Player parameter is null");
+                return;
+            }
+
             if (playerModel == null)
             {
                 playerModel = player;
+                LTK268Log.ManagerLog($"Player registered: {player.Name}");
             }
             else
             {
-                Debug.LogWarning("Player is already registered.");
+                LTK268Log.ManagerError($"Player is already registered: {playerModel.Name}");
             }
         }
 
         public void UnregisterPlayer(PlayerModel player)
         {
+            if (player == null)
+            {
+                LTK268Log.ManagerError("UnregisterPlayer: Player parameter is null");
+                return;
+            }
+
             if (playerModel == player)
             {
+                LTK268Log.ManagerLog($"Player unregistered: {player.Name}");
                 playerModel = null;
             }
             else
             {
-                Debug.LogWarning("Player is not registered.");
+                LTK268Log.ManagerError($"Player is not registered: {player.Name}");
             }
         }
 

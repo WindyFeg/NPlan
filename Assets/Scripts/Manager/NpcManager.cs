@@ -38,9 +38,20 @@ namespace LTK268.Manager
         /// <param name="npc"></param>
         public void RegisterNPC(NPCBase npc)
         {
+            if (npc == null)
+            {
+                LTK268Log.ManagerError("RegisterNPC: NPC parameter is null");
+                return;
+            }
+
             if (!NpcBases.Contains(npc))
             {
                 NpcBases.Add(npc);
+                LTK268Log.ManagerLog($"NPC registered: {npc.Name}");
+            }
+            else
+            {
+                LTK268Log.ManagerError($"NPC is already registered: {npc.Name}");
             }
         }
 
@@ -50,7 +61,21 @@ namespace LTK268.Manager
         /// <param name="npc"></param>
         public void UnregisterNPC(NPCBase npc)
         {
-            NpcBases.Remove(npc);
+            if (npc == null)
+            {
+                LTK268Log.ManagerError("UnregisterNPC: NPC parameter is null");
+                return;
+            }
+
+            if (NpcBases.Contains(npc))
+            {
+                NpcBases.Remove(npc);
+                LTK268Log.ManagerLog($"NPC unregistered: {npc.Name}");
+            }
+            else
+            {
+                LTK268Log.ManagerError($"NPC is not registered: {npc.Name}");
+            }
         }
 
         public void CameraPanForNpcs(float panSpeed, float tweenDuration)

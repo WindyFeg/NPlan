@@ -56,22 +56,30 @@ namespace LTK268.Manager
             if (spawnerByType.TryGetValue(type, out var spawner))
             {
                 spawner.SpawnEnemy(position);
+                LTK268Log.ManagerLog($"Enemy spawned: {type} at {position}");
             }
             else
             {
-                Debug.LogError($"[EnemyManager] No spawner found for enemy type: {type}");
+                LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
             }
         }
 
         public void DespawnEnemy(EnemyType type, EnemyBehaviour enemy)
         {
+            if (enemy == null)
+            {
+                LTK268Log.ManagerError("DespawnEnemy: Enemy parameter is null");
+                return;
+            }
+
             if (spawnerByType.TryGetValue(type, out var spawner))
             {
                 spawner.DespawnEnemy(enemy);
+                LTK268Log.ManagerLog($"Enemy despawned: {type}");
             }
             else
             {
-                Debug.LogError($"[EnemyManager] No spawner found for enemy type: {type}");
+                LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
             }
         }
         /// <summary>
@@ -124,13 +132,20 @@ namespace LTK268.Manager
         {
             foreach (var entry in spawnerEntries)
             {
+                if (entry.spawner == null)
+                {
+                    LTK268Log.ManagerError($"Spawner is null for enemy type: {entry.type}");
+                    continue;
+                }
+
                 if (!spawnerByType.ContainsKey(entry.type))
                 {
                     spawnerByType.Add(entry.type, entry.spawner);
+                    LTK268Log.ManagerLog($"Spawner registered for enemy type: {entry.type}");
                 }
                 else
                 {
-                    Debug.LogWarning($"[EnemyManager] Duplicate spawner entry for {entry.type}.");
+                    LTK268Log.ManagerError($"Duplicate spawner entry for {entry.type}");
                 }
             }
         }
@@ -140,7 +155,10 @@ namespace LTK268.Manager
             foreach (var entry in spawnerByType)
             {
                 var spawner = entry.Value;
-                spawner.killCounter = 0;
+                if (spawner != null)
+                {
+                    spawner.killCounter = 0;
+                }
             }
         }
 
@@ -149,7 +167,10 @@ namespace LTK268.Manager
             foreach (var entry in spawnerByType)
             {
                 var spawner = entry.Value;
-                Debug.LogWarning($"EnemyManager: Kill {entry.Key}: {spawner.killCounter} time(s)");
+                if (spawner != null)
+                {
+                    LTK268Log.ManagerLog($"EnemyManager: Kill {entry.Key}: {spawner.killCounter} time(s)");
+                }
             }
         }
 

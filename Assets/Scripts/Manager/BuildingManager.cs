@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LTK268.Model.CommonBase;
+using LTK268.Utils;
 using UnityEngine;
 
 namespace LTK268.Manager
@@ -34,9 +35,20 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void RegisterBuilding(BuildingBase building)
         {
+            if (building == null)
+            {
+                LTK268Log.ManagerError("RegisterBuilding: Building parameter is null");
+                return;
+            }
+
             if (!BuildingBases.Contains(building))
             {
                 BuildingBases.Add(building);
+                LTK268Log.ManagerLog($"Building registered: {building.Name}");
+            }
+            else
+            {
+                LTK268Log.ManagerError($"Building is already registered: {building.Name}");
             }
         }
 
@@ -46,7 +58,21 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void UnregisterBuilding(BuildingBase building)
         {
-            BuildingBases.Remove(building);
+            if (building == null)
+            {
+                LTK268Log.ManagerError("UnregisterBuilding: Building parameter is null");
+                return;
+            }
+
+            if (BuildingBases.Contains(building))
+            {
+                BuildingBases.Remove(building);
+                LTK268Log.ManagerLog($"Building unregistered: {building.Name}");
+            }
+            else
+            {
+                LTK268Log.ManagerError($"Building is not registered: {building.Name}");
+            }
         }
         #endregion
     }

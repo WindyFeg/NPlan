@@ -60,6 +60,10 @@ public class TownHall : BuildingBase, IBuilding
     #region Private Methods
     private void SetUpModel()
     {
+        if (spriteModelPresets == null || meshModelPresets == null)
+        {
+            return;
+        }
         for (int i = 0; i < spriteModelPresets.Count; i++)
         {
             spriteModelPresets[i].sr().sprite = buildingData.spritePresets[i];

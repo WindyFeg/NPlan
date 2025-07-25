@@ -23,6 +23,7 @@ namespace LTK268.Manager
         [SerializeField] private List<EnemyBase> enemyBases = new List<EnemyBase>();
         private Dictionary<EnemyType, EnemySpawner> spawnerByType = new();
         private bool isInEvent = false;
+        private int nextId = 1;
 
         #endregion
 
@@ -85,12 +86,35 @@ namespace LTK268.Manager
         /// <summary>
         /// Call this from EnemyBase's OnEnable
         /// </summary>
-        /// <param name="npc"></param>
+        /// <param name="enemy"></param>
         public void RegisterEnemy(EnemyBase enemy)
         {
+            if (enemy == null)
+            {
+                LTK268Log.ManagerError("RegisterEnemy: Enemy parameter is null");
+                return;
+            }
+
             if (!EnemyBases.Contains(enemy))
             {
+                // Check if entity already has an ID
+                if (enemy.Id == 0)
+                {
+                    // Assign next available ID
+                    enemy.Id = GetNextAvailableId();
+                    LTK268Log.ManagerLog($"Enemy registered with new ID: {enemy.Id} - {enemy.Name}");
+                }
+                else
+                {
+                    // Entity already has an ID, use it
+                    LTK268Log.ManagerLog($"Enemy registered with existing ID: {enemy.Id} - {enemy.Name}");
+                }
+
                 EnemyBases.Add(enemy);
+            }
+            else
+            {
+                LTK268Log.ManagerError($"Enemy is already registered: {enemy.Name}");
             }
         }
 
@@ -172,6 +196,27 @@ namespace LTK268.Manager
                     LTK268Log.ManagerLog($"EnemyManager: Kill {entry.Key}: {spawner.killCounter} time(s)");
                 }
             }
+        }
+
+        /// <summary>
+        /// Gets the next available ID by finding the highest ID and adding 1
+        /// </summary>
+        /// <returns>The next available ID</returns>
+        private int GetNextAvailableId()
+        {
+            int maxId = 0;
+            
+            // Find the highest ID among all entities
+            foreach (var entity in enemyBases)
+            {
+                if (entity.Id > maxId)
+                {
+                    maxId = entity.Id;
+                }
+            }
+
+            // Return the next ID
+            return maxId + 1;
         }
 
         #endregion

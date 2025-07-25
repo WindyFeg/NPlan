@@ -9,8 +9,9 @@ namespace LTK268.Manager
     {
         #region Public Properties
         public static BuildingManager Instance { get; private set; }
-        #endregion
         public List<BuildingBase> BuildingBases => buildingBases;
+        #endregion
+
         #region Private Properties
         [SerializeField] private List<BuildingBase> buildingBases = new List<BuildingBase>();
         #endregion
@@ -35,21 +36,7 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void RegisterBuilding(BuildingBase building)
         {
-            if (building == null)
-            {
-                LTK268Log.ManagerError("RegisterBuilding: Building parameter is null");
-                return;
-            }
-
-            if (!BuildingBases.Contains(building))
-            {
-                BuildingBases.Add(building);
-                LTK268Log.ManagerLog($"Building registered: {building.Name}");
-            }
-            else
-            {
-                LTK268Log.ManagerError($"Building is already registered: {building.Name}");
-            }
+            EntityIDManager.RegisterEntity(building, buildingBases, "Building");
         }
 
         /// <summary>
@@ -58,21 +45,7 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void UnregisterBuilding(BuildingBase building)
         {
-            if (building == null)
-            {
-                LTK268Log.ManagerError("UnregisterBuilding: Building parameter is null");
-                return;
-            }
-
-            if (BuildingBases.Contains(building))
-            {
-                BuildingBases.Remove(building);
-                LTK268Log.ManagerLog($"Building unregistered: {building.Name}");
-            }
-            else
-            {
-                LTK268Log.ManagerError($"Building is not registered: {building.Name}");
-            }
+            EntityIDManager.UnregisterEntity(building, buildingBases, "Building");
         }
         #endregion
     }

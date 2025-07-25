@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using LTK268.Utils;
 using LTK268.Popups;
 using UnityEngine;
 
@@ -29,17 +30,25 @@ namespace LTK268.Manager
             var popupList = GetComponentsInChildren<BasePopup>(true); // true to include inactive
             foreach (var popup in popupList)
             {
+                if (popup == null)
+                {
+                    LTK268Log.ManagerError("PopupManager: Found null popup in GetComponentsInChildren");
+                    continue;
+                }
+
                 popup.Hide(); // hide on init
                 if (!string.IsNullOrEmpty(popup.name))
+                {
                     popups[popup.name] = popup;
+                    LTK268Log.ManagerLog($"Popup registered: {popup.name}");
+                }
                 else
-                    Debug.LogWarning($"{popup.name} has no PopupName.");
+                {
+                    LTK268Log.ManagerError($"Popup has no name: {popup.GetType().Name}");
+                }
             }
 
-            foreach (var popup in popups)
-            {
-                Debug.Log($">> {popup.Key}: {popup.Value}");
-            }
+            LTK268Log.ManagerLog($"PopupManager initialized with {popups.Count} popups");
         }
 
         public BasePopup Find(string popupName)

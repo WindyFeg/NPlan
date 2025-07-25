@@ -23,6 +23,7 @@ namespace LTK268.Manager
         [SerializeField] private List<EnemyBase> enemyBases = new List<EnemyBase>();
         private Dictionary<EnemyType, EnemySpawner> spawnerByType = new();
         private bool isInEvent = false;
+        private int nextId = 1;
 
         #endregion
 
@@ -56,33 +57,64 @@ namespace LTK268.Manager
             if (spawnerByType.TryGetValue(type, out var spawner))
             {
                 spawner.SpawnEnemy(position);
+                LTK268Log.ManagerLog($"Enemy spawned: {type} at {position}");
             }
             else
             {
-                Debug.LogError($"[EnemyManager] No spawner found for enemy type: {type}");
+                LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
             }
         }
 
         public void DespawnEnemy(EnemyType type, EnemyBehaviour enemy)
         {
+            if (enemy == null)
+            {
+                LTK268Log.ManagerError("DespawnEnemy: Enemy parameter is null");
+                return;
+            }
+
             if (spawnerByType.TryGetValue(type, out var spawner))
             {
                 spawner.DespawnEnemy(enemy);
+                LTK268Log.ManagerLog($"Enemy despawned: {type}");
             }
             else
             {
-                Debug.LogError($"[EnemyManager] No spawner found for enemy type: {type}");
+                LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
             }
         }
         /// <summary>
         /// Call this from EnemyBase's OnEnable
         /// </summary>
-        /// <param name="npc"></param>
+        /// <param name="enemy"></param>
         public void RegisterEnemy(EnemyBase enemy)
         {
+            if (enemy == null)
+            {
+                LTK268Log.ManagerError("RegisterEnemy: Enemy parameter is null");
+                return;
+            }
+
             if (!EnemyBases.Contains(enemy))
             {
+                // Check if entity already has an ID
+                if (enemy.Id == 0)
+                {
+                    // Assign next available ID
+                    enemy.Id = GetNextAvailableId();
+                    LTK268Log.ManagerLog($"Enemy registered with new ID: {enemy.Id} - {enemy.Name}");
+                }
+                else
+                {
+                    // Entity already has an ID, use it
+                    LTK268Log.ManagerLog($"Enemy registered with existing ID: {enemy.Id} - {enemy.Name}");
+                }
+
                 EnemyBases.Add(enemy);
+            }
+            else
+            {
+                LTK268Log.ManagerError($"Enemy is already registered: {enemy.Name}");
             }
         }
 
@@ -124,13 +156,20 @@ namespace LTK268.Manager
         {
             foreach (var entry in spawnerEntries)
             {
+                if (entry.spawner == null)
+                {
+                    LTK268Log.ManagerError($"Spawner is null for enemy type: {entry.type}");
+                    continue;
+                }
+
                 if (!spawnerByType.ContainsKey(entry.type))
                 {
                     spawnerByType.Add(entry.type, entry.spawner);
+                    LTK268Log.ManagerLog($"Spawner registered for enemy type: {entry.type}");
                 }
                 else
                 {
-                    Debug.LogWarning($"[EnemyManager] Duplicate spawner entry for {entry.type}.");
+                    LTK268Log.ManagerError($"Duplicate spawner entry for {entry.type}");
                 }
             }
         }
@@ -140,7 +179,10 @@ namespace LTK268.Manager
             foreach (var entry in spawnerByType)
             {
                 var spawner = entry.Value;
-                spawner.killCounter = 0;
+                if (spawner != null)
+                {
+                    spawner.killCounter = 0;
+                }
             }
         }
 
@@ -149,8 +191,32 @@ namespace LTK268.Manager
             foreach (var entry in spawnerByType)
             {
                 var spawner = entry.Value;
-                Debug.LogWarning($"EnemyManager: Kill {entry.Key}: {spawner.killCounter} time(s)");
+                if (spawner != null)
+                {
+                    LTK268Log.ManagerLog($"EnemyManager: Kill {entry.Key}: {spawner.killCounter} time(s)");
+                }
             }
+        }
+
+        /// <summary>
+        /// Gets the next available ID by finding the highest ID and adding 1
+        /// </summary>
+        /// <returns>The next available ID</returns>
+        private int GetNextAvailableId()
+        {
+            int maxId = 0;
+            
+            // Find the highest ID among all entities
+            foreach (var entity in enemyBases)
+            {
+                if (entity.Id > maxId)
+                {
+                    maxId = entity.Id;
+                }
+            }
+
+            // Return the next ID
+            return maxId + 1;
         }
 
         #endregion

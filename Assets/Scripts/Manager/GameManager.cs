@@ -66,27 +66,27 @@ namespace LTK268.Manager
 
             if (AmbienceManager == null)
             {
-                LTK268Log.ManagerError("AmbienceManager is missing!", nameof(GameManager));
+                LTK268Log.ManagerError("AmbienceManager is missing!");
             }
             if (SaveManager == null)
             {
-                LTK268Log.ManagerError("SaveManager is missing!", nameof(SaveManager));
+                LTK268Log.ManagerError("SaveManager is missing!");
             }
             if (EventManager == null)
             {
-                LTK268Log.ManagerError("EventManager is missing!", nameof(EventManager));
+                LTK268Log.ManagerError("EventManager is missing!");
             }
             if (ProgressionManager == null)
             {
-                LTK268Log.ManagerError("ProgressionManager is missing!", nameof(ProgressionManager));
+                LTK268Log.ManagerError("ProgressionManager is missing!");
             }
             if (EnemyManager == null)
             {
-                LTK268Log.ManagerError("EnemyManager is missing!", nameof(EnemyManager));
+                LTK268Log.ManagerError("EnemyManager is missing!");
             }
             if (PopupManager == null)
             {
-                LTK268Log.ManagerError("PopupManager is missing!", nameof(PopupManager));
+                LTK268Log.ManagerError("PopupManager is missing!");
             }
         }
 

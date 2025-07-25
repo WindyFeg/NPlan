@@ -95,7 +95,7 @@ namespace LTK268.Model.CommonBase
         {
             if (amount < 0)
             {
-                Debug.LogWarning("EntityBase - TakeDamage: Damage amount cannot be negative.");
+                LTK268Log.ManagerError("EntityBase - TakeDamage: Damage amount cannot be negative.");
                 return;
             }
 
@@ -120,7 +120,7 @@ namespace LTK268.Model.CommonBase
         {
             if (amount < 0)
             {
-                Debug.LogWarning("EntityBase - Heal: Heal amount cannot be negative.");
+                LTK268Log.ManagerError("EntityBase - Heal: Heal amount cannot be negative.");
                 return;
             }
             CurrentHealth += amount;
@@ -171,7 +171,7 @@ namespace LTK268.Model.CommonBase
             Damage = 10;
             Armor = 0;
             EntityType = EntityType.None;
-            Debug.Log($"EntityBase Initialized: {this}");
+            LTK268Log.ManagerLog($"EntityBase Initialized: {this}");
         }
         #endregion
 

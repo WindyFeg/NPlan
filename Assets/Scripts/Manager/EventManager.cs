@@ -31,15 +31,35 @@ namespace LTK268.Manager
 
         public void TriggerRandomEvent()
         {
+            if (events == null || events.Count == 0)
+            {
+                LTK268Log.ManagerError("TriggerRandomEvent: No events available");
+                return;
+            }
+
             currentEvent = Instantiate(events[Random.Range(0, events.Count)]);
+            if (currentEvent == null)
+            {
+                LTK268Log.ManagerError("TriggerRandomEvent: Failed to instantiate event");
+                return;
+            }
+
             currentEvent.BeginEvent();
             currentEvent.OnEndEvent += CompleteCurrentEvent; // Register end event action
             EnemyManager.Instance.SetIsInEvent(true);
+            LTK268Log.ManagerLog($"Random event triggered: {currentEvent.GetType().Name}");
         }
 
         public void CompleteCurrentEvent()
         {
+            if (currentEvent == null)
+            {
+                LTK268Log.ManagerError("CompleteCurrentEvent: No current event to complete");
+                return;
+            }
+
             currentEvent.EndEvent();
+            LTK268Log.ManagerLog($"Event completed: {currentEvent.GetType().Name}");
             currentEvent = null;
             EnemyManager.Instance.SetIsInEvent(false);
         }

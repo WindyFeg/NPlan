@@ -38,10 +38,7 @@ namespace LTK268.Manager
         /// <param name="npc"></param>
         public void RegisterNPC(NPCBase npc)
         {
-            if (!NpcBases.Contains(npc))
-            {
-                NpcBases.Add(npc);
-            }
+            EntityIDManager.RegisterEntity(npc, npcBases, "NPC");
         }
 
         /// <summary>
@@ -50,7 +47,7 @@ namespace LTK268.Manager
         /// <param name="npc"></param>
         public void UnregisterNPC(NPCBase npc)
         {
-            NpcBases.Remove(npc);
+            EntityIDManager.UnregisterEntity(npc, npcBases, "NPC");
         }
 
         public void CameraPanForNpcs(float panSpeed, float tweenDuration)
@@ -75,6 +72,8 @@ namespace LTK268.Manager
                 }
             }
         }
+
+
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LTK268.Model.CommonBase;
+using LTK268.Utils;
 using UnityEngine;
 
 namespace LTK268.Manager
@@ -8,8 +9,9 @@ namespace LTK268.Manager
     {
         #region Public Properties
         public static BuildingManager Instance { get; private set; }
-        #endregion
         public List<BuildingBase> BuildingBases => buildingBases;
+        #endregion
+
         #region Private Properties
         [SerializeField] private List<BuildingBase> buildingBases = new List<BuildingBase>();
         #endregion
@@ -34,10 +36,7 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void RegisterBuilding(BuildingBase building)
         {
-            if (!BuildingBases.Contains(building))
-            {
-                BuildingBases.Add(building);
-            }
+            EntityIDManager.RegisterEntity(building, buildingBases, "Building");
         }
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void UnregisterBuilding(BuildingBase building)
         {
-            BuildingBases.Remove(building);
+            EntityIDManager.UnregisterEntity(building, buildingBases, "Building");
         }
         #endregion
     }

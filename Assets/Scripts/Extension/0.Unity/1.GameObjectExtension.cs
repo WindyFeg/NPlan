@@ -331,9 +331,9 @@ namespace LTK268
             return @this.GetComponent<MeshRenderer>();
         }
 
-        public static MeshRenderer mr(this GameObject @this)
+        public static MeshFilter mf(this GameObject @this)
         {
-            return @this.GetComponent<MeshRenderer>();
+            return @this.GetComponent<MeshFilter>();
         }
 
         // sprite-renderer
@@ -358,6 +358,12 @@ namespace LTK268
         public static Renderer r(this GameObject @this)
         {
             return @this.GetComponent<Renderer>();
+        }
+        //mesh
+        public static MeshRenderer mf<T>(this T @this)
+            where T : Component
+        {
+            return @this.GetComponent<MeshRenderer>();
         }
 
         //ui

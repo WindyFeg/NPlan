@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// Static class containing the base names of animation states used in character animations.
@@ -23,7 +24,6 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     #region Serialized Fields
 
     [Tooltip("Reference to the character's data model.")]
-    [SerializeField] private PlayerModel characterModel;
 
     #endregion
 
@@ -32,6 +32,9 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     private Animator anim;
     private string currentAnimation;
     private string lastDirection = "Down"; // Default direction
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private NavMeshAgent navMeshAgent;
+
 
     #endregion
 
@@ -55,7 +58,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         string animName = baseName + lastDirection;
 
         if (currentAnimation == animName) return;
-
+        Debug.Log($"Playing animation: {animName}");
         anim.Play(animName);
         currentAnimation = animName;
     }
@@ -89,11 +92,6 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     /// Sets the character's facing direction for animation (e.g., "Up", "Down", "Left", "Right").
     /// </summary>
     /// <param name="direction">The new facing direction.</param>
-    public void SetDirection(string direction)
-    {
-        lastDirection = direction;
-        characterModel.CurrentDirection = direction;
-    }
 
     /// <summary>
     /// Optionally adjusts the speed of the animation (e.g., based on character movement).
@@ -114,4 +112,25 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     }
 
     #endregion
+    private void FixedUpdate()
+    {
+        if (navMeshAgent == null)
+            UpdateDirectionFromVelocity(rb.linearVelocity); // <- Sửa tại đây
+        else
+            UpdateDirectionFromVelocity(navMeshAgent.velocity);
+    }
+    private void UpdateDirectionFromVelocity(Vector3 velocity)
+    {
+        Debug.Log($"LastDirection: {velocity}");
+        if (velocity == Vector3.zero) return;
+
+        if (Mathf.Abs(velocity.x) > Mathf.Abs(velocity.z))
+        {
+            lastDirection = velocity.x > 0 ? "Right" : "Left";
+        }
+        else
+        {
+            lastDirection = velocity.y > 0 ? "Up" : "Down";
+        }
+    }
 }

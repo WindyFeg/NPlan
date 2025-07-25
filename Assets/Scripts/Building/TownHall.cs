@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using LTK268;
 using LTK268.Interface;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
@@ -9,7 +11,21 @@ public class TownHall : BuildingBase, IBuilding
     #endregion
 
     #region Private Field
+    [SerializeField] private List<GameObject> spriteModelPresets;
+    [SerializeField] private List<GameObject> meshModelPresets;
+
+    [SerializeField] private BuildingData buildingData;
     #endregion
+
+    public override void Initialization()
+    {
+        Id = buildingData.id;
+        Name = buildingData.buildingName;
+        MaxHealth = buildingData.maxHealth;
+        Level = buildingData.level;
+        Damage = buildingData.damage;
+        CurrentHealth = MaxHealth;
+    }
     public TownHall(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
     }
@@ -21,7 +37,16 @@ public class TownHall : BuildingBase, IBuilding
     }
     public new void OnInteractedByEntity(IEntity target)
     {
+        //check if player has enough resources
         Debug.Log("Town Hall Interacted");
+        Upgrade();
+    }
+    public void Upgrade()
+    {
+        SetUpModel();
+        buildingData = buildingData.nextBuildingData;
+        Initialization();
+
     }
     /// <summary>
     /// Crafting Blueprint
@@ -30,6 +55,19 @@ public class TownHall : BuildingBase, IBuilding
     {
         // Show crafting Blueprint UI
         LTK268Log.LogNotImplement(this);
+    }
+    #endregion
+    #region Private Methods
+    private void SetUpModel()
+    {
+        for (int i = 0; i < spriteModelPresets.Count; i++)
+        {
+            spriteModelPresets[i].sr().sprite = buildingData.spritePresets[i];
+        }
+        for (int i = 0; i < meshModelPresets.Count; i++)
+        {
+            meshModelPresets[i].mf().mesh = buildingData.modelPresets[i];
+        }
     }
     #endregion
 }

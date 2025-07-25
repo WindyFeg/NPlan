@@ -10,7 +10,7 @@ public interface ICharacterAnimation
     void PlayHitAnimation();
     void PlayDeathAnimation();
 
-    void SetDirection(string direction);
+    // void SetDirection(string direction);
     void SetSpeed(float speed);
     void SetAttackType(string attackType);
     

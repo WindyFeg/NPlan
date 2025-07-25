@@ -55,6 +55,7 @@ namespace LTK268.Manager
 
         public void CameraPanForNpcs(float panSpeed, float tweenDuration)
         {
+            Debug.Log($"[NpcManager] CameraPanForNpcs: Panning NPCs with speed {panSpeed} and duration {tweenDuration}");
             foreach (var npc in NpcBases)
             {
                 if (npc == null || npc.transform == null) continue;

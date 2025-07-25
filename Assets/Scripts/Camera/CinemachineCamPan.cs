@@ -8,6 +8,8 @@ public class CinemachineCamPan : MonoBehaviour
     public int panSpeed = 1; // Speed of camera panning
     public CinemachineFollow cinemachineFollow;
     public float tweenDuration = 0.3f; // Duration for DOTween animation
+    public Vector2 panRangeY = new Vector2(4, 20);
+    public Vector2 panRangeZ = new Vector2(-15, 12.5f);
 
     private void Update()
     {
@@ -18,7 +20,7 @@ public class CinemachineCamPan : MonoBehaviour
             Vector3 proposedOffset = cinemachineFollow.FollowOffset + new Vector3(0, direction, -direction / 2);
 
             // Check limits: y <= 20, z <= 20, y >= 0, z >= 0
-            if (proposedOffset.y >= 2 && proposedOffset.y <= 22 && proposedOffset.z >= -7.5 && proposedOffset.z <= 12.5)
+            if (proposedOffset.y >= panRangeY.x && proposedOffset.y <= panRangeY.y && proposedOffset.z >= panRangeZ.x && proposedOffset.z <= panRangeZ.y)
             {
                 PlayerManager.Instance.CameraPanForPlayer(direction, tweenDuration);
                 NpcManager.Instance.CameraPanForNpcs(direction, tweenDuration);
@@ -32,6 +34,10 @@ public class CinemachineCamPan : MonoBehaviour
                     proposedOffset,
                     tweenDuration
                 );
+            }
+            else
+            {
+                Debug.LogWarning($"Proposed offset {proposedOffset} is out of bounds. Y range: {panRangeY}, Z range: {panRangeZ}");
             }
         }
     }

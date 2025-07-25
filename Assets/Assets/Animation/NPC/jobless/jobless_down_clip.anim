@@ -64,7 +64,7 @@ AnimationClip:
     - time: 0.79
       value: {fileID: 3523807345885879189, guid: 8ef8eeb4f343ead4ebf67eab21dd52ec, type: 3}
     attribute: m_Sprite
-    path: NpcShadow
+    path: Shadow
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -85,7 +85,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 625945963
+      path: 1926924059
       attribute: 0
       script: {fileID: 0}
       typeID: 212

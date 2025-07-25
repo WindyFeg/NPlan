@@ -72,9 +72,9 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -85,9 +85,9 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
-    fileImportMode: 0
+    fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638863952881236160
+  platformSettingsDirtyTick: 638880384074434418
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,240 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Sketch 03 (WIP) (1)
+  - name: Da 1
     originalName: 
-    pivot: {x: 0.49423394, y: -0.017543862}
+    pivot: {x: 2.162162, y: -8.923078}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 109
+      width: 37
+      height: 26
+    spriteID: b4160f832ff9117448cce467611207ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 109}
+  - name: Da 5
+    originalName: 
+    pivot: {x: -0.37500063, y: -19.333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 490
+      width: 24
+      height: 12
+    spriteID: d400bdf423ec3e24e8e828612ff1e23c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 38, y: 490}
+  - name: Da 2
+    originalName: 
+    pivot: {x: 3.4285715, y: -8.000001}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 72
+      width: 42
+      height: 29
+    spriteID: 0829fc356b2b9054fb4794fcfd38b8f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 72}
+  - name: Da 3
+    originalName: 
+    pivot: {x: 6.615385, y: -17.642857}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 490
+      width: 26
+      height: 14
+    spriteID: d1035eab2b6167c45b6f7e8808119f5f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 490}
+  - name: Co 1
+    originalName: 
+    pivot: {x: -5.3958335, y: -0.13953489}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 447
+      width: 48
+      height: 43
+    spriteID: 99f9afadfd7637c498566f2c192d6e0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 447}
+  - name: Co 2
+    originalName: 
+    pivot: {x: -4.6976748, y: -0.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 371
+      width: 43
+      height: 35
+    spriteID: 9b5dbc0366c8e6b4c8d8083584dec617
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 371}
+  - name: Co 6
+    originalName: 
+    pivot: {x: -10.684211, y: -3.7333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 231
+      y: 109
+      width: 19
+      height: 15
+    spriteID: 7368640e9d8e2fd4b812b69904f864ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 231, y: 109}
+  - name: Co 7
+    originalName: 
+    pivot: {x: -12.263158, y: -4.666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 199
+      width: 19
+      height: 12
+    spriteID: 4f0fa64b05aa6104590fb7cfff09df70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 199}
+  - name: Co 8
+    originalName: 
+    pivot: {x: 19.8, y: -30.666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 184
+      width: 10
+      height: 6
+    spriteID: 4303588c780072547b4382ec1eb8b8c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 184}
+  - name: Than go 1
+    originalName: 
+    pivot: {x: -2.3272727, y: -0.30769232}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 4
+      width: 55
+      height: 26
+    spriteID: 0750597ddb3cc88489a192b5c170d880
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 4}
+  - name: Than go 2
+    originalName: 
+    pivot: {x: -1.0363638, y: -0.34615386}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 38
+      width: 55
+      height: 26
+    spriteID: b8b0075624c39704fbfb519440623d3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 38}
+  - name: Cay 1
+    originalName: 
+    pivot: {x: 0.8045977, y: -0.032085564}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +364,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 607
-      height: 342
-    spriteID: c2445252c5318450aaea68914763a2f0
+      width: 174
+      height: 187
+    spriteID: 69b54ce47c11a7a4e9bbf6ef25f067c0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,6 +375,300 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Cay 2
+    originalName: 
+    pivot: {x: 1.9736843, y: -0.04268293}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 199
+      width: 152
+      height: 164
+    spriteID: 57b19737b3c2a9645ad51c461a814514
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 199}
+  - name: Co 3
+    originalName: 
+    pivot: {x: 9.280001, y: -15.333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 131
+      y: 414
+      width: 25
+      height: 12
+    spriteID: 00b5ce20d9d198f48bdd473af43f7a3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 131, y: 414}
+  - name: Co 4
+    originalName: 
+    pivot: {x: 31.5, y: -30.666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 184
+      width: 8
+      height: 6
+    spriteID: abdb77de33d47af4b83f6656c2602d5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 184}
+  - name: Co 5
+    originalName: 
+    pivot: {x: 13.090909, y: -18.400002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 101
+      y: 498
+      width: 22
+      height: 10
+    spriteID: 15e7f7cf0d240c04b9fc46f8792ce275
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 101, y: 498}
+  - name: Trai tao
+    originalName: 
+    pivot: {x: 16, y: -28.363636}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 241
+      width: 10
+      height: 11
+    spriteID: 8df5f0a34ddb94f4e852f837e53ef908
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 241}
+  - name: Rock 1
+    originalName: 
+    pivot: {x: 3.1818182, y: -3.3235292}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 371
+      width: 88
+      height: 68
+    spriteID: d45233cf39a1fae4eb9e54184913ee8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 371}
+  - name: Da 4
+    originalName: 
+    pivot: {x: 1.5999998, y: -13.588235}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 236
+      y: 72
+      width: 15
+      height: 17
+    spriteID: d400158132f47da4aacfb3c07a827fb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 236, y: 72}
+  - name: Hoa
+    originalName: 
+    pivot: {x: 8.347826, y: -17.333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 414
+      width: 23
+      height: 18
+    spriteID: 08de5df71a2dcc94cb343634b948c036
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 100, y: 414}
+  - name: Texture dat
+    originalName: 
+    pivot: {x: 3.2247193, y: -8.914286}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 447
+      width: 89
+      height: 35
+    spriteID: 82e32ccf26ab86f4a955f21c6d175c8b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 447}
+  - name: Nhan vat
+    originalName: 
+    pivot: {x: 6.272727, y: -9.454546}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 143
+      width: 22
+      height: 33
+    spriteID: 1c83ec07e61301a44877a26ebb532157
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 143}
+  - name: Nhan vat Copy
+    originalName: 
+    pivot: {x: 4.086956, y: -8.666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 186
+      y: 143
+      width: 23
+      height: 36
+    spriteID: 948a28ff976c798479ae744530bcb031
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 186, y: 143}
+  - name: Con tho
+    originalName: 
+    pivot: {x: 3.5555556, y: -19.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 490
+      width: 18
+      height: 16
+    spriteID: b423bbfca9ce0ae40b2dfecd4532f060
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 490}
+  - name: Con ga 2
+    originalName: 
+    pivot: {x: 2.5833335, y: -22.285713}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 219
+      width: 12
+      height: 14
+    spriteID: 6eb4beb8c80b98e4eb6a988ea53eeed2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 164, y: 219}
+  - name: Con ga 1
+    originalName: 
+    pivot: {x: 1.1000004, y: -31.2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 131
+      y: 498
+      width: 10
+      height: 10
+    spriteID: 02dca9c1087a6b0479154373be451802
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 131, y: 498}
   spriteSheetImportData:
   - name: Sketch 03 (WIP) (1)_0
     originalName: 
@@ -799,25 +1324,628 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2638387406
+      value0: 4287466680
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Sketch 03 (WIP) (1)
-    layerFlags: 0
+    name: Layer 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 1
+    uuid:
+      value0: 4116049613
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Cot da
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells: []
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    uuid:
+      value0: 735284554
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Da 1
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: Sketch 03 (WIP) (1)
+    - name: Da 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 240
+        y: 232
+        width: 37
+        height: 26
+      spriteId: b4160f832ff9117448cce467611207ce
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    uuid:
+      value0: 3060883382
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Da 5
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Da 5
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 329
+        y: 232
+        width: 24
+        height: 12
+      spriteId: d400bdf423ec3e24e8e828612ff1e23c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 4
+    uuid:
+      value0: 2301368495
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Da 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Da 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 176
+        y: 232
+        width: 42
+        height: 29
+      spriteId: 0829fc356b2b9054fb4794fcfd38b8f4
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 5
+    uuid:
+      value0: 3867452436
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Da 3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Da 3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 148
+        y: 247
+        width: 26
+        height: 14
+      spriteId: d1035eab2b6167c45b6f7e8808119f5f
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 6
+    uuid:
+      value0: 1582259661
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 579
+        y: 6
+        width: 48
+        height: 43
+      spriteId: 99f9afadfd7637c498566f2c192d6e0d
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 7
+    uuid:
+      value0: 1178975134
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 522
+        y: 7
+        width: 43
+        height: 35
+      spriteId: 9b5dbc0366c8e6b4c8d8083584dec617
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 8
+    uuid:
+      value0: 3148343602
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 6
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 6
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 523
+        y: 56
+        width: 19
+        height: 15
+      spriteId: 7368640e9d8e2fd4b812b69904f864ea
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 9
+    uuid:
+      value0: 419460247
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 7
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 7
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 553
+        y: 56
+        width: 19
+        height: 12
+      spriteId: 4f0fa64b05aa6104590fb7cfff09df70
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 10
+    uuid:
+      value0: 372406080
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 8
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 8
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 122
+        y: 184
+        width: 10
+        height: 6
+      spriteId: 4303588c780072547b4382ec1eb8b8c3
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 11
+    uuid:
+      value0: 2406984674
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Than go 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Than go 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 448
+        y: 8
+        width: 55
+        height: 26
+      spriteId: 0750597ddb3cc88489a192b5c170d880
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 12
+    uuid:
+      value0: 2406984673
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Than go 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Than go 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 377
+        y: 9
+        width: 55
+        height: 26
+      spriteId: b8b0075624c39704fbfb519440623d3c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 13
+    uuid:
+      value0: 69249026
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Cay 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Cay 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 180
+        y: 6
+        width: 174
+        height: 187
+      spriteId: 69b54ce47c11a7a4e9bbf6ef25f067c0
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 14
+    uuid:
+      value0: 69249025
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Cay 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Cay 2
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 20
-        y: 6
-        width: 607
-        height: 342
-      spriteId: c2445252c5318450aaea68914763a2f0
+        y: 7
+        width: 152
+        height: 164
+      spriteId: 57b19737b3c2a9645ad51c461a814514
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 15
+    uuid:
+      value0: 2745059075
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 3
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 3
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 88
+        y: 184
+        width: 25
+        height: 12
+      spriteId: 00b5ce20d9d198f48bdd473af43f7a3c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 16
+    uuid:
+      value0: 1985544188
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 4
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 4
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 68
+        y: 184
+        width: 8
+        height: 6
+      spriteId: abdb77de33d47af4b83f6656c2602d5b
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 17
+    uuid:
+      value0: 3551628129
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Co 5
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Co 5
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 32
+        y: 184
+        width: 22
+        height: 10
+      spriteId: 15e7f7cf0d240c04b9fc46f8792ce275
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 18
+    uuid:
+      value0: 4211175530
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Trai tao
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Trai tao
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 160
+        y: 312
+        width: 10
+        height: 11
+      spriteId: 8df5f0a34ddb94f4e852f837e53ef908
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 19
+    uuid:
+      value0: 2335688580
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Rock 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Rock 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 40
+        y: 226
+        width: 88
+        height: 68
+      spriteId: d45233cf39a1fae4eb9e54184913ee8c
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 20
+    uuid:
+      value0: 1494799441
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Da 4
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Da 4
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 296
+        y: 231
+        width: 15
+        height: 17
+      spriteId: d400158132f47da4aacfb3c07a827fb4
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 21
+    uuid:
+      value0: 1502599838
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Hoa
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Hoa
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 128
+        y: 312
+        width: 23
+        height: 18
+      spriteId: 08de5df71a2dcc94cb343634b948c036
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 22
+    uuid:
+      value0: 237921996
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Texture dat
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Texture dat
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 33
+        y: 312
+        width: 89
+        height: 35
+      spriteId: 82e32ccf26ab86f4a955f21c6d175c8b
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 23
+    uuid:
+      value0: 1116163600
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Nhan vat
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Nhan vat
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 182
+        y: 312
+        width: 22
+        height: 33
+      spriteId: 1c83ec07e61301a44877a26ebb532157
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 24
+    uuid:
+      value0: 3694465527
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Nhan vat Copy
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Nhan vat Copy
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 226
+        y: 312
+        width: 23
+        height: 36
+      spriteId: 948a28ff976c798479ae744530bcb031
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 25
+    uuid:
+      value0: 506625565
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Con tho
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Con tho
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 256
+        y: 312
+        width: 18
+        height: 16
+      spriteId: b423bbfca9ce0ae40b2dfecd4532f060
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 26
+    uuid:
+      value0: 265928908
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Con ga 2
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Con ga 2
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 289
+        y: 312
+        width: 12
+        height: 14
+      spriteId: 6eb4beb8c80b98e4eb6a988ea53eeed2
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 27
+    uuid:
+      value0: 1832012849
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: 0
+    name: Con ga 1
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Con ga 1
+      frameIndex: 0
+      additiveSortOrder: 0
+      cellRect:
+        x: 309
+        y: 312
+        width: 10
+        height: 10
+      spriteId: 02dca9c1087a6b0479154373be451802
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -861,4 +1989,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 640, y: 360}
-  previousTextureSize: {x: 1024, y: 512}
+  previousTextureSize: {x: 256, y: 512}

@@ -1,3 +1,5 @@
+using LTK268.Interface;
+using LTK268.Model.CommonBase;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,12 +31,13 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     #region Private Fields
 
-    private Animator anim;
     private string currentAnimation;
     private string lastDirection = "Down"; // Default direction
+    private string entityName = "None";
     [SerializeField] private Rigidbody rb;
     [SerializeField] private NavMeshAgent navMeshAgent;
-
+    [SerializeField] private Animator anim;
+    [SerializeField] private EntityBase entityBase;
 
     #endregion
 
@@ -42,7 +45,26 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+    }
+
+    private void OnValidate()
+    {
+        if (anim == null)
+        {
+            anim = GetComponentInChildren<Animator>();
+        }
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
+        if (navMeshAgent == null)
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
+        if (entityBase == null)
+        {
+            entityBase = GetComponent<EntityBase>();
+        }
     }
 
     #endregion
@@ -55,7 +77,8 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     /// <param name="baseName">The base name of the animation.</param>
     private void PlayDirectionalAnimation(string baseName)
     {
-        string animName = baseName + lastDirection;
+
+        string animName = entityBase.Name + "_" + baseName + lastDirection;
 
         if (currentAnimation == animName) return;
         Debug.Log($"Playing animation: {animName}");
@@ -126,7 +149,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
         if (Mathf.Abs(velocity.x) > Mathf.Abs(velocity.z))
         {
-            lastDirection = velocity.x > 0 ? "Right" : "Left";
+            lastDirection = velocity.x > 0 ? "Left" : "Right";
         }
         else
         {

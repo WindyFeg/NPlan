@@ -37,7 +37,7 @@ public class PlayerModel : HumanBase
     {
         // This is temp initialization all if the init will be handle by game manager
         Id = 1;
-        Name = "Default Player";
+        Name = "Player";
         MaxHealth = 100;
         CurrentHealth = MaxHealth;
         Level = 1;
@@ -63,6 +63,7 @@ public class PlayerModel : HumanBase
     #region Unity Methods
     private void Start()
     {
+        Initialization();
         PlayerManager.Instance.RegisterPlayer(this);
     }
     private void OnDestroy()

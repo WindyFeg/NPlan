@@ -34,7 +34,7 @@ namespace LTK268.Manager
             if (Instance == null)
             {
                 Instance = this;
-                InitializeSpawnerDictionary();
+                // InitializeSpawnerDictionary();
             }
             else
             {
@@ -205,7 +205,7 @@ namespace LTK268.Manager
         private int GetNextAvailableId()
         {
             int maxId = 0;
-            
+
             // Find the highest ID among all entities
             foreach (var entity in enemyBases)
             {

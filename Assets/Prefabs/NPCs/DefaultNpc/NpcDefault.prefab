@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 5960882268760352444}
   - component: {fileID: 8770211762042509678}
   - component: {fileID: 1272321186969891503}
+  - component: {fileID: 3783908809484530377}
   - component: {fileID: 3178965445660654782}
   - component: {fileID: 948910784363716628}
+  - component: {fileID: 4018375896174312859}
   m_Layer: 0
   m_Name: NpcDefault
   m_TagString: NPC
@@ -108,7 +110,20 @@ MonoBehaviour:
   nPCFunctionType: 0
   nPCWarriorType: 0
   happiness: 0
-  pickupDistance: 0
+  pickupDistance: 1
+--- !u!114 &3783908809484530377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770025913466669864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9b790c08c10bf45b1920a06971a754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 3178965445660654782}
 --- !u!195 &3178965445660654782
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -119,8 +134,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 1.5
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -147,6 +162,7 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 2451612340809367869
   - rid: 6116959252809777252
+  - rid: 6116959774698898381
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -168,7 +184,31 @@ MonoBehaviour:
           m_Value1: 5212673749104027386
         Name: Entity Detector
         m_Value: {fileID: 8770211762042509678}
---- !u!1 &3246140831467171264
+    - rid: 6116959774698898381
+      type: {class: 'BlackboardVariable`1[[LTK268.Model.CommonBase.NpcModel, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 9902439921529912337
+          m_Value1: 16139703951963291083
+        Name: Model
+        m_Value: {fileID: 1272321186969891503}
+--- !u!114 &4018375896174312859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770025913466669864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a847761786196412c8068a8834f38ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  anim: {fileID: 0}
+  entityBase: {fileID: 0}
+--- !u!1 &6750940552592741487
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,22 +216,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4795167736930461334}
-  - component: {fileID: 6286221554089972216}
+  - component: {fileID: 6848064954344292232}
+  - component: {fileID: 5104743410322548492}
   m_Layer: 0
-  m_Name: NpcShadow
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4795167736930461334
+--- !u!4 &6848064954344292232
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3246140831467171264}
+  m_GameObject: {fileID: 6750940552592741487}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -199,14 +239,14 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4215941049894393480}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!212 &6286221554089972216
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5104743410322548492
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3246140831467171264}
+  m_GameObject: {fileID: 6750940552592741487}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -245,7 +285,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 8716057218885856023, guid: 69d998afb466e42889d9f81808a8b126, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6039216}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -266,6 +306,7 @@ GameObject:
   - component: {fileID: 4215941049894393480}
   - component: {fileID: 410794703936162067}
   - component: {fileID: 8778264442025403812}
+  - component: {fileID: 5469252341334450322}
   m_Layer: 0
   m_Name: NpcView
   m_TagString: Untagged
@@ -282,11 +323,11 @@ Transform:
   m_GameObject: {fileID: 8248041708744802567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.082, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4795167736930461334}
+  - {fileID: 6848064954344292232}
   m_Father: {fileID: 3980433094304705190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &410794703936162067
@@ -309,7 +350,7 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 8
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
@@ -330,8 +371,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1958091715
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8716057218885856023, guid: 69d998afb466e42889d9f81808a8b126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -366,3 +407,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5469252341334450322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248041708744802567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95c6879d0a605e4682e9b5d97322e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainSpriteRenderer: {fileID: 410794703936162067}
+  shadowSpriteRenderer: {fileID: 5104743410322548492}

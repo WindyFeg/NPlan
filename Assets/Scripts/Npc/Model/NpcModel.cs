@@ -1,4 +1,5 @@
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Utils;
 using UnityEngine;
 
@@ -23,12 +24,20 @@ namespace LTK268.Model.CommonBase
         #region Public Methods
         #endregion
 
+        #region Unity Methods
+        private void Start()
+        {
+            Initialization();
+            NpcManager.Instance.RegisterNPC(this);
+        }
+        #endregion
+
         #region Public Methods  
         public override void Initialization()
         {
             // This is temp initialization all if the init will be handle by game manager
             Id = 1;
-            Name = "Default NPC";
+            Name = "Jobless_NPC";
             MaxHealth = 100;
             CurrentHealth = MaxHealth;
             Level = 1;

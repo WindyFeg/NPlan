@@ -121,7 +121,7 @@ namespace LTK268.Manager
         /// <summary>
         /// Call this from EnemyBase's OnDisable/OnDestroy
         /// </summary>
-        /// <param name="npc"></param>
+        /// <param name="enemy"></param>
         public void UnregisterEnemy(EnemyBase enemy)
         {
             EnemyBases.Remove(enemy);
@@ -224,12 +224,12 @@ namespace LTK268.Manager
 #if UNITY_EDITOR
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 var rnd = Random.Range(0f, 5f);
                 SpawnEnemy(EnemyType.Wolf, new Vector3(rnd, 0f, rnd));
             }
-            else if (Input.GetKeyDown(KeyCode.Space))
+            else if (Input.GetKeyDown(KeyCode.L))
             {
                 var spawner = spawnerByType[EnemyType.Wolf];
                 for (var i = 0; i < spawner.transform.childCount; i++)
@@ -242,10 +242,10 @@ namespace LTK268.Manager
                     }
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                LogKillCounter();
-            }
+            // else if (Input.GetKeyDown(KeyCode.O))
+            // {
+            //     LogKillCounter();
+            // }
         }
 #endif
     }

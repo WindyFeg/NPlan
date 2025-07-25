@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using LTK268.Interface;
+using LTK268.Manager;
+using LTK268.Model.CommonBase;
 using LTK268.Utils;
 namespace LTK268
 {
@@ -26,6 +28,7 @@ namespace LTK268
         #region Private Fields
 
         private IEntity currentInteractable;
+        private EntityBase closestEntity;
 
         #endregion
 
@@ -97,6 +100,30 @@ namespace LTK268
                             minDistance = dist;
                             closestInteractable = entity;
                             objectTransform = hit.transform;
+                            
+                            // Show interactable UI
+                            // Tách thành 1 function
+                            // var entityBase = hit.GetComponent<EntityBase>();
+                            // if (entityBase != null && entityBase != closestEntity)
+                            // {
+                            //     // Destroy the previous entity UI if it exists
+                            //     if (closestEntity != null && closestEntity.EntityView != null)
+                            //     {
+                            //         LTK268Log.LogInfo($"Hiding UI for {closestEntity.Name}");
+                            //         UIManager.Instance.HideEntityUI(closestEntity);
+                            //     }
+                            //     closestEntity = entityBase;
+                            //     // Notify UIManager to show the entity UI
+                            //     if (closestEntity != null && closestEntity.EntityView != null)
+                            //     {
+                            //         LTK268Log.LogInfo($"Showing UI for {closestEntity.Name}");
+                            //         UIManager.Instance.ShowEntityUI(closestEntity);
+                            //     }
+                            //     else
+                            //     {
+                            //         Debug.LogWarning("Closest entity is null or has no EntityView.");
+                            //     }
+                            // }
                         }
                     }
                 }

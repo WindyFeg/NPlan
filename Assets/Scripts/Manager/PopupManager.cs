@@ -93,7 +93,7 @@ namespace LTK268.Manager
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                Show(
+                PopupManager.Instance.Show(
                     PopupType.Template,
                     "Are you sure you want to close the popup?",
                     "Có",

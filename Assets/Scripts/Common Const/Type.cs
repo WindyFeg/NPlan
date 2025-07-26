@@ -1,15 +1,19 @@
-namespace LKT268.Utils
+using System;
+
+namespace LTK268.Utils
 {
     /// <summary>
     /// Enumeration for different types of entities in the game.
     /// </summary>
+    [Serializable]
     public enum EntityType
     {
-        None = -1,
-        Player = 0,
-        NPC = 1,
-        Enemy = 2,
-        Object = 3,
+        None = 0,
+        Player = 1,
+        NPC = 2,
+        Enemy = 3,
+        Object = 4,
+        Animal = 5
     }
 
     #region NPC
@@ -18,9 +22,10 @@ namespace LKT268.Utils
     /// </summary>
     public enum NPCType
     {
-        Jobless = -1,
-        Function = 0,
-        Warrior = 1,
+        Sickness = 0,
+        Function = 1,
+        Warrior = 2,
+        Jobless = 3,
     }
 
     /// <summary>
@@ -28,13 +33,13 @@ namespace LKT268.Utils
     /// </summary>
     public enum NPCFunctionType
     {
-        None = -1,
-        Lumber = 0,
-        Miner = 1,
+        None = 0,
+        Lumber = 1,
         Builder = 2,
         Farmer = 3,
         Blacksmith = 4,
         Healer = 5,
+        Miner = 6,
     }
 
     /// <summary>
@@ -42,10 +47,11 @@ namespace LKT268.Utils
     /// </summary>
     public enum NPCWarriorType
     {
-        None = -1,
-        Archer = 0,
-        Warrior = 1,
+        None = 0,
+        Archer = 1,
+        Warrior = 2,
     }
+
     #endregion
 
     /// <summary>
@@ -54,12 +60,54 @@ namespace LKT268.Utils
     #region Object
     public enum ObjectType
     {
-        None = -1,
-        House = 0,
-        PickableObject = 1,
-        NonPickableObject = 2,
-        Resource = 3,
-        Weapon = 4,
+        None = 0,
+        House = 1,
+        PickableObject = 2,
+        NonPickableObject = 3,
+        Resource = 4,
+        Weapon = 5,
+        Food = 6,
+    }
+
+    public enum BuildingType
+    {
+        None = 0,
+        Base = 1,
+        NormalHouse = 2,
+    }
+
+    public enum BuildingSize
+    {
+        None = 0,
+        Size_1X1 = 1,
+        Size_1X2 = 2,
+        Size_2X1 = 3,
+        Size_2X2 = 4,
+        Size_1X3 = 5,
+        Size_2X3 = 6,
+        Size_3X1 = 7,
+        Size_3X2 = 8,
+        Size_3X3 = 9,
+
+    }
+
+    public enum BuildingState
+    {
+        None = 0,
+        Blueprint = 1,
+        Building = 2,
+        Destroyed = 3,
+        Complete = 4,
+    }
+
+    public enum ResourceType
+    {
+        None = 0,
+        Wood = 1,
+        Stone = 2,
+        Iron = 3,
+        Food = 4,
+        Gold = 5,
     }
     #endregion
 

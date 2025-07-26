@@ -6,7 +6,7 @@ public class EntityDetector : MonoBehaviour
 {
     [Header("Detection Settings")]
     [SerializeField] private float detectionRadius = 10f;
-    [SerializeField] private LayerMask detectionMask = LayerMask.GetMask("NPC", "Food", "Object");
+    [SerializeField] private LayerMask detectionMask;
     [SerializeField] private bool showDebugVisuals = true;
 
     public GameObject DetectedTarget

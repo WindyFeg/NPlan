@@ -8,4 +8,5 @@ public enum NPCState
 	Wandering,
 	DepositBase,
 	FillBuilding,
+	Sickness
 }

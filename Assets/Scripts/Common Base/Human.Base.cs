@@ -60,6 +60,18 @@ namespace LTK268.Model.CommonBase
         {
             holdItems.Add(item);
         }
+
+        public GameObject RemoveHoldItem()
+        {
+            if (holdItems.Count == 0)
+            {
+                Debug.LogWarning("No items to remove", this);
+                return null;
+            }
+            GameObject item = holdItems[0];
+            holdItems.RemoveAt(0);
+            return item;
+        }
         #endregion
     }
 

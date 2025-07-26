@@ -1,11 +1,12 @@
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Utils;
+using Unity.Behavior;
 using UnityEngine;
 
 namespace LTK268.Model.CommonBase
 {
-    public class NPCBase : HumanBase, INPC
+    public class NPCBase : HumanBase, INPC, IEntity
     {
         #region Private Field
         [Header("NPC Type")]
@@ -118,7 +119,17 @@ namespace LTK268.Model.CommonBase
 
         public void CureSickness()
         {
+            Debug.Log($"Curing sickness for NPC: {Name}");
             NpcType = NPCType.Jobless;
+            try
+            {
+                Debug.Log($"Setting NPCState to Wandering for NPC: {Name}");
+                GetComponent<BehaviorGraphAgent>().BlackboardReference.SetVariableValue("NPCState", NPCState.Wandering);
+            }
+            catch (System.Exception e)
+            {
+                LTK268Log.LogFalseConfig($"Failed to set NPCState to Wandering: {e.Message}", this);
+            }
         }
 
         public bool IsFunctionNPC() => NPCFunctionType != NPCFunctionType.None;
@@ -133,11 +144,48 @@ namespace LTK268.Model.CommonBase
 
         public void Talk()
         {
-            throw new System.NotImplementedException();
+            // if (Input.GetKeyDown(KeyCode.M))
+            // {
+            //     PopupManager.Instance.Show(
+            //         PopupType.Template,
+            //         "Are you sure you want to close the popup?",
+            //         "Có",
+            //         "Kó"
+            //     );
+            // }
+
+            PopupManager.Instance.Show(
+                "NPC Interaction",
+                $"Hello, I am a {npcType} NPC. How can I assist you today?",
+                "OK"
+            );
         }
 
-        #endregion
+        public new void InteractWithEntity(IEntity target)
+        {
+            Debug.Log($"NPCBase InteractWithEntity called by {target.Name}");
+            OnInteractedByEntity(target);
+        }
 
-
+        public new void OnInteractedByEntity(IEntity target)
+        {
+            Debug.Log($"NPCBase npcType: {npcType}, target: {target.Name}");
+            switch (npcType)
+            {
+                case NPCType.Jobless:
+                    Talk();
+                    break;
+                case NPCType.Sickness:
+                    CureSickness();
+                    break;
+                case NPCType.Function:
+                case NPCType.Warrior:
+                    break;
+                default:
+                    LTK268Log.LogNotImplement(this);
+                    break;
+            }
+        }
     }
+    #endregion
 }

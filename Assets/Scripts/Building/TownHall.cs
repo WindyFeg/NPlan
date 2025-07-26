@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using LTK268;
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class TownHall : BuildingBase, IBuilding
+public class TownHall : BuildingBase, IBuilding, IBuildingStorage
 {
     #region Public Properties
     #endregion
@@ -13,6 +15,8 @@ public class TownHall : BuildingBase, IBuilding
     #region Private Field
     [SerializeField] private BuildingData buildingData;
     private GameObject currentModel;
+
+    public Dictionary<GameObject, int> StoredItems { get; set; } = new Dictionary<GameObject, int>();
     #endregion
 
     public override void Initialization()
@@ -35,11 +39,11 @@ public class TownHall : BuildingBase, IBuilding
     void Start()
     {
         Initialization();
+        BuildingManager.Instance.TownHall = this;
     }
     #region Public Methods
     public new void InteractWithEntity(IEntity target)
     {
-        Debug.Log("Town Hall Interacted");
         OnInteractedByEntity(target);
     }
     public new void OnInteractedByEntity(IEntity target)
@@ -68,11 +72,33 @@ public class TownHall : BuildingBase, IBuilding
         // Show crafting Blueprint UI
         LTK268Log.LogNotImplement(this);
     }
+
+    public void StoreItem(IHuman human)
+    {
+        var item = human.RemoveHoldItem();
+        if (item != null)
+        {
+            if (StoredItems.ContainsKey(item))
+            {
+                StoredItems[item]++;
+            }
+            else
+            {
+                StoredItems.Add(item, 1);
+            }
+            LTK268Log.LogInfo($"Item {item.name} stored in {Name}. Total: {StoredItems[item]}");
+        }
+        else
+        {
+            LTK268Log.LogWarning("No item to store");
+        }
+    }
     #endregion
     #region Private Methods
     private void SetUpModel()
     {
 
     }
+
     #endregion
 }

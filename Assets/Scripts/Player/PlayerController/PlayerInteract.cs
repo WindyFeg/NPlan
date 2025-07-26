@@ -29,7 +29,7 @@ namespace LTK268
         #region Private Fields
 
         private IEntity currentInteractable;
-        private EntityBase closestEntity;
+        [SerializeField] private EntityBase closestEntity;
 
         #endregion
 

@@ -1,6 +1,7 @@
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Utils;
+using Unity.Behavior;
 using UnityEngine;
 
 namespace LTK268.Model.CommonBase
@@ -13,6 +14,8 @@ namespace LTK268.Model.CommonBase
 
         #region Private Fields
         [SerializeField] private int pickupDistance = 2;
+        [SerializeField] private BehaviorGraph sicknessBehaviorGraph;
+        [SerializeField] private BehaviorGraph joblessBehaviorGraph;
         #endregion
 
         #region Public Constructors

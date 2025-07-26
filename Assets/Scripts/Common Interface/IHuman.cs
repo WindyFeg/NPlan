@@ -24,6 +24,13 @@ namespace LTK268.Interface
 
     public interface IHuman : IHumanCommonChecking, IHumanControl
     {
+        /// <summary>
+        /// List of items that the human is currently holding.
+        /// </summary>
         public void AddHoldItem(GameObject item);
+        /// <summary>
+        /// Removes an item from the human's hold items.
+        /// </summary>
+        public GameObject RemoveHoldItem();
     }
 }

@@ -5,7 +5,7 @@ using LTK268.Model.CommonBase;
 using LTK268.Utils;
 using UnityEngine;
 
-public class TownHall : BuildingBase, IBuilding
+public class LumberHouse : BuildingBase, IBuilding
 {
     #region Public Properties
     #endregion
@@ -29,7 +29,7 @@ public class TownHall : BuildingBase, IBuilding
         CurrentHealth = MaxHealth;
         currentModel = Instantiate(buildingData.buildingPrefabs, this.transform);
     }
-    public TownHall(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
+    public LumberHouse(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
     }
     void Start()
@@ -39,13 +39,13 @@ public class TownHall : BuildingBase, IBuilding
     #region Public Methods
     public new void InteractWithEntity(IEntity target)
     {
-        Debug.Log("Town Hall Interacted");
+        Debug.Log("Lumber House Interacted");
         OnInteractedByEntity(target);
     }
     public new void OnInteractedByEntity(IEntity target)
     {
         //check if player has enough resources
-        Debug.Log("Town Hall Interacted");
+        Debug.Log("Lumber House Interacted");
         Upgrade();
     }
     public void Upgrade()
@@ -69,9 +69,5 @@ public class TownHall : BuildingBase, IBuilding
     }
     #endregion
     #region Private Methods
-    private void SetUpModel()
-    {
-
-    }
     #endregion
 }

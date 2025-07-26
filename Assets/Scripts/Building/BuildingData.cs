@@ -25,10 +25,10 @@ public class BuildingData : ScriptableObject
 
     [Header("Building Requirements")]
     public Requirements requirements;
-    [Header("Building Model")]
-    public List<Mesh> modelPresets;
-    public List<Sprite> spritePresets;
-    [Header("Building Config")]
+    [Header("Building Prefab")]
+    public GameObject buildingPrefabs;
+    [Header("Building Upgrade Data")]
     public BuildingData nextBuildingData;
+
 
 }

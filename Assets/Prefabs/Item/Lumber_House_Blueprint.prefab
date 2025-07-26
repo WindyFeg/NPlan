@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8255801143630672968
+--- !u!1 &4727591912401394459
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6463724791322179887}
-  - component: {fileID: 8191147300052261787}
-  - component: {fileID: 7344294447182961904}
-  m_Layer: 9
-  m_Name: town-hall-root
-  m_TagString: Building
+  - component: {fileID: 1900166833445165090}
+  - component: {fileID: 9133438967537077145}
+  - component: {fileID: 3880277125963015601}
+  m_Layer: 0
+  m_Name: Lumber_House_Blueprint
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6463724791322179887
+--- !u!4 &1900166833445165090
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255801143630672968}
+  m_GameObject: {fileID: 4727591912401394459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8191147300052261787
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255801143630672968}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 3}
-  m_Center: {x: 0, y: 0, z: 1}
---- !u!114 &7344294447182961904
+--- !u!114 &9133438967537077145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8255801143630672968}
+  m_GameObject: {fileID: 4727591912401394459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85d39ae628a844536aaa99de9821c721, type: 3}
+  m_Script: {fileID: 11500000, guid: 870a8199ec96842aaa34ac69704a1ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 1234835160587091850, guid: 69c9b5112ccd54c47ba83b872b4096ca, type: 3}
+--- !u!114 &3880277125963015601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4727591912401394459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2807b62aded0b498a294d00dde0a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
@@ -79,9 +71,3 @@ MonoBehaviour:
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
-  buildingType: 0
-  buildingSize: 0
-  assignedWorker: {fileID: 0}
-  residents: []
-  buildingState: 0
-  buildingData: {fileID: 11400000, guid: 6428c500cf67642eea922655b601aa6c, type: 2}

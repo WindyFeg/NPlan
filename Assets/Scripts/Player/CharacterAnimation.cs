@@ -144,7 +144,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     }
     private void UpdateDirectionFromVelocity(Vector3 velocity)
     {
-        Debug.Log($"LastDirection: {velocity}");
+        // Debug.Log($"LastDirection: {velocity}");
         if (velocity == Vector3.zero) return;
 
         if (Mathf.Abs(velocity.x) > Mathf.Abs(velocity.z))

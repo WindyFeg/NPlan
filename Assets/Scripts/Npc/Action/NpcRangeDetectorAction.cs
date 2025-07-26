@@ -22,7 +22,7 @@ public partial class NpcRangeDetectorAction : Action
 
     protected override Status OnUpdate()
     {
-        Object.Value = UpdateDetector.Value.UpdateDetector();
+        Object.Value = UpdateDetector.Value.GetRandomEntity();
         return Object.Value == null ? Status.Failure : Status.Success;
     }
 

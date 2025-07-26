@@ -96,6 +96,7 @@ namespace LTK268.Model.CommonBase
             if (!gameObject.CompareTag("NPC"))
             {
                 gameObject.tag = "NPC";
+                gameObject.layer = LayerMask.NameToLayer("NPC");
             }
         }
         #endregion

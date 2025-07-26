@@ -73,6 +73,7 @@ public class PlayerModel : HumanBase
     #endregion
     private void OnStateChanged()
     {
+        if (characterAnimation == null) return;
         // Handle state change logic here, e.g., update animations or UI
         switch (currentState)
         {

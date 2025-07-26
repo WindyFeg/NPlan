@@ -7,7 +7,7 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: Wolf - WIP_Clip
-    second: {fileID: 7400000, guid: 8dd62f3e87fae4942923d8fa07ee54c1, type: 2}
+    second: {fileID: 7400000, guid: 8b92e7cb1cf7ebd409b9e8cc9fa0721f, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -41,7 +41,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -80,8 +80,8 @@ ScriptedImporter:
     fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 0
-    defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotSpace: 1
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -93,8 +93,8 @@ ScriptedImporter:
     fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 0
-    defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotSpace: 1
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -103,7 +103,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638869012540868740
+  platformSettingsDirtyTick: 638873998109231325
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -130,8 +130,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Nhan vat_Frame_0
     originalName: 
-    pivot: {x: 6.272727, y: -9.454546}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -151,8 +151,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 194}
   - name: Nhan vat_Frame_1
     originalName: 
-    pivot: {x: 6.272727, y: -9.454546}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -172,8 +172,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 4}
   - name: Nhan vat Copy_Frame_0
     originalName: 
-    pivot: {x: 4.086956, y: -8.666667}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -193,8 +193,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 106}
   - name: Nhan vat Copy_Frame_1
     originalName: 
-    pivot: {x: 4.086956, y: -8.666667}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -214,8 +214,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 150}
   - name: Con tho_Frame_0
     originalName: 
-    pivot: {x: 3.5555556, y: -19.5}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -235,8 +235,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 235}
   - name: Con tho_Frame_1
     originalName: 
-    pivot: {x: 3.5555556, y: -19.5}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -256,8 +256,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 66}
   - name: Con ga 2_Frame_0
     originalName: 
-    pivot: {x: 2.5833335, y: -22.285713}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -277,8 +277,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 90}
   - name: Con ga 2_Frame_1
     originalName: 
-    pivot: {x: 2.5833335, y: -22.285713}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -298,8 +298,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 112}
   - name: Con ga 1_Frame_0
     originalName: 
-    pivot: {x: 1.1000004, y: -31.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -319,8 +319,8 @@ ScriptedImporter:
     uvTransform: {x: 89, y: 235}
   - name: Con ga 1_Frame_1
     originalName: 
-    pivot: {x: 1.1000004, y: -31.2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -340,8 +340,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 134}
   - name: Layer 2_Frame_0
     originalName: 
-    pivot: {x: 3.9019608, y: -3.6000001}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -361,8 +361,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Layer 2_Frame_1
     originalName: 
-    pivot: {x: 3.9019608, y: -3.6000001}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -382,8 +382,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 72}
   - name: Con soi_Frame_0
     originalName: 
-    pivot: {x: 3.8529415, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -403,8 +403,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 38}
   - name: Con soi_Frame_1
     originalName: 
-    pivot: {x: 3.8529415, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -424,8 +424,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 72}
   - name: Con soi ngang_Frame_0
     originalName: 
-    pivot: {x: 2.0810812, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -445,8 +445,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 209}
   - name: Con soi ngang_Frame_1
     originalName: 
-    pivot: {x: 2.0263162, y: -10.192307}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -466,8 +466,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 175}
   - name: Con soi can_Frame_0
     originalName: 
-    pivot: {x: 2.0810812, y: -8.307693}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -487,8 +487,8 @@ ScriptedImporter:
     uvTransform: {x: 63, y: 4}
   - name: Con soi can_Frame_1
     originalName: 
-    pivot: {x: 2.1, y: -8}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -508,8 +508,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 140}
   - name: Con soi thang toi_Frame_0
     originalName: 
-    pivot: {x: 1.5000005, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -529,8 +529,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 148}
   - name: Con soi thang toi_Frame_1
     originalName: 
-    pivot: {x: 1.5000005, y: -10.192307}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -550,8 +550,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 182}
   - name: Con soi bi danh_Frame_0
     originalName: 
-    pivot: {x: -1.5454553, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -571,8 +571,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 45}
   - name: Con soi bi danh_Frame_1
     originalName: 
-    pivot: {x: -1.894736, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -592,8 +592,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 79}
   - name: Con soi chet_Frame_0
     originalName: 
-    pivot: {x: -3.0000002, y: -11.478261}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -613,8 +613,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 4}
   - name: Con soi chet_Frame_1
     originalName: 
-    pivot: {x: -3.0000002, y: -11.478261}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -634,8 +634,8 @@ ScriptedImporter:
     uvTransform: {x: 138, y: 35}
   - name: Con soi thang lung_Frame_0
     originalName: 
-    pivot: {x: -0.2777778, y: -10.153847}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -655,8 +655,8 @@ ScriptedImporter:
     uvTransform: {x: 108, y: 216}
   - name: Con soi thang lung_Frame_1
     originalName: 
-    pivot: {x: -0.2777778, y: -9.777778}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -1118,6 +1118,18 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 16384

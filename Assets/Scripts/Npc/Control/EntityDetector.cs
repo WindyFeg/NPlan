@@ -31,7 +31,8 @@ public class EntityDetector : MonoBehaviour
             c =>
                 c.gameObject.CompareTag("NPC") ||
                 c.gameObject.CompareTag("Food") ||
-                c.gameObject.CompareTag("Object")
+                c.gameObject.CompareTag("Object") ||
+                c.gameObject.CompareTag("Building")
         );
 
         return new List<GameObject>(System.Array.ConvertAll(filtered, c => c.gameObject));

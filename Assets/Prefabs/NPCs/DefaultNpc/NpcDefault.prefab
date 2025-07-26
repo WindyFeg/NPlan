@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Graph: {fileID: -5027583417846632501, guid: f7fdc5cee9ca60b428d55fafa634c7d0, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 2451612340809367869
-  - rid: 6116959252809777252
-  - rid: 6116959774698898381
+  - rid: 6116959818189897908
+  - rid: 6116959818189897909
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -178,7 +178,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 770025913466669864}
-    - rid: 6116959252809777252
+    - rid: 6116959818189897908
       type: {class: 'BlackboardVariable`1[[EntityDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
@@ -186,7 +186,7 @@ MonoBehaviour:
           m_Value1: 5212673749104027386
         Name: Entity Detector
         m_Value: {fileID: 8770211762042509678}
-    - rid: 6116959774698898381
+    - rid: 6116959818189897909
       type: {class: 'BlackboardVariable`1[[LTK268.Model.CommonBase.NpcModel, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:

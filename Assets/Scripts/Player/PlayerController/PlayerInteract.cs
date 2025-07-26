@@ -77,8 +77,9 @@ namespace LTK268
 
         public void OnInteract()
         {
-            if (playerModel.HoldItems.Count > 0) return;
+            // if (playerModel.HoldItems.Count > playerModel.MaxNumberOfHoldItems) return;
             if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
+            Debug.Log("OnInteract called" + currentInteractable.Name);
             currentInteractable.InteractWithEntity(playerModel);
             currentInteractable = null;
         }

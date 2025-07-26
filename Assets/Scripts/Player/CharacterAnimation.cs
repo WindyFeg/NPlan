@@ -134,7 +134,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         {
             currentDirection = velocity.z > 0 ? "Up" : "Down";
         }
-        else if (Mathf.Abs(velocity.x) > Mathf.Epsilon && Mathf.Abs(velocity.y) <= Mathf.Epsilon)
+        else if (Mathf.Abs(velocity.x) > Mathf.Epsilon && Mathf.Abs(velocity.z) <= Mathf.Epsilon)
         {
             currentDirection = velocity.x > 0 ? "Right" : "Left";
         }

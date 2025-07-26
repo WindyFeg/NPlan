@@ -1,4 +1,5 @@
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
 using UnityEngine;
@@ -63,7 +64,9 @@ public class ResourceObject : ObjectBase, IObject
     /// <param name="target">The interacting entity (e.g., player).</param>
     public new void InteractWithEntity(IEntity target)
     {
+
         OnInteractedByEntity(target);
+
     }
 
     /// <summary>
@@ -73,14 +76,27 @@ public class ResourceObject : ObjectBase, IObject
     public new void OnInteractedByEntity(IEntity target)
     {
         // Update storage with the resource provided
-        StorageManager.Instance.UpdateResource(resourceData.SupplyQuantity, resourceData.ResourceType);
-
+        // StorageManager.Instance.UpdateResource(resourceData.SupplyQuantity, resourceData.ResourceType);
+        // if (target.IsPlayer())
+        // {
+        //     PickedUpBy((IHuman)target);
+        // }
+        // else if (target.IsNpc())
+        // {
+        //     PickedUpBy((IHuman)target);
+        // }
+        // else
+        // {
+        //     Debug.Log("ResourceObject: Interaction with non-human entity is not supported.");
+        //     return;
+        // }
+        PickedUpBy((IHuman)target);
         // Reduce health and check for destruction
-        CurrentHealth -= 1;
-        if (CurrentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+        // CurrentHealth -= 1;
+        // if (CurrentHealth <= 0)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 
     #endregion

@@ -80,7 +80,7 @@ public class LumberHouseBlueprint : ObjectBase, IObject
         throw new System.NotImplementedException();
     }
 
-    public new void PickedUpBy(IEntity entity)
+    public new void PickedUpBy(IHuman entity)
     {
         throw new System.NotImplementedException();
     }

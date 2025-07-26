@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace LTK268.Interface
 {
     /// <summary>
@@ -20,5 +22,8 @@ namespace LTK268.Interface
         public bool IsHuman();
     }
 
-    public interface IHuman : IHumanCommonChecking, IHumanControl { }
+    public interface IHuman : IHumanCommonChecking, IHumanControl
+    {
+        public void AddHoldItem(GameObject item);
+    }
 }

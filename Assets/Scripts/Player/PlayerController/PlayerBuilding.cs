@@ -11,7 +11,8 @@ public class PlayerBuilding : MonoBehaviour
     public void OnInteract()
     {
         if (playerModel.HoldItems.Count == 0) return;
-        playerModel.HoldItems.First().InteractWithEntity(playerModel);
+        // var entityInterface = playerModel.HoldItems.FirstOrDefault().GetComponent<IEntity>();
+        // playerModel.HoldItems.First().InteractWithEntity(playerModel);
 
     }
 }

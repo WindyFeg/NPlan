@@ -46,6 +46,7 @@ public class TownHall : BuildingBase, IBuilding
     {
         //check if player has enough resources
         Debug.Log("Town Hall Interacted");
+        // if (this)
         Upgrade();
     }
     public void Upgrade()

@@ -2,13 +2,14 @@ using UnityEngine;
 
 public interface ICharacterAnimation
 {
-    void PlayIdleAnimation();
-    void PlayWalkingAnimation();
-    void PlayRunningAnimation();
-    void PlayGatheringAnimation();
-    void PlayAttackAnimation();
-    void PlayHitAnimation();
-    void PlayDeathAnimation();
+    // void PlayIdleAnimation();
+    // void PlayWalkingAnimation();
+    // void PlayRunningAnimation();
+    // void PlayGatheringAnimation();
+    // void PlayAttackAnimation();
+    // void PlayHitAnimation();
+    // void PlayDeathAnimation();
+    void SetAnimState(AnimState state);
 
     // void SetDirection(string direction);
     void SetSpeed(float speed);

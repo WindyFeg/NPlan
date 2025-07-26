@@ -78,34 +78,35 @@ public class PlayerModel : HumanBase
         {
             case State.Idle:
                 // Play idle animation
-                characterAnimation.PlayIdleAnimation();
+                characterAnimation.SetAnimState(AnimState.Idle);
                 break;
             case State.Walking:
                 // Play walking animation
-                characterAnimation.PlayWalkingAnimation();
+                characterAnimation.SetAnimState(AnimState.Walking);
                 break;
             case State.Running:
                 // Play running animation
-                characterAnimation.PlayRunningAnimation();
+                characterAnimation.SetAnimState(AnimState.Running);
                 break;
             case State.Gathering:
                 // Play gathering animation
-                characterAnimation.PlayGatheringAnimation();
+                characterAnimation.SetAnimState(AnimState.Gathering);
                 break;
             case State.Attacking:
                 // Play attack animation
-                characterAnimation.PlayAttackAnimation();
+                characterAnimation.SetAnimState(AnimState.Attack);
                 break;
             case State.Hit:
                 // Play hit animation
-                characterAnimation.PlayHitAnimation();
+                characterAnimation.SetAnimState(AnimState.Hit);
                 break;
             case State.Dead:
                 // Play death animation
-                characterAnimation.PlayDeathAnimation();
+                characterAnimation.SetAnimState(AnimState.Death);
                 break;
         }
 
         Debug.Log("Character state changed to: " + currentState);
     }
+
 }

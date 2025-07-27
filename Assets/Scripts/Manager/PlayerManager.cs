@@ -12,16 +12,16 @@ namespace LTK268.Manager
         public static PlayerManager Instance { get; private set; }
 
         [SerializeField]
-        private List<FoodBase> listOfFoods = new List<FoodBase>();
+        private List<GameObject> listOfFoods = new List<GameObject>();
         [SerializeField]
-        private List<ObjectBase> listOfObjects = new List<ObjectBase>();
+        private List<GameObject> listOfObjects = new List<GameObject>();
         [SerializeField]
         private PlayerModel playerModel;
         private int nextId = 1;
 
         // Expose lists as public properties for code access
-        public List<FoodBase> ListOfFoods => listOfFoods;
-        public List<ObjectBase> ListOfObjects => listOfObjects;
+        public List<GameObject> ListOfFoods => listOfFoods;
+        public List<GameObject> ListOfObjects => listOfObjects;
         public PlayerModel PlayerModel => playerModel;
 
         private void Awake()

@@ -33,7 +33,7 @@ namespace LTK268.Manager
         {
             if (events == null || events.Count == 0)
             {
-                LTK268Log.ManagerError("TriggerRandomEvent: No events available");
+                //LTK268Log.ManagerError("TriggerRandomEvent: No events available");
                 return;
             }
 

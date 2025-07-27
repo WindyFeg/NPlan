@@ -7,16 +7,21 @@ using UnityEngine;
 
 namespace LTK268.Manager
 {
-    public class UIManager : MonoBehaviour
+    public class EntityUIManager : MonoBehaviour
     {
-        public static UIManager Instance { get; private set; }
+        #region Public Properties
+        public static EntityUIManager Instance { get; private set; }
+        #endregion
 
+        #region Private Fields
         [SerializeField] private EntityUI entityUIPrefab;
 
         private EntityUI entityUIInstance;
         private Transform originalParent;
         private int test = 0;
+        #endregion
 
+        #region Unity Methods
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -32,31 +37,8 @@ namespace LTK268.Manager
             entityUIInstance.gameObject.SetActive(false);
             originalParent = transform;
         }
+        #endregion
 
-        /// <summary>
-        /// Show entity UI on a specific interactable entity.
-        /// </summary>
-        public void ShowEntityUI(EntityInteractable target)
-        {
-            if (!target) return;
-
-            entityUIInstance.transform.SetParent(target.transform);
-            entityUIInstance.transform.localPosition = new Vector3(0, target.YPositionOffset, 0);
-            entityUIInstance.SetActionData(target.Actions);
-            entityUIInstance.SetRequiredItemData(target.RequiredItems);
-            entityUIInstance.gameObject.SetActive(true);
-        }
-
-        /// <summary>
-        /// Hide the entity UI and return it to the UIManager.
-        /// </summary>
-        public void HideEntityUI(EntityInteractable target)
-        {
-            if (!entityUIInstance || !entityUIInstance.gameObject.activeSelf) return;
-
-            entityUIInstance.gameObject.SetActive(false);
-            entityUIInstance.transform.SetParent(originalParent);
-        }
 
 #if UNITY_EDITOR
         private void Update()
@@ -85,5 +67,31 @@ namespace LTK268.Manager
             }
         }
 #endif
+        #region Public Methods
+        /// <summary>
+        /// Show entity UI on a specific interactable entity.
+        /// </summary>
+        public void ShowEntityUI(EntityInteractable target)
+        {
+            if (!target) return;
+
+            entityUIInstance.transform.SetParent(target.transform);
+            entityUIInstance.transform.localPosition = new Vector3(0, target.YPositionOffset, 0);
+            entityUIInstance.SetActionData(target.Actions);
+            entityUIInstance.SetRequiredItemData(target.RequiredItems);
+            entityUIInstance.gameObject.SetActive(true);
+        }
+
+        /// <summary>
+        /// Hide the entity UI and return it to the UIManager.
+        /// </summary>
+        public void HideEntityUI(EntityInteractable target)
+        {
+            if (!entityUIInstance || !entityUIInstance.gameObject.activeSelf) return;
+
+            entityUIInstance.gameObject.SetActive(false);
+            entityUIInstance.transform.SetParent(originalParent);
+        }
+        #endregion
     }
 }

@@ -22,6 +22,5 @@ MonoBehaviour:
   costWood: 0
   costStone: 0
   requirements: 0
-  modelPresets: []
-  spritePresets: []
+  buildingPrefabs: {fileID: 5614415197358369914, guid: a49841d462ea04d4fa5d29872b2104ba, type: 3}
   nextBuildingData: {fileID: 0}

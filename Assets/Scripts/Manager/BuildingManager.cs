@@ -10,10 +10,26 @@ namespace LTK268.Manager
         #region Public Properties
         public static BuildingManager Instance { get; private set; }
         public List<BuildingBase> BuildingBases => buildingBases;
+        public TownHall TownHall
+        {
+            get => townHall;
+            set
+            {
+                if (townHall == null)
+                {
+                    townHall = value;
+                }
+                else
+                {
+                    LTK268Log.LogFalseConfig("Town Hall already assigned", this);
+                }
+            }
+        }
         #endregion
 
         #region Private Properties
         [SerializeField] private List<BuildingBase> buildingBases = new List<BuildingBase>();
+        [SerializeField] private TownHall townHall;
         #endregion
 
         #region Unity Methods

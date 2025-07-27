@@ -28,11 +28,11 @@ namespace LTK268.Interface
         /// called when player needed to pick this up
         /// </summary>
         /// <param name="entity"></param>
-        void PickedUpBy(IEntity entity);
+        void PickedUpBy(IHuman entity);
         /// <summary>
         /// Drop this current object
         /// </summary>
         /// <param name="entity"></param>
-        void DroppedBy(IEntity entity);
+        void DroppedBy(IHuman entity);
     }
 }

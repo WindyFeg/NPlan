@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         characterModel.CurrentState = State.Idle;
-        characterAnimation.PlayIdleAnimation();
+        characterAnimation.SetAnimState(AnimState.Idle);
         return Vector2.zero;
     }
 

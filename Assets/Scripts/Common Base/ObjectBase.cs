@@ -80,14 +80,18 @@ namespace LTK268.Model.CommonBase
             LTK268Log.LogNotImplement(this);
         }
 
-        public void PickedUpBy(IEntity entity)
+        public void PickedUpBy(IHuman entity)
         {
-            PlayerManager.Instance.ListOfObjects.Add(this);
-            LTK268Log.LogEntityAction(this, $"Picked up by {entity.Name}");
+            // Add hold to target entity
+            entity.AddHoldItem(this.gameObject);
+
+            // Update into PlayerManager
+            PlayerManager.Instance.ListOfObjects.Add(this.gameObject);
+            LTK268Log.LogEntityAction(this, $"Picked up by {entity}");
             this.gameObject.SetActive(false);
         }
 
-        public void DroppedBy(IEntity entity)
+        public void DroppedBy(IHuman entity)
         {
             throw new System.NotImplementedException();
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using LTK268.Model.CommonBase;
+using UnityEngine;
 
 namespace LTK268.Interface
 {
@@ -38,5 +39,15 @@ namespace LTK268.Interface
         /// </summary>
         /// <param name="worker"></param>
         void AssignWorker(NPCBase worker);
+    }
+
+    public interface IBuildingStorage
+    {
+        Dictionary<GameObject, int> StoredItems { get; set; }
+
+        /// <summary>
+        /// Stores an item in the building's storage.
+        /// </summary>
+        void StoreItem(IHuman item);
     }
 }

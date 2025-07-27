@@ -1,7 +1,8 @@
 using UnityEngine; // Essential for Debug.Log
 using System.Runtime.CompilerServices; // For Caller attributes
 using System.IO;
-using LTK268.Model.CommonBase; // For Path.GetFileName
+using LTK268.Model.CommonBase;
+using System; // For Path.GetFileName
 
 namespace LTK268.Utils
 {
@@ -39,6 +40,17 @@ namespace LTK268.Utils
             // Format the log so that the file and line are clickable in Unity Console
             string logMessage = $"[258LTK LOG] - INFO: {message} \n({fileName}:{lineNumber}) in {memberName}";
             Debug.Log(logMessage, null); // The null context allows Unity to make the file:line clickable
+        }
+
+        public static void LogWarning(string message,
+            [CallerFilePath] string filePath = "",
+            [CallerLineNumber] int lineNumber = 0,
+            [CallerMemberName] string memberName = "")
+        {
+            string fileName = Path.GetFileName(filePath);
+            // Format the log so that the file and line are clickable in Unity Console
+            string logMessage = $"[258LTK LOG] - WARNING: {message} \n({fileName}:{lineNumber}) in {memberName}";
+            Debug.LogWarning(logMessage, null); // The null context allows Unity to make the file:line clickable
         }
 
         public static void LogEntity(EntityBase entityBase)
@@ -104,5 +116,6 @@ namespace LTK268.Utils
             // Log the error message to the Unity Console
             Debug.Log(logMessage);
         }
+
     }
 }

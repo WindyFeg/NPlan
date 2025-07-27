@@ -8,7 +8,7 @@ namespace LTK268.Model.CommonBase
     public class HumanBase : EntityBase, IHuman
     {
         #region Public Properties
-        public List<ObjectBase> HoldItems
+        public List<GameObject> HoldItems
         {
             get => holdItems;
             set => holdItems = value;
@@ -21,7 +21,7 @@ namespace LTK268.Model.CommonBase
         #endregion
 
         #region Private Fields
-        [SerializeField] private List<ObjectBase> holdItems = new List<ObjectBase>();
+        [SerializeField] private List<GameObject> holdItems = new List<GameObject>();
         [SerializeField] private int maxNumberOfHoldItems = 1;
         #endregion
 
@@ -54,6 +54,23 @@ namespace LTK268.Model.CommonBase
         public void Dead()
         {
             LTK268Log.LogNotImplement(this);
+        }
+
+        public void AddHoldItem(GameObject item)
+        {
+            holdItems.Add(item);
+        }
+
+        public GameObject RemoveHoldItem()
+        {
+            if (holdItems.Count == 0)
+            {
+                Debug.LogWarning("No items to remove", this);
+                return null;
+            }
+            GameObject item = holdItems[0];
+            holdItems.RemoveAt(0);
+            return item;
         }
         #endregion
     }

@@ -4,8 +4,9 @@ using Unity.Behavior;
 [BlackboardEnum]
 public enum NPCState
 {
-    PickingUp,
+	PickingUp,
 	Wandering,
 	DepositBase,
-	FillBuilding
+	FillBuilding,
+	Sickness
 }

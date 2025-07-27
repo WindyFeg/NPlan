@@ -4,6 +4,7 @@ using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
+using Common_Utils;
 namespace LTK268
 {
     /// <summary>
@@ -20,33 +21,65 @@ namespace LTK268
         [Tooltip("LayerMask to detect which objects are interactable.")]
         [SerializeField] private LayerMask interactableLayer;
 
-        [Tooltip("Detection radius around the player.")]
-        [SerializeField] private float detectionRadius = 0.5f;
+        [Tooltip("EntityDetector to manage entity detection.")]
+        [SerializeField] private EntityDetector entityDetector;
 
         #endregion
 
         #region Private Fields
 
         private IEntity currentInteractable;
-        private EntityBase closestEntity;
+        [SerializeField] private EntityBase closestEntity;
 
         #endregion
 
-        #region Unity Lifecycle
-
-        private void Update()
+        #region Unity Methods
+        List<Collider> objectsInTrigger = new List<Collider>();
+        private void Start()
         {
-            DetectNearbyInteractables();
+            if (playerModel == null)
+            {
+                Debug.LogError("PlayerModel is not assigned in PlayerInteract.");
+                return;
+            }
         }
 
+        private void OnTriggerStay(Collider other)
+        {
+            if (!objectsInTrigger.Contains(other))
+            {
+                objectsInTrigger.Add(other);
+                if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
+                {
+                    var go = entityDetector.GetClosestEntity();
+                    closestEntity = go?.GetComponent<EntityBase>();
+                    currentInteractable = closestEntity as IEntity;
+                    if (currentInteractable != null)
+                    {
+                        var entityInteractable = closestEntity.GetComponent<EntityInteractable>();
+                        EntityUIManager.Instance.ShowEntityUI(entityInteractable);
+                    }
+                }
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (objectsInTrigger.Contains(other))
+            {
+                EntityUIManager.Instance.HideEntityUI(null);
+                objectsInTrigger.Remove(other);
+            }
+        }
         #endregion
 
         #region Interaction Events
 
         public void OnInteract()
         {
+            // if (playerModel.HoldItems.Count > playerModel.MaxNumberOfHoldItems) return;
             if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
-
+            Debug.Log("OnInteract called" + currentInteractable.Name);
             currentInteractable.InteractWithEntity(playerModel);
             currentInteractable = null;
         }
@@ -66,86 +99,6 @@ namespace LTK268
         {
             // Implement logic for next interaction if needed.
             // this.notify_event((int)EventID.Game.OnSwipeRightJobList);
-        }
-
-        #endregion
-
-        #region Detection Logic
-
-        private void DetectNearbyInteractables()
-        {
-            Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius, interactableLayer);
-
-            if (hits.Length > 0)
-            {
-                if (currentInteractable != null)
-                {
-                    // If we already have an interactable, we can skip the notification
-                    // to avoid redundant updates.
-                    return;
-                }
-                // Find the closest interactable (optional)
-                float minDistance = float.MaxValue;
-                IEntity closestInteractable = null;
-                Transform objectTransform = null;
-
-                foreach (var hit in hits)
-                {
-                    var entity = hit.GetComponent<IEntity>();
-                    if (entity != null)
-                    {
-                        float dist = Vector3.Distance(transform.position, hit.transform.position);
-                        if (dist < minDistance)
-                        {
-                            minDistance = dist;
-                            closestInteractable = entity;
-                            objectTransform = hit.transform;
-                            
-                            // Show interactable UI
-                            // Tách thành 1 function
-                            // var entityBase = hit.GetComponent<EntityBase>();
-                            // if (entityBase != null && entityBase != closestEntity)
-                            // {
-                            //     // Destroy the previous entity UI if it exists
-                            //     if (closestEntity != null && closestEntity.EntityView != null)
-                            //     {
-                            //         LTK268Log.LogInfo($"Hiding UI for {closestEntity.Name}");
-                            //         UIManager.Instance.HideEntityUI(closestEntity);
-                            //     }
-                            //     closestEntity = entityBase;
-                            //     // Notify UIManager to show the entity UI
-                            //     if (closestEntity != null && closestEntity.EntityView != null)
-                            //     {
-                            //         LTK268Log.LogInfo($"Showing UI for {closestEntity.Name}");
-                            //         UIManager.Instance.ShowEntityUI(closestEntity);
-                            //     }
-                            //     else
-                            //     {
-                            //         Debug.LogWarning("Closest entity is null or has no EntityView.");
-                            //     }
-                            // }
-                        }
-                    }
-                }
-                // this.notify_event((int)EventID.Game.OnObjectInOfRange, closestInteractable.Name, objectTransform);
-                currentInteractable = closestInteractable;
-
-            }
-            else
-            {
-                currentInteractable = null;
-                // this.notify_event((int)EventID.Game.OnObjectOutOfRange);
-            }
-        }
-
-        #endregion
-
-        #region Debug
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, detectionRadius);
         }
 
         #endregion

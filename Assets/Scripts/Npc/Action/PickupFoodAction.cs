@@ -30,7 +30,7 @@ public partial class PickupFoodAction : Action
             var distanceToObject = Vector3.Distance(Agent.Value.transform.position, Object.Value.transform.position);
             if (distanceToObject <= Agent.Value.PickupDistance)
             {
-                Object.Value.PickedUpBy(Agent.Value);
+                Object.Value.PickedUpBy((IHuman)Agent.Value);
                 return Status.Success;
             }
         }
@@ -40,7 +40,7 @@ public partial class PickupFoodAction : Action
             var distanceToFood = Vector3.Distance(Agent.Value.transform.position, Food.Value.transform.position);
             if (distanceToFood <= Agent.Value.PickupDistance)
             {
-                Food.Value.PickedUpBy(Agent.Value);
+                Food.Value.PickedUpBy((IHuman)Agent.Value);
                 return Status.Success;
             }
         }

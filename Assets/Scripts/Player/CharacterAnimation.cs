@@ -46,8 +46,8 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     #region Private Fields
 
     public string currentAnimation;
-    private string lastDirection = "Down";
-    private string currentDirection = "Down";
+    public string lastDirection = "None";
+    public string currentDirection = "None";
     private AnimState currentAnimState = AnimState.Idle;
 
     #endregion
@@ -71,8 +71,31 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     {
         Vector3 velocity = navMeshAgent != null ? navMeshAgent.velocity : rb.linearVelocity;
         UpdateDirectionFromVelocity(velocity);
-        // PlayAnimationByState(currentAnimState);
+
+        // Luôn cập nhật animation khi đang Walking hoặc Running
+        if (currentAnimState == AnimState.Walking || currentAnimState == AnimState.Running)
+        {
+            PlayAnimationByState(currentAnimState);
+        }
     }
+    private void Update()
+    {
+        if (!IsTransientAnim(currentAnimState)) return;
+
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        if (stateInfo.normalizedTime >= 1f && !anim.IsInTransition(0))
+        {
+            SetAnimState(AnimState.Idle);
+        }
+    }
+
+    private bool IsTransientAnim(AnimState state)
+    {
+        return state is AnimState.Attack or AnimState.Pickup or AnimState.Hit or AnimState.Death;
+    }
+
+
 
     #endregion
 
@@ -81,11 +104,10 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     private void PlayAnimationByState(AnimState state)
     {
         // Check if there is anmation playing dont play
-        Debug.Log($"Current animation: {state}");
-        Debug.Log($"Current animation: {currentAnimState}");
-        // if (currentAnimState == state && !string.IsNullOrEmpty(currentAnimation))
-        //     return;
-        Debug.Log($"Playing animation by state: {state}");
+        if (state == currentAnimState && currentDirection == lastDirection)
+        {
+            return;
+        }
         string baseName = state switch
         {
             AnimState.Idle => AnimNames.Idle,
@@ -99,23 +121,34 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         };
 
         PlayDirectionalAnimation(baseName);
-        
+        currentAnimState = state;
+
     }
 
     private void PlayDirectionalAnimation(string baseName)
     {
-        // if (currentDirection != lastDirection)
-        //     lastDirection = currentDirection;
-        string animName = $"{entityBase.Name}_{baseName}{lastDirection}";
-        if (currentAnimation == animName) return;
-        Debug.Log($"Current animation: {currentAnimation}" + " " );
-        if (currentAnimation.Contains(AnimNames.Walking) && baseName.Contains(AnimNames.Walking)) return;
+        string animName = $"{entityBase.Name}_{baseName}{currentDirection}";
+        // Không phát lại nếu đang phát đúng animation theo hướng
+        if (currentAnimation == animName)
+            return;
+        Debug.Log($"[PlayDirectionalAnimation] baseName: {baseName}, currentDirection: {currentDirection}, animName: {animName}");
+        // Nếu cùng loại animation (VD: Walking -> Walking) nhưng hướng thay đổi => phát lại
+        if (currentAnimation.StartsWith($"{entityBase.Name}_{baseName}") && lastDirection != currentDirection)
+        {
+            Debug.Log($"[DirectionChanged] Switching direction from {lastDirection} to {currentDirection}");
+        }
+        else if (currentAnimation.StartsWith($"{entityBase.Name}_{baseName}"))
+        {
+            // Cùng animation và cùng hướng => không cần cập nhật lại
+            return;
+        }
 
-
-        Debug.Log($"Playing animation: {animName}");
+        Debug.Log($"[AnimationPlay] Playing: {animName}");
         anim.Play(animName);
         currentAnimation = animName;
+        lastDirection = currentDirection;
     }
+
 
     #endregion
 
@@ -123,8 +156,11 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     public void SetAnimState(AnimState state)
     {
+        Vector3 velocity = navMeshAgent != null ? navMeshAgent.velocity : rb.linearVelocity;
+        UpdateDirectionFromVelocity(velocity);
         PlayAnimationByState(state);
     }
+
 
     public void SetSpeed(float speed)
     {
@@ -138,13 +174,17 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     private void UpdateDirectionFromVelocity(Vector3 velocity)
     {
-        if (Mathf.Abs(velocity.z) > Mathf.Epsilon)
+        if (Mathf.Abs(velocity.z) > 0 && Mathf.Abs(velocity.x) <= Mathf.Abs(velocity.z))
         {
             currentDirection = velocity.z > 0 ? "Up" : "Down";
         }
-        else if (Mathf.Abs(velocity.x) > Mathf.Epsilon && Mathf.Abs(velocity.z) <= Mathf.Epsilon)
+        else if (Mathf.Abs(velocity.x) > 0)
         {
             currentDirection = velocity.x > 0 ? "Right" : "Left";
+        }
+        if (currentDirection != lastDirection)
+        {
+            PlayAnimationByState(currentAnimState); // Update animation state when direction changes
         }
     }
 

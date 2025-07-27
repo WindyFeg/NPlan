@@ -31,7 +31,7 @@ AnimationClip:
     - time: 0.39000002
       value: {fileID: 7872289463491655032, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
     attribute: m_Sprite
-    path: LootItem_Down
+    path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -43,7 +43,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1577989956
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212

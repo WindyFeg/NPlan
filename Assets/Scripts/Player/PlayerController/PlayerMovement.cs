@@ -25,19 +25,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Move();
+    }
+    private void Move()
+    {
+        if(movementInput == Vector2.zero)
+        {
+            characterModel.CurrentState = State.Idle;
+            rb.linearVelocity = Vector3.zero;
+            return;
+        }
         rb.linearVelocity = new Vector3(movementInput.x, 0f, movementInput.y) * movementData.moveSpeed;
+        characterModel.CurrentState = State.Walking;
     }
 
     private Vector2 ProcessInput(Vector2 input)
     {
         if (input.magnitude > 0.01f)
         {
-            characterModel.CurrentState = State.Walking;
             return input.normalized;
         }
-
-        characterModel.CurrentState = State.Idle;
-        characterAnimation.SetAnimState(AnimState.Idle);
         return Vector2.zero;
     }
 

@@ -8,7 +8,7 @@ public enum AnimState
     Idle,
     Walking,
     Running,
-    Gathering,
+    Pickup,
     Attack,
     Hit,
     Death
@@ -26,7 +26,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         public const string Idle = "Idle";
         public const string Walking = "Walking";
         public const string Running = "Running";
-        public const string Gathering = "Gathering";
+        public const string Pickup = "Pickup";
         public const string Attack = "Attack";
         public const string Hit = "Hit";
         public const string Death = "Death";
@@ -80,12 +80,15 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     private void PlayAnimationByState(AnimState state)
     {
+        // Check if there is anmation playing dont play
+        if (currentAnimState == state && !string.IsNullOrEmpty(currentAnimation))
+            return;
         string baseName = state switch
         {
             AnimState.Idle => AnimNames.Idle,
             AnimState.Walking => AnimNames.Walking,
             AnimState.Running => AnimNames.Running,
-            AnimState.Gathering => AnimNames.Gathering,
+            AnimState.Pickup => AnimNames.Pickup,
             AnimState.Attack => AnimNames.Attack,
             AnimState.Hit => AnimNames.Hit,
             AnimState.Death => AnimNames.Death,
@@ -138,7 +141,6 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         {
             currentDirection = velocity.x > 0 ? "Right" : "Left";
         }
-
     }
 
     #endregion

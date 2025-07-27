@@ -24510,6 +24510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingBases: []
+  townHall: {fileID: 0}
 --- !u!1 &721701989
 GameObject:
   m_ObjectHideFlags: 0
@@ -28627,6 +28628,35 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: 'managedReferences[6116959832051287035]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[CharacterAnimation,
+        Assembly-CSharp]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: managedReferences[6116959832051287035].Name
+      value: CharactorAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_BlackboardVariableOverridesList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: managedReferences[6116959832051287035].m_Value
+      value: 
+      objectReference: {fileID: 1875647423518440227}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[3]'
+      value: 6116959832051287035
+      objectReference: {fileID: 0}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: managedReferences[6116959832051287035].GUID.m_Value0
+      value: 16996285001946116035
+      objectReference: {fileID: 0}
+    - target: {fileID: 948910784363716628, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: managedReferences[6116959832051287035].GUID.m_Value1
+      value: 17071407837395027440
+      objectReference: {fileID: 0}
     - target: {fileID: 1272321186969891503, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: joblessBehaviorGraph
       value: 
@@ -28675,6 +28705,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8778264442025403812, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7ac7d4123c744e548ad2ba6f16d0655b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28685,6 +28719,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3980433094304705190, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
   m_PrefabInstance: {fileID: 1875647423518440221}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1875647423518440227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4018375896174312859, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+  m_PrefabInstance: {fileID: 1875647423518440221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a847761786196412c8068a8834f38ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

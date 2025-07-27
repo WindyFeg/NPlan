@@ -5,7 +5,7 @@ public interface ICharacterAnimation
     // void PlayIdleAnimation();
     // void PlayWalkingAnimation();
     // void PlayRunningAnimation();
-    // void PlayGatheringAnimation();
+    // void PlayPickupAnimation();
     // void PlayAttackAnimation();
     // void PlayHitAnimation();
     // void PlayDeathAnimation();

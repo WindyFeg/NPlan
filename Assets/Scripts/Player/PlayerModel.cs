@@ -8,7 +8,7 @@ public enum State
     Idle,
     Walking,
     Running,
-    Gathering,
+    Pickup,
     Attacking,
     Hit,
     Dead
@@ -88,9 +88,9 @@ public class PlayerModel : HumanBase
                 // Play running animation
                 characterAnimation.SetAnimState(AnimState.Running);
                 break;
-            case State.Gathering:
-                // Play gathering animation
-                characterAnimation.SetAnimState(AnimState.Gathering);
+            case State.Pickup:
+                // Play Pickup animation
+                characterAnimation.SetAnimState(AnimState.Pickup);
                 break;
             case State.Attacking:
                 // Play attack animation

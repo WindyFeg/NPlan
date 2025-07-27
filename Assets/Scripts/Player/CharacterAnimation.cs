@@ -45,7 +45,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     #region Private Fields
 
-    private string currentAnimation;
+    public string currentAnimation;
     private string lastDirection = "Down";
     private string currentDirection = "Down";
     private AnimState currentAnimState = AnimState.Idle;
@@ -71,7 +71,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     {
         Vector3 velocity = navMeshAgent != null ? navMeshAgent.velocity : rb.linearVelocity;
         UpdateDirectionFromVelocity(velocity);
-        PlayAnimationByState(currentAnimState);
+        // PlayAnimationByState(currentAnimState);
     }
 
     #endregion
@@ -81,8 +81,11 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     private void PlayAnimationByState(AnimState state)
     {
         // Check if there is anmation playing dont play
-        if (currentAnimState == state && !string.IsNullOrEmpty(currentAnimation))
-            return;
+        Debug.Log($"Current animation: {state}");
+        Debug.Log($"Current animation: {currentAnimState}");
+        // if (currentAnimState == state && !string.IsNullOrEmpty(currentAnimation))
+        //     return;
+        Debug.Log($"Playing animation by state: {state}");
         string baseName = state switch
         {
             AnimState.Idle => AnimNames.Idle,
@@ -96,16 +99,18 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         };
 
         PlayDirectionalAnimation(baseName);
+        
     }
 
     private void PlayDirectionalAnimation(string baseName)
     {
-        if (currentDirection != lastDirection)
-            lastDirection = currentDirection;
-
+        // if (currentDirection != lastDirection)
+        //     lastDirection = currentDirection;
         string animName = $"{entityBase.Name}_{baseName}{lastDirection}";
-
         if (currentAnimation == animName) return;
+        Debug.Log($"Current animation: {currentAnimation}" + " " );
+        if (currentAnimation.Contains(AnimNames.Walking) && baseName.Contains(AnimNames.Walking)) return;
+
 
         Debug.Log($"Playing animation: {animName}");
         anim.Play(animName);
@@ -118,7 +123,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     public void SetAnimState(AnimState state)
     {
-        currentAnimState = state;
+        PlayAnimationByState(state);
     }
 
     public void SetSpeed(float speed)

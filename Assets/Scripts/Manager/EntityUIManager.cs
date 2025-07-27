@@ -74,11 +74,12 @@ namespace LTK268.Manager
         public void ShowEntityUI(EntityInteractable target)
         {
             if (!target) return;
-
+            
+            Debug.Log("Showing Entity UI for: " + target.name);
             entityUIInstance.transform.SetParent(target.transform);
             entityUIInstance.transform.localPosition = new Vector3(0, target.YPositionOffset, 0);
             entityUIInstance.SetActionData(target.Actions);
-            entityUIInstance.SetRequiredItemData(target.RequiredItems);
+            entityUIInstance.SetRequiredItemData(target.RequiredItems, target.isRequiredItem);
             entityUIInstance.gameObject.SetActive(true);
         }
 

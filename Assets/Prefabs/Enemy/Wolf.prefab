@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8822932804179116037}
   - component: {fileID: 7311257319097500335}
-  - component: {fileID: 7587342119555646863}
   - component: {fileID: 3149263866663412585}
   - component: {fileID: 6710518678541033073}
   - component: {fileID: 6920839874937887126}
@@ -18,6 +17,8 @@ GameObject:
   - component: {fileID: 2533358120964842486}
   - component: {fileID: 1228223608224936443}
   - component: {fileID: 2407609608874238374}
+  - component: {fileID: 2406674374852789257}
+  - component: {fileID: 7332971622398822482}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Enemy
@@ -95,52 +96,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7587342119555646863
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822930797892529999}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0625, y: 0.8125}
-    newSize: {x: 1.15625, y: 0.8125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.0625, y: 0.8125}
-  m_EdgeRadius: 0
 --- !u!95 &3149263866663412585
 Animator:
   serializedVersion: 7
@@ -212,8 +167,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 1.5
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -240,11 +195,12 @@ MonoBehaviour:
   m_BlackboardVariableOverridesList:
   - rid: 6646562223697952824
   - rid: 6646562547930497375
-  - rid: 6646562547930497376
-  - rid: 6646562547930497377
+  - rid: 6646562697584574693
   - rid: 6646562548273906006
   - rid: 6646562548273906007
   - rid: 6646562548949189257
+  - rid: 6646562697940304267
+  - rid: 6646562697940304268
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -266,22 +222,6 @@ MonoBehaviour:
           m_Value1: 16276022694950474310
         Name: Target
         m_Value: {fileID: 0}
-    - rid: 6646562547930497376
-      type: {class: 'BlackboardVariable`1[[LineOfSightDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 2690536906664210824
-          m_Value1: 5070609885137579877
-        Name: LineOfSightDetector
-        m_Value: {fileID: 1228223608224936443}
-    - rid: 6646562547930497377
-      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 18087654385067518573
-          m_Value1: 3541672997200092223
-        Name: RangeDetector
-        m_Value: {fileID: 2407609608874238374}
     - rid: 6646562548273906006
       type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -309,6 +249,30 @@ MonoBehaviour:
           m_Value1: 9517693237656727348
         Name: isIdle
         m_Value: 0
+    - rid: 6646562697584574693
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 546778033362163517
+          m_Value1: 5761400032868800362
+        Name: AttackRange
+        m_Value: 1
+    - rid: 6646562697940304267
+      type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 16218684577167869099
+          m_Value1: 12448507612114649808
+        Name: RangeDetector
+        m_Value: {fileID: 2407609608874238374}
+    - rid: 6646562697940304268
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 18167426195668468725
+          m_Value1: 1533143970154351432
+        Name: Speed
+        m_Value: 1.5
 --- !u!114 &1228223608224936443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,14 +280,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822930797892529999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fea337b1eec3cfd47a26b769e1650360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerLayerMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 1664
   m_detectionRange: 10
   m_detectionHeight: 3
   showDebugVisuals: 1
@@ -342,5 +306,53 @@ MonoBehaviour:
   detectionRadius: 4
   detectionMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 1024
   showDebugVisuals: 1
+--- !u!54 &2406674374852789257
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822930797892529999}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &7332971622398822482
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822930797892529999}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

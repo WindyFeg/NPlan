@@ -14,7 +14,7 @@ namespace Common_Utils
     public class RequiredItemInteractable
     {
         // Sửa itemId, icon thành resourceData
-        public ResourceData resourceData;
+        public BuildingData buildingData;
         public int ItemId;
         public Sprite Icon;
         public int Amount;

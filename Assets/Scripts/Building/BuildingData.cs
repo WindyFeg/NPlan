@@ -18,9 +18,11 @@ public class BuildingData : ScriptableObject
     public int damage;
 
     [Header("Building Properties")]
-    public float buildTime;
-    public int costGold;
+    public ResourceTypeData foodResource;
+    public int costFood;
+    public ResourceTypeData woodResource;
     public int costWood;
+    public ResourceTypeData stoneResource;
     public int costStone;
 
     [Header("Building Requirements")]
@@ -29,6 +31,7 @@ public class BuildingData : ScriptableObject
     public GameObject buildingPrefabs;
     [Header("Building Upgrade Data")]
     public BuildingData nextBuildingData;
+
 
 
 }

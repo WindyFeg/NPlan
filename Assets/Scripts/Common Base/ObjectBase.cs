@@ -1,3 +1,4 @@
+using DG.Tweening;
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Utils;
@@ -88,7 +89,15 @@ namespace LTK268.Model.CommonBase
             // Update into PlayerManager
             PlayerManager.Instance.ListOfObjects.Add(this.gameObject);
             LTK268Log.LogEntityAction(this, $"Picked up by {entity}");
-            this.gameObject.SetActive(false);
+            this.transform.DOScale(this.transform.localScale * 1.2f, 0.2f).OnComplete(() =>
+            {
+                this.transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => 
+                {
+                     this.gameObject.SetActive(false);
+                });
+        
+            });
+
         }
 
         public void DroppedBy(IHuman entity)

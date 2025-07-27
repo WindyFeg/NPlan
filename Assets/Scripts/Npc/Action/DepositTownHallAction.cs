@@ -3,62 +3,35 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
-using UnityEngine.AI;
-using LTK268.Manager;
+using LTK268.Interface;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "DepositTownHall", story: "[Self] Navigate to TownHall", category: "Action", id: "c131d90c81c022e0d0134f39e428b258")]
+[NodeDescription(name: "DepositTownHall", story: "[Self] deposit to [TownHall]", category: "Action", id: "a23a31d418737f2db160e3b639416dfe")]
 public partial class DepositTownHallAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Self;
-    private NavMeshAgent navMeshAgent;
+    [SerializeReference] public BlackboardVariable<GameObject> TownHall;
 
     protected override Status OnStart()
     {
-        if (Self?.Value == null)
+        if (Self == null || TownHall == null)
         {
-            Debug.LogError("WanderTask: Self BlackboardVariable or its Value is not set.");
+            Debug.LogError("DepositTownHallAction requires both Self and TownHall variables to be set.");
             return Status.Failure;
         }
 
-        navMeshAgent = Self.Value.GetComponent<NavMeshAgent>();
-
-        if (navMeshAgent == null)
-        {
-            Debug.LogError("WanderTask requires a NavMeshAgent component on the GameObject stored in Self.Value.");
-            return Status.Failure;
-        }
-
-        if (BuildingManager.Instance?.TownHall == null)
-        {
-            Debug.LogError("WanderTask: BuildingManager.Instance or TownHall is null. Cannot set destination.");
-            return Status.Failure;
-        }
-
-        navMeshAgent.SetDestination(BuildingManager.Instance.TownHall.transform.position);
+        var npcBase = Self.Value.GetComponent<IHuman>();
+        TownHall.Value.GetComponent<TownHall>().Deposit(npcBase);
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        if (navMeshAgent == null) return Status.Failure;
-
-        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-        {
-            if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
-            {
-                return Status.Success;
-            }
-        }
-        return Status.Running;
+        return Status.Success;
     }
 
     protected override void OnEnd()
     {
-        if (navMeshAgent != null && navMeshAgent.isOnNavMesh)
-        {
-            navMeshAgent.isStopped = true;
-        }
     }
 }
 

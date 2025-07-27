@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jobless_NPC_IdleUp
+  m_Name: Jobless_NPC_PickupRight
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,11 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -2842423140853356922, guid: 8ef8eeb4f343ead4ebf67eab21dd52ec, type: 3}
-    - time: 1
-      value: {fileID: -2842423140853356922, guid: 8ef8eeb4f343ead4ebf67eab21dd52ec, type: 3}
+      value: {fileID: -6518137344525080506, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - time: 0.1
+      value: {fileID: -8528885398427783460, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - time: 0.2
+      value: {fileID: -4655369706479709112, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - time: 0.3
+      value: {fileID: -7225803105169721093, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - time: 0.39000002
+      value: {fileID: -7225803105169721093, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
     attribute: m_Sprite
-    path: 
+    path: LootItem_Side
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -37,7 +43,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 1634778314
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -46,14 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -2842423140853356922, guid: 8ef8eeb4f343ead4ebf67eab21dd52ec, type: 3}
-    - {fileID: -2842423140853356922, guid: 8ef8eeb4f343ead4ebf67eab21dd52ec, type: 3}
+    - {fileID: -6518137344525080506, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - {fileID: -8528885398427783460, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - {fileID: -4655369706479709112, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - {fileID: -7225803105169721093, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
+    - {fileID: -7225803105169721093, guid: 6df9b89dd4a11944cbf743c659fb1c7b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.01
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

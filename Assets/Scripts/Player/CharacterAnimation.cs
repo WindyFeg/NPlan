@@ -72,27 +72,10 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         Vector3 velocity = navMeshAgent != null ? navMeshAgent.velocity : rb.linearVelocity;
         UpdateDirectionFromVelocity(velocity);
 
-        // Luôn cập nhật animation khi đang Walking hoặc Running
         if (currentAnimState == AnimState.Walking || currentAnimState == AnimState.Running)
         {
             PlayAnimationByState(currentAnimState);
         }
-    }
-    private void Update()
-    {
-        if (!IsTransientAnim(currentAnimState)) return;
-
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-
-        if (stateInfo.normalizedTime >= 1f && !anim.IsInTransition(0))
-        {
-            SetAnimState(AnimState.Idle);
-        }
-    }
-
-    private bool IsTransientAnim(AnimState state)
-    {
-        return state is AnimState.Attack or AnimState.Pickup or AnimState.Hit or AnimState.Death;
     }
 
 
@@ -132,7 +115,6 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         if (currentAnimation == animName)
             return;
         Debug.Log($"[PlayDirectionalAnimation] baseName: {baseName}, currentDirection: {currentDirection}, animName: {animName}");
-        // Nếu cùng loại animation (VD: Walking -> Walking) nhưng hướng thay đổi => phát lại
         if (currentAnimation.StartsWith($"{entityBase.Name}_{baseName}") && lastDirection != currentDirection)
         {
             Debug.Log($"[DirectionChanged] Switching direction from {lastDirection} to {currentDirection}");

@@ -47,6 +47,8 @@ namespace Common_Utils
                     return;
                 }
             }
+
+            ChangeRequiredItemState();
             Debug.LogWarning($"Item with ID {itemId} not found in required items.");
         }
 
@@ -57,12 +59,11 @@ namespace Common_Utils
         {
             foreach (var item in RequiredItems)
             {
-                if (item.CurrentAmount >= item.Amount)
+                if (item.CurrentAmount < item.Amount)
                 {
-                    continue;
+                    isRequiredItem = true;
+                    return;
                 }
-                isRequiredItem = true;
-                break;
             }
             isRequiredItem = false;
         }

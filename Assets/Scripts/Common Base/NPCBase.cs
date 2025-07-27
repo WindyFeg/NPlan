@@ -1,5 +1,6 @@
 using LTK268.Interface;
 using LTK268.Manager;
+using LTK268.Popups;
 using LTK268.Utils;
 using Unity.Behavior;
 using UnityEngine;
@@ -155,7 +156,7 @@ namespace LTK268.Model.CommonBase
             // }
 
             PopupManager.Instance.Show(
-                "NPC Interaction",
+                PopupType.Ok,
                 $"Hello, I am a {npcType} NPC. How can I assist you today?",
                 "OK"
             );

@@ -24,11 +24,12 @@ namespace UI.EntityUI
             }
         }
         
-        public void SetRequiredItemData(RequiredItemInteractable[] requiredItems)
+        public void SetRequiredItemData(RequiredItemInteractable[] requiredItems, bool isRequiredItem)
+        
         {
-            for (int i = 0; i < requiredItems.Length; i++)
+            for (int i = 0; i < RequiredItems.Length; i++)
             {
-                if (i < requiredItems.Length)
+                if (i < requiredItems.Length && isRequiredItem)
                 {
                     RequiredItems[i].SetData(requiredItems[i].ItemId, requiredItems[i].Amount, requiredItems[i].CurrentAmount);
                     RequiredItems[i].SetSprite(requiredItems[i].Icon);

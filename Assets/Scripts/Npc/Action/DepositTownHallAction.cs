@@ -21,6 +21,7 @@ public partial class DepositTownHallAction : Action
         }
 
         var npcBase = Self.Value.GetComponent<IHuman>();
+        // TownHall.Value.GetComponent<TownHall>().Deposit(npcBase);
         TownHall.Value.GetComponent<TownHall>().StoreItem(npcBase);
 
         return Status.Running;

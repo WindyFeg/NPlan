@@ -504,16 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16f42c6e964c40bd84938bef184bce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobIcon:
-  - {fileID: -5181668217495783914, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: -5952941072580132972, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: -6283020426120988075, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: 540122320888071077, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: -4454234398874914378, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: 8832947265180979257, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: -296948378952026216, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  jobItemIcon: {fileID: 413925950}
-  jobItemPos: 2
 --- !u!222 &395793222
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -928,8 +918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a6c399d15034605977ad3b137481fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textPopupPrefab: {fileID: 625662360}
-  jobListPopupPrefab: {fileID: 0}
 --- !u!1001 &799833668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1038,16 +1026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16f42c6e964c40bd84938bef184bce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobIcon:
-  - {fileID: -5181668217495783914, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: -5952941072580132972, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: -6283020426120988075, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: 540122320888071077, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: -4454234398874914378, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: 8832947265180979257, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: -296948378952026216, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  jobItemIcon: {fileID: 1472433637}
-  jobItemPos: 0
 --- !u!222 &842800051
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1605,16 +1583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16f42c6e964c40bd84938bef184bce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobIcon:
-  - {fileID: -5181668217495783914, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: -5952941072580132972, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: -6283020426120988075, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  - {fileID: 540122320888071077, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: -4454234398874914378, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: 8832947265180979257, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-  - {fileID: -296948378952026216, guid: 552d2dcdf215346729bfa487594e41a2, type: 3}
-  jobItemIcon: {fileID: 1106942659}
-  jobItemPos: 1
 --- !u!222 &1517665027
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1704,7 +1672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e867fed05a554d61b71febfc1464c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobListPanel: {fileID: 1563740913}
 --- !u!1001 &1628106300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1948,12 +1915,16 @@ MonoBehaviour:
   damage: 0
   armor: 0
   entityType: 0
+  entityView: {fileID: 0}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
   buildingType: 0
   buildingSize: 0
+  assignedWorker: {fileID: 0}
+  residents: []
+  buildingState: 0
 --- !u!65 &1658065248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1995,12 +1966,16 @@ MonoBehaviour:
   damage: 0
   armor: 0
   entityType: 0
+  entityView: {fileID: 0}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
   buildingType: 0
   buildingSize: 0
+  assignedWorker: {fileID: 0}
+  residents: []
+  buildingState: 0
 --- !u!1 &1925228842
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
-namespace LKT268.Interface
+using UnityEngine;
+
+namespace LTK268.Interface
 {
     /// <summary>
     /// Interface for human control, extending IEntityControl.
@@ -6,28 +8,9 @@ namespace LKT268.Interface
     public interface IHumanControl : IEntityControl
     {
         /// <summary>
-        /// Method to interact with other entities.
+        /// Called when entity is dead
         /// </summary>
-        /// <param name="target">The target entity to interact with.</param>
-        void InteractWithEntity(IEntity target);
-
-        /// <summary>
-        /// Method to interact with objects in the game world.
-        /// </summary>
-        /// <param name="target">The target object to interact with.</param>
-        void InteractWithObject(IEntity target);
-
-        /// <summary>
-        /// Method to handle interaction with an entity.
-        /// </summary>
-        ///    <param name="target">The target entity to interact with.</param>
-        void OnInteractedByEntity(IEntity target);
-
-        /// <summary>
-        /// Method to handle interaction with an object.
-        /// </summary>
-        /// <param name="target">The target object to interact with.</param>
-        void OnInteractedByObject(IEntity target);
+        void Dead();
     }
 
     public interface IHumanCommonChecking
@@ -39,5 +22,15 @@ namespace LKT268.Interface
         public bool IsHuman();
     }
 
-    public interface IHuman : IHumanCommonChecking, IHumanControl { }
+    public interface IHuman : IHumanCommonChecking, IHumanControl
+    {
+        /// <summary>
+        /// List of items that the human is currently holding.
+        /// </summary>
+        public void AddHoldItem(GameObject item);
+        /// <summary>
+        /// Removes an item from the human's hold items.
+        /// </summary>
+        public GameObject RemoveHoldItem();
+    }
 }

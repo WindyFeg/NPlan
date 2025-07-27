@@ -1,6 +1,6 @@
-using LKT268.Utils;
+using LTK268.Utils;
 
-namespace LKT268.Interface
+namespace LTK268.Interface
 {
     /// <summary>
     /// Interface for Npc control
@@ -18,6 +18,17 @@ namespace LKT268.Interface
         /// </summary>
         /// <param name="_type">Warrior Type</param>
         void AssignWarriorJob(NPCWarriorType _type);
+
+        /// <summary>
+        /// Turn Sickness Npc into normal one
+        /// </summary>
+        void CureSickness();
+
+
+        /// <summary>
+        /// Use this function to talk to NPC
+        /// </summary>
+        void Talk();
     }
 
     public interface INPCCommonChecking

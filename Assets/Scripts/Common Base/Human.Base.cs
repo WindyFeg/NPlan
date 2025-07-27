@@ -1,15 +1,28 @@
-using LKT268.Interface;
-using LKT268.Utils;
+using System.Collections.Generic;
+using LTK268.Interface;
+using LTK268.Utils;
 using UnityEngine;
 
-namespace LKT268.Model.CommonBase
+namespace LTK268.Model.CommonBase
 {
     public class HumanBase : EntityBase, IHuman
     {
         #region Public Properties
+        public List<GameObject> HoldItems
+        {
+            get => holdItems;
+            set => holdItems = value;
+        }
+        public int MaxNumberOfHoldItems
+        {
+            get => maxNumberOfHoldItems;
+            set => maxNumberOfHoldItems = value;
+        }
         #endregion
 
         #region Private Fields
+        [SerializeField] private List<GameObject> holdItems = new List<GameObject>();
+        [SerializeField] private int maxNumberOfHoldItems = 1;
         #endregion
 
         #region Public Constructors
@@ -20,22 +33,13 @@ namespace LKT268.Model.CommonBase
 
         #region Public Methods
         public EntityType GetEntityType() => EntityType;
-        public void InteractWithEntity(IEntity target)
+        public new void InteractWithEntity(IEntity target)
         {
             OnInteractedByEntity(target);
         }
 
-        public void InteractWithObject(IEntity target)
-        {
-            OnInteractedByObject(target);
-        }
 
-        public void OnInteractedByEntity(IEntity target)
-        {
-            LTK268Log.LogNotImplement(this);
-        }
-
-        public void OnInteractedByObject(IEntity target)
+        public new void OnInteractedByEntity(IEntity target)
         {
             LTK268Log.LogNotImplement(this);
         }
@@ -46,6 +50,28 @@ namespace LKT268.Model.CommonBase
         }
 
         public bool IsHuman() => this.EntityType == EntityType.Player || this.EntityType == EntityType.NPC;
+
+        public void Dead()
+        {
+            LTK268Log.LogNotImplement(this);
+        }
+
+        public void AddHoldItem(GameObject item)
+        {
+            holdItems.Add(item);
+        }
+
+        public GameObject RemoveHoldItem()
+        {
+            if (holdItems.Count == 0)
+            {
+                Debug.LogWarning("No items to remove", this);
+                return null;
+            }
+            GameObject item = holdItems[0];
+            holdItems.RemoveAt(0);
+            return item;
+        }
         #endregion
     }
 

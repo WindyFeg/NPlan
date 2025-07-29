@@ -17,12 +17,13 @@ MonoBehaviour:
   maxHealth: 0
   level: 0
   damage: 0
-  foodResource: {fileID: 11400000, guid: 6af9be82e9244416aa6acdf14c52af7f, type: 2}
-  costFood: 0
-  woodResource: {fileID: 11400000, guid: df06d264af6fd4b82aeb2beb95e61c9d, type: 2}
-  costWood: 10
-  stoneResource: {fileID: 11400000, guid: ec256201f0b494e79a913cb8038ebefb, type: 2}
-  costStone: 20
+  interactableDatas:
+  - resource: {fileID: 11400000, guid: 6af9be82e9244416aa6acdf14c52af7f, type: 2}
+    cost: 5
+  - resource: {fileID: 11400000, guid: ec256201f0b494e79a913cb8038ebefb, type: 2}
+    cost: 5
+  - resource: {fileID: 11400000, guid: df06d264af6fd4b82aeb2beb95e61c9d, type: 2}
+    cost: 5
   requirements: 0
   buildingPrefabs: {fileID: 2528576950482495025, guid: 4f17b8d08915343c4b3252e38b5f4267, type: 3}
   nextBuildingData: {fileID: 11400000, guid: d8cb67c743fb74ea8b48348f9e92f08e, type: 2}

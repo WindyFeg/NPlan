@@ -19,10 +19,9 @@ namespace UI.EntityUI
         private int current;
         
 
-        public void SetData(int requireItemId, int total, int current)
+        public void SetData(int totalCost, int current)
         {
-            this.requireItemId = requireItemId;
-            this.total = total;
+            this.total = totalCost;
             this.current = current;
             
             UpdateUI();

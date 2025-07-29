@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Common_Utils;
 using LTK268;
 using LTK268.Interface;
 using LTK268.Manager;
@@ -15,6 +16,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     #region Private Field
     [SerializeField] private BuildingData buildingData;
     private GameObject currentModel;
+    private EntityInteractable entityInteractable;
 
     public Dictionary<GameObject, int> StoredItems { get; set; } = new Dictionary<GameObject, int>();
     #endregion
@@ -39,8 +41,10 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     void Start()
     {
         Initialization();
+        entityInteractable = GetComponent<EntityInteractable>();
         BuildingManager.Instance.TownHall = this;
     }
+    
     #region Public Methods
     public new void InteractWithEntity(IEntity target)
     {
@@ -95,6 +99,15 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     }
     #endregion
     #region Private Methods
+    
+    /// <summary>
+    /// Set interactable data for the Town Hall.
+    /// Could be used to Update when the building is upgraded or changed.
+    /// </summary>
+    private void SetInteractableData()
+    {
+        entityInteractable.SetInteractableData(buildingData.interactableDatas);
+    }
     private void SetUpModel()
     {
 

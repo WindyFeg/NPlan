@@ -31,8 +31,9 @@ namespace UI.EntityUI
             {
                 if (i < requiredItems.Length && isRequiredItem)
                 {
-                    RequiredItems[i].SetData(requiredItems[i].ItemId, requiredItems[i].Amount, requiredItems[i].CurrentAmount);
-                    RequiredItems[i].SetSprite(requiredItems[i].Icon);
+                    var interactableData = requiredItems[i].interactableData;
+                    RequiredItems[i].SetData(interactableData.cost, requiredItems[i].CurrentAmount);
+                    RequiredItems[i].SetSprite(interactableData.resource.Icon);
                     RequiredItems[i].gameObject.SetActive(true);
                 }
                 else

@@ -27365,10 +27365,9 @@ MonoBehaviour:
   - Key: E
     Description: Build
   RequiredItems:
-  - buildingData: {fileID: 0}
-    ItemId: 0
-    Icon: {fileID: 0}
-    Amount: 0
+  - interactableData:
+      resource: {fileID: 11400000, guid: 6af9be82e9244416aa6acdf14c52af7f, type: 2}
+      cost: 0
     CurrentAmount: 0
 --- !u!1 &1597998635
 GameObject:
@@ -27485,6 +27484,18 @@ PrefabInstance:
       propertyPath: isRequiredItem
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2397558794836933829, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
+      propertyPath: RequiredItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397558794836933829, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
+      propertyPath: RequiredItems.Array.data[0].interactableData.cost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397558794836933829, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
+      propertyPath: RequiredItems.Array.data[0].interactableData.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: ec256201f0b494e79a913cb8038ebefb, type: 2}
     - target: {fileID: 2691592444698884166, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.5803185

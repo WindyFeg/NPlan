@@ -1,8 +1,11 @@
 ﻿using System;
+using LTK268.Interface;
 using UnityEngine;
 
 namespace Common_Utils
 {
+    #region Support Classes
+    
     [Serializable]
     public class ActionInteractable
     {
@@ -13,44 +16,67 @@ namespace Common_Utils
     [Serializable]
     public class RequiredItemInteractable
     {
-        // Sửa itemId, icon thành resourceData
-        public BuildingData buildingData;
-        public int ItemId;
-        public Sprite Icon;
-        public int Amount;
+        public InteractableData interactableData;
         public int CurrentAmount;
     }
     
+    #endregion
+
     public class EntityInteractable : MonoBehaviour
     {
-        RequiredItemInteractable icon;
+        [Tooltip("Adjust the Y position offset to align the UI with the interactable object.")]
         public float YPositionOffset = 0.75f;
         public bool isRequiredItem = true;
         public ActionInteractable[] Actions;
         public RequiredItemInteractable[] RequiredItems;
-
+        
+        
+        /// <summary>
+        /// Sets the action data for the interactable entity.
+        /// </summary>
+        /// <param name="datas"></param>
+        public void SetInteractableData(InteractableData[] datas)
+        {
+            if (datas.Length == 0)
+            {
+                Debug.LogError("InteractableData is null. Cannot set interactable data.");
+                return;
+            }
+            
+            // Initialize RequiredItems with the provided interactable data
+            RequiredItems = new RequiredItemInteractable[datas.Length];
+            for (var i = 0; i < datas.Length; i++)
+            {
+                RequiredItems[i] = new RequiredItemInteractable
+                {
+                    interactableData = datas[i],
+                    CurrentAmount = 0
+                };
+            }
+        }
+        
         /// <summary>
         /// Find the required item by its ID and add the specified amount to its current amount.
         /// </summary>
-        /// <param name="itemId"></param>
+        /// <param name="resourceType"></param>
         /// <param name="addAmount"></param>
-        public void AddRequiredItem(int itemId, int addAmount = 1)
+        public void AddRequiredItem(ResourceType resourceType , int addAmount = 1)
         {
             for (var i = 0; i < RequiredItems.Length; i++)
             {
-                if (RequiredItems[i].ItemId == itemId)
+                if (RequiredItems[i].interactableData.resource.ResourceType == resourceType)
                 {
                     RequiredItems[i].CurrentAmount += addAmount;
-                    if (RequiredItems[i].CurrentAmount > RequiredItems[i].Amount)
+                    if (RequiredItems[i].CurrentAmount > RequiredItems[i].interactableData.cost)
                     {
-                        RequiredItems[i].CurrentAmount = RequiredItems[i].Amount;
+                        RequiredItems[i].CurrentAmount = RequiredItems[i].interactableData.cost;
                     }
                     return;
                 }
             }
 
             ChangeRequiredItemState();
-            Debug.LogWarning($"Item with ID {itemId} not found in required items.");
+            Debug.LogWarning($"Item with ResourceType {resourceType} not found in required items.");
         }
 
         /// <summary>
@@ -60,7 +86,7 @@ namespace Common_Utils
         {
             foreach (var item in RequiredItems)
             {
-                if (item.CurrentAmount < item.Amount)
+                if (item.CurrentAmount < item.interactableData.cost)
                 {
                     isRequiredItem = true;
                     return;

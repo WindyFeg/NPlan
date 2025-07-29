@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1900166833445165090}
   - component: {fileID: 9133438967537077145}
-  - component: {fileID: 3880277125963015601}
   m_Layer: 0
   m_Name: Lumber_House_Blueprint
   m_TagString: Object
@@ -45,19 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870a8199ec96842aaa34ac69704a1ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 1234835160587091850, guid: 69c9b5112ccd54c47ba83b872b4096ca, type: 3}
---- !u!114 &3880277125963015601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4727591912401394459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2807b62aded0b498a294d00dde0a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   id: 0
   entityName: 
   currentHealth: 0
@@ -71,3 +57,4 @@ MonoBehaviour:
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
+  buildingPrefab: {fileID: 1234835160587091850, guid: 69c9b5112ccd54c47ba83b872b4096ca, type: 3}

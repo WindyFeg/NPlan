@@ -23,6 +23,7 @@ namespace Common_Utils
     
     public class EntityInteractable : MonoBehaviour
     {
+        RequiredItemInteractable icon;
         public float YPositionOffset = 0.75f;
         public bool isRequiredItem = true;
         public ActionInteractable[] Actions;

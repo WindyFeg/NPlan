@@ -1,4 +1,5 @@
 using LTK268.Interface;
+using LTK268.Manager;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
 using UnityEngine;
@@ -97,7 +98,8 @@ public class LumberHouseBlueprint : ObjectBase, IObject
 
     public new void Use()
     {
-        Instantiate(buildingPrefab, transform.position, Quaternion.identity);
-        throw new System.NotImplementedException();
+        Debug.Log("LumberHouseBlueprint Use");
+        Instantiate(buildingPrefab, PlayerManager.Instance.PlayerModel.transform.position, Quaternion.identity);
+        PlayerManager.Instance.PlayerModel.HoldItems.Remove(this.gameObject);
     }
 }

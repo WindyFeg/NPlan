@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43498597016aa44f59841f0b744979be, type: 3}
   m_Name: SmallStone
   m_EditorClassIdentifier: 
-  ResourceType: 1
+  ResourceType: {fileID: 11400000, guid: ec256201f0b494e79a913cb8038ebefb, type: 2}
   Id: 1
   Name: small-stone
   CurrentHealth: 1

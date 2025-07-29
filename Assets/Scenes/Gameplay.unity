@@ -23963,6 +23963,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8561586408860731043, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
+      propertyPath: holdItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561586408860731043, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
+      propertyPath: 'holdItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4727591912401394459, guid: 6df81620f5510497b977c15c5eb5fe3e, type: 3}
     - target: {fileID: 9016226625399662469, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
       propertyPath: navMeshAgent
       value: 
@@ -23982,6 +23990,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 204816810649922950, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1054723889}
+    - targetCorrespondingSourceObject: {fileID: 204816810649922950, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1054723896}
   m_SourcePrefab: {fileID: 100100000, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
 --- !u!1 &444592041 stripped
 GameObject:
@@ -25451,6 +25462,30 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1054723891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8561586408860731043, guid: 373cdd3f7e4a0ee4e99cece1e7151905, type: 3}
+  m_PrefabInstance: {fileID: 444592040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444592041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df94a970711c14444969743b08424e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1054723896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444592041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a00e21d1044a42748b8dd5607828d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 1054723891}
 --- !u!1 &1144504291
 GameObject:
   m_ObjectHideFlags: 0
@@ -27330,7 +27365,7 @@ MonoBehaviour:
   - Key: E
     Description: Build
   RequiredItems:
-  - resourceData: {fileID: 11400000, guid: a939cf55b0b8f4f38831daf900678e92, type: 2}
+  - buildingData: {fileID: 0}
     ItemId: 0
     Icon: {fileID: 0}
     Amount: 0

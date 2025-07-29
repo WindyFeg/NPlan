@@ -1,4 +1,5 @@
 using System.Linq;
+using LTK268.Interface;
 using UnityEngine;
 
 public class PlayerBuilding : MonoBehaviour
@@ -11,8 +12,11 @@ public class PlayerBuilding : MonoBehaviour
     public void OnInteract()
     {
         if (playerModel.HoldItems.Count == 0) return;
-        // var entityInterface = playerModel.HoldItems.FirstOrDefault().GetComponent<IEntity>();
-        // playerModel.HoldItems.First().InteractWithEntity(playerModel);
+        var item = playerModel.HoldItems.FirstOrDefault();
+        if (item == null) return;
+        Debug.Log("OnInteract called with item: " + item.GetComponent<IObject>().Name);
+        item.GetComponent<IObject>().Use();
+
 
     }
 }

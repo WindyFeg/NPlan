@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43498597016aa44f59841f0b744979be, type: 3}
   m_Name: SmallBranch
   m_EditorClassIdentifier: 
-  ResourceType: 0
+  ResourceType: {fileID: 11400000, guid: df06d264af6fd4b82aeb2beb95e61c9d, type: 2}
   Id: 0
   Name: small-branch
   CurrentHealth: 1

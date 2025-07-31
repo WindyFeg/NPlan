@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704180c1bd9994a34a68b30b316ecd93, type: 3}
   m_Name: small-food
   m_EditorClassIdentifier: 
-  id: 1000
-  Name: small-branch
+  id: 1001
+  Name: small-food
   maxHealth: 5
   level: 1
   damage: 0
-  resourceType: 0
-  resourceIcon: {fileID: -8965447116231068829, guid: 57c018d57cce8438a91ee0202b562612, type: 3}
+  resourceType: 2
+  resourceIcon: {fileID: -8616693110926741555, guid: 57c018d57cce8438a91ee0202b562612, type: 3}
   requirements: 0
   buildingPrefabs: {fileID: 0}
   nextBuildingData: {fileID: 0}

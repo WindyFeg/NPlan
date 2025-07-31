@@ -23,7 +23,7 @@ MonoBehaviour:
   buildingPrefabs: {fileID: 2528576950482495025, guid: 4f17b8d08915343c4b3252e38b5f4267, type: 3}
   nextBuildingData: {fileID: 11400000, guid: d8cb67c743fb74ea8b48348f9e92f08e, type: 2}
   interactableData:
-  - objectData: {fileID: 11400000, guid: d81b7f54c01d24096a5f53245a7ff33c, type: 2}
-    cost: 5
+  - objectData: {fileID: 11400000, guid: 5c1b48f4458574e0aaac6b3d800d17ac, type: 2}
+    cost: 2
     currentAmount: 0
     description: 

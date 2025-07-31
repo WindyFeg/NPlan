@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private MovementDataSO movementData;
+    [SerializeField] private int movementSpeed = 3;
     private Vector2 movementInput;
     private Vector3 currentInput;
 
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             return;
         }
-        rb.linearVelocity = new Vector3(movementInput.x, 0f, movementInput.y) * movementData.moveSpeed;
+        rb.linearVelocity = new Vector3(movementInput.x, 0f, movementInput.y) * movementSpeed;
         characterModel.CurrentState = State.Walking;
     }
 

@@ -12,8 +12,6 @@ public class ResourceObject : ObjectBase, IObject
 {
     #region Serialized Fields
 
-    [Tooltip("Data configuration for this resource object.")]
-    [SerializeField] private ResourceData resourceData;
 
     #endregion
 
@@ -41,12 +39,12 @@ public class ResourceObject : ObjectBase, IObject
     /// </summary>
     public override void Initialization()
     {
-        if (resourceData != null)
+        if (ObjectData != null)
         {
-            Id = resourceData.Id;
-            Name = resourceData.Name;
-            MaxHealth = resourceData.MaxHealth;
-            CurrentHealth = resourceData.CurrentHealth;
+            Id = ObjectData.id;
+            Name = ObjectData.Name;
+            MaxHealth = ObjectData.maxHealth;
+            CurrentHealth = ObjectData.maxHealth;
         }
         else
         {
@@ -90,6 +88,7 @@ public class ResourceObject : ObjectBase, IObject
         //     Debug.Log("ResourceObject: Interaction with non-human entity is not supported.");
         //     return;
         // }
+        if (PlayerManager.Instance.PlayerModel.HoldItems.Count > 0) return;
         PickedUpBy((IHuman)target);
         // Reduce health and check for destruction
         // CurrentHealth -= 1;

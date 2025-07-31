@@ -64,7 +64,7 @@ namespace Common_Utils
         {
             for (var i = 0; i < RequiredItems.Length; i++)
             {
-                if (RequiredItems[i].interactableData.resource.ResourceType == resourceType)
+                if (RequiredItems[i].interactableData.objectData.resourceType == resourceType)
                 {
                     RequiredItems[i].CurrentAmount += addAmount;
                     if (RequiredItems[i].CurrentAmount > RequiredItems[i].interactableData.cost)

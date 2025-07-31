@@ -11,10 +11,11 @@ using UnityEngine;
 public class TownHall : BuildingBase, IBuilding, IBuildingStorage
 {
     #region Public Properties
+
+
     #endregion
 
     #region Private Field
-    [SerializeField] private BuildingData buildingData;
     private GameObject currentModel;
     private EntityInteractable entityInteractable;
 
@@ -27,13 +28,22 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         {
             Destroy(currentModel);
         }
-        Id = buildingData.id;
-        Name = buildingData.buildingName;
-        MaxHealth = buildingData.maxHealth;
-        Level = buildingData.level;
-        Damage = buildingData.damage;
+        Id = ObjectData.id;
+        Name = ObjectData.Name;
+        MaxHealth = ObjectData.maxHealth;
+        Level = ObjectData.level;
+        Damage = ObjectData.damage;
         CurrentHealth = MaxHealth;
-        currentModel = Instantiate(buildingData.buildingPrefabs, this.transform);
+        BuildingMaterials = new Dictionary<InteractableData, int>();
+        foreach (var item in ObjectData.interactableData)
+        {
+            BuildingMaterials.Add(item, 0);
+
+        }
+
+        // Initialize building materials if needed;
+        // BuildingMaterials = buildingData.buildingMaterials;
+        currentModel = Instantiate(ObjectData.buildingPrefabs, this.transform);
     }
     public TownHall(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
@@ -44,7 +54,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         entityInteractable = GetComponent<EntityInteractable>();
         BuildingManager.Instance.TownHall = this;
     }
-    
+
     #region Public Methods
     public new void InteractWithEntity(IEntity target)
     {
@@ -53,18 +63,19 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     public new void OnInteractedByEntity(IEntity target)
     {
         //check if player has enough resources
+        if (PlayerManager.Instance.PlayerModel.HoldItems.Count == 0) return;
         Debug.Log("Town Hall Interacted");
+        AddMaterialToBuilding();
         // if (this)
-        Upgrade();
     }
     public void Upgrade()
     {
-        if (buildingData.nextBuildingData == null)
+        if (ObjectData.nextBuildingData == null)
         {
             Debug.Log("No next building data");
             return;
         }
-        buildingData = buildingData.nextBuildingData;
+        ObjectData = ObjectData.nextBuildingData;
         Initialization();
 
     }
@@ -99,18 +110,41 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     }
     #endregion
     #region Private Methods
-    
+
     /// <summary>
     /// Set interactable data for the Town Hall.
     /// Could be used to Update when the building is upgraded or changed.
     /// </summary>
-    private void SetInteractableData()
+    private void AddMaterialToBuilding()
     {
-        entityInteractable.SetInteractableData(buildingData.interactableDatas);
+        ObjectBase item = PlayerManager.Instance.PlayerModel.HoldItems[0].gameObject.GetComponent<ObjectBase>();
+        foreach (var material in BuildingMaterials)
+        {   
+            Debug.Log(material.Key.objectData.resourceType);
+            Debug.Log(item.ObjectData.resourceType);
+            if (material.Key.objectData.resourceType == item.ObjectData.resourceType)
+            {
+                BuildingMaterials[material.Key] += 1;
+                PlayerManager.Instance.PlayerModel.RemoveHoldItem();
+                LTK268Log.LogInfo($"Added {item.Name} to {Name}. Total: {BuildingMaterials[material.Key]}");
+                if (CheckComplete())
+                {
+                    Upgrade();
+                }
+                return;
+            }
+        }
     }
-    private void SetUpModel()
+    private bool CheckComplete()
     {
-
+        foreach (var material in BuildingMaterials)
+        {
+            if (material.Value < material.Key.cost)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     #endregion

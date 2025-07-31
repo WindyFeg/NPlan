@@ -11,7 +11,6 @@ public class LumberHouse : BuildingBase, IBuilding
     #endregion
 
     #region Private Field
-    [SerializeField] private BuildingData buildingData;
     private GameObject currentModel;
     #endregion
 
@@ -21,13 +20,13 @@ public class LumberHouse : BuildingBase, IBuilding
         {
             Destroy(currentModel);
         }
-        Id = buildingData.id;
-        Name = buildingData.buildingName;
-        MaxHealth = buildingData.maxHealth;
-        Level = buildingData.level;
-        Damage = buildingData.damage;
+        Id = ObjectData.id;
+        Name = ObjectData.Name;
+        MaxHealth = ObjectData.maxHealth;
+        Level = ObjectData.level;
+        Damage = ObjectData.damage;
         CurrentHealth = MaxHealth;
-        currentModel = Instantiate(buildingData.buildingPrefabs, this.transform);
+        currentModel = Instantiate(ObjectData.buildingPrefabs, this.transform);
     }
     public LumberHouse(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
@@ -50,12 +49,12 @@ public class LumberHouse : BuildingBase, IBuilding
     }
     public void Upgrade()
     {
-        if (buildingData.nextBuildingData == null)
+        if (ObjectData.nextBuildingData == null)
         {
             Debug.Log("No next building data");
             return;
         }
-        buildingData = buildingData.nextBuildingData;
+        ObjectData = ObjectData.nextBuildingData;
         Initialization();
 
     }

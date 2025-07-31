@@ -23498,6 +23498,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: small-berry-bush-root (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6774411013830991052, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
+      propertyPath: objectData
+      value: 
+      objectReference: {fileID: 11400000, guid: d81b7f54c01d24096a5f53245a7ff33c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27314,6 +27318,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7344294447182961904, guid: 3867a503aa6219c4ea4e6fa5f20f85d5, type: 3}
+      propertyPath: objectData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6428c500cf67642eea922655b601aa6c, type: 2}
+    - target: {fileID: 7344294447182961904, guid: 3867a503aa6219c4ea4e6fa5f20f85d5, type: 3}
+      propertyPath: InteractableDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8191147300052261787, guid: 3867a503aa6219c4ea4e6fa5f20f85d5, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -27364,11 +27376,7 @@ MonoBehaviour:
   Actions:
   - Key: E
     Description: Build
-  RequiredItems:
-  - interactableData:
-      resource: {fileID: 11400000, guid: 6af9be82e9244416aa6acdf14c52af7f, type: 2}
-      cost: 0
-    CurrentAmount: 0
+  RequiredItems: []
 --- !u!1 &1597998635
 GameObject:
   m_ObjectHideFlags: 0
@@ -27540,6 +27548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: small-berry-bush-root
       objectReference: {fileID: 0}
+    - target: {fileID: 6774411013830991052, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
+      propertyPath: objectData
+      value: 
+      objectReference: {fileID: 11400000, guid: d81b7f54c01d24096a5f53245a7ff33c, type: 2}
+    - target: {fileID: 6774411013830991052, guid: 4d62c00196bb34c90916c5ec78a37b04, type: 3}
+      propertyPath: resourceData
+      value: 
+      objectReference: {fileID: 11400000, guid: a939cf55b0b8f4f38831daf900678e92, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27806,6 +27822,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3751192835999191181, guid: 3b00f0f300b4f444f89046140b55d09e, type: 3}
+      propertyPath: objectData
+      value: 
+      objectReference: {fileID: 11400000, guid: d81b7f54c01d24096a5f53245a7ff33c, type: 2}
     - target: {fileID: 6986892346737495537, guid: 3b00f0f300b4f444f89046140b55d09e, type: 3}
       propertyPath: m_Name
       value: small-branch-root
@@ -28972,6 +28992,10 @@ PrefabInstance:
       propertyPath: sicknessBehaviorGraph
       value: 
       objectReference: {fileID: -6074060054979948839, guid: b5654782c16a4ec4db3646a750077170, type: 2}
+    - target: {fileID: 1272321186969891503, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: interactableDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3980433094304705190, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.32

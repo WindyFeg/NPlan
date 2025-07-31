@@ -1,3 +1,4 @@
+using Common_Utils;
 using DG.Tweening;
 using LTK268.Interface;
 using LTK268.Manager;
@@ -14,6 +15,7 @@ namespace LTK268.Model.CommonBase
         [SerializeField] int yPosStart;
         [SerializeField] int xPosEnd;
         [SerializeField] int yPosEnd;
+        [SerializeField] private ObjectData objectData;
         #endregion
 
         #region Public Properties
@@ -21,6 +23,11 @@ namespace LTK268.Model.CommonBase
         public int YPosStart { get; set; }
         public int XPosEnd { get; set; }
         public int YPosEnd { get; set; }
+        public ObjectData ObjectData
+        {
+            get => objectData;
+            set => objectData = value;
+        }
         #endregion
 
         #region Public Constructors
@@ -30,6 +37,14 @@ namespace LTK268.Model.CommonBase
         #endregion
 
         #region Public Unity Methods
+        void Start()
+        {
+            if (objectData == null)
+            {
+                Debug.LogError("ObjectData is not assigned in ObjectBase.");
+                return;
+            }
+        }
         void OnValidate()
         {
             if (!gameObject.CompareTag("Object"))

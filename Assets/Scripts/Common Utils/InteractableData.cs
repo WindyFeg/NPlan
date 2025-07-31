@@ -6,7 +6,10 @@ namespace Common_Utils
     [Serializable]
     public class InteractableData
     {
-        public ResourceTypeData resource;
+        public ObjectData objectData;
         public int cost;
+        public int currentAmount;
+        public string description;
+        
     }
 }

@@ -1,3 +1,4 @@
+using Common_Utils;
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Utils;
@@ -25,6 +26,7 @@ namespace LTK268.Model.CommonBase
         #endregion
 
         #region Public Methods
+        public InteractableData[] interactableDatas;
         #endregion
 
         #region Unity Methods

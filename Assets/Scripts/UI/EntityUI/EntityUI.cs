@@ -1,4 +1,5 @@
 ﻿using Common_Utils;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace UI.EntityUI
@@ -27,20 +28,20 @@ namespace UI.EntityUI
         public void SetRequiredItemData(RequiredItemInteractable[] requiredItems, bool isRequiredItem)
         
         {
-            for (int i = 0; i < RequiredItems.Length; i++)
-            {
-                if (i < requiredItems.Length && isRequiredItem)
-                {
-                    var interactableData = requiredItems[i].interactableData;
-                    RequiredItems[i].SetData(interactableData.cost, requiredItems[i].CurrentAmount);
-                    RequiredItems[i].SetSprite(interactableData.resource.Icon);
-                    RequiredItems[i].gameObject.SetActive(true);
-                }
-                else
-                {
-                    RequiredItems[i].gameObject.SetActive(false);
-                }
-            }
+            // for (int i = 0; i < RequiredItems.Length; i++)
+            // {
+            //     if (i < requiredItems.Length && isRequiredItem)
+            //     {
+            //         var interactableData = requiredItems[i].interactableData;
+            //         RequiredItems[i].SetData(interactableData.cost, requiredItems[i].CurrentAmount);
+            //         RequiredItems[i].SetSprite(interactableData.objectData.resourceIcon);
+            //         RequiredItems[i].gameObject.SetActive(true);
+            //     }
+            //     else
+            //     {
+            //         RequiredItems[i].gameObject.SetActive(false);
+            //     }
+            // }
         }
     }
 }

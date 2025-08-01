@@ -1,68 +1,74 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private MovementDataSO movementData;
-    private Vector2 movementDirection;
+    [SerializeField] private int movementSpeed = 3;
+    private Vector2 movementInput;
     private Vector3 currentInput;
 
     [Header("Animations")]
-    private string lastDirection = "Down";
     private ICharacterAnimation characterAnimation;
-    private CharacterState characterState;
+    [SerializeField] private PlayerModel characterModel;
     private Rigidbody rb;
+    [SerializeField] private Transform rootTransform;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        characterAnimation = GetComponent<ICharacterAnimation>();
-        characterState = GetComponent<CharacterState>();
+        characterAnimation = GetComponentInChildren<ICharacterAnimation>();
+        characterModel = GetComponent<PlayerModel>();
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector3(movementDirection.x, -movementDirection.y, 0) * movementData.moveSpeed;
+        Move();
+    }
+    private void Move()
+    {
+        if(movementInput == Vector2.zero)
+        {
+            characterModel.CurrentState = State.Idle;
+            rb.linearVelocity = Vector3.zero;
+            return;
+        }
+        rb.linearVelocity = new Vector3(movementInput.x, 0f, movementInput.y) * movementSpeed;
+        characterModel.CurrentState = State.Walking;
     }
 
-    private Vector2 GetDirection(Vector2 input)
+    private Vector2 ProcessInput(Vector2 input)
     {
-        Vector2 finalDirection = Vector2.zero;
-
         if (input.magnitude > 0.01f)
         {
-            characterState.CurrentState = CharacterState.State.Walking;
-
-            // Normalize input to handle diagonal speed correctly
-            finalDirection = input.normalized;
-
-            // Determine animation direction (optional: prioritize vertical or horizontal)
-            if (input.y > 0.01f)
-                lastDirection = "Up";
-            else if (input.y < -0.01f)
-                lastDirection = "Down";
-            if (input.x > 0.01f)
-                lastDirection = "Right";
-            else if (input.x < -0.01f)
-                lastDirection = "Left";
-
-            characterAnimation.SetDirection(lastDirection);
+            return input.normalized;
         }
-        else
-        {
-            characterState.CurrentState = CharacterState.State.Idle;
-            characterAnimation.PlayIdleAnimation();
-        }
-
-        return finalDirection;
+        return Vector2.zero;
     }
 
-    #region Input
+    // private void UpdateLastDirection(Vector2 input)
+    // {
+    //     if (Mathf.Abs(input.y) != 0)
+    //     {
+    
+    //         characterAnimation.SetDirection(input.y > 0 ? "Up" : "Down");
+    //     }
+    //     else if (Mathf.Abs(input.x) != 0 && Mathf.Abs(input.y) == 0)
+    //     {
+
+    //         characterAnimation.SetDirection(input.x > 0 ? "Right" : "Left");
+    //     }
+    // }
+
+    #region Input Handling
     private void OnMove(InputValue value)
     {
-        currentInput = value.Get<Vector2>().normalized;
-        movementDirection = GetDirection(currentInput);
+        currentInput = value.Get<Vector2>();
+        // UpdateLastDirection(currentInput);
+        movementInput = ProcessInput(currentInput);
+
     }
     #endregion
 }

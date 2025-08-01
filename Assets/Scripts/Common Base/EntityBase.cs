@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
-using LKT268.Interface;
-using LKT268.Utils;
+using LTK268.Interface;
+using LTK268.Utils;
 
-namespace LKT268.Model.CommonBase
+namespace LTK268.Model.CommonBase
 {
+    [Serializable]
     public class EntityBase : MonoBehaviour, IEntity
     {
         #region Public Properties
@@ -51,6 +53,11 @@ namespace LKT268.Model.CommonBase
             get => entityType;
             set => entityType = value;
         }
+        public GameObject EntityView
+        {
+            get => entityView;
+            set => entityView = value;
+        }
         #endregion
 
         #region Private Fields
@@ -62,6 +69,7 @@ namespace LKT268.Model.CommonBase
         [SerializeField] private int damage;
         [SerializeField] private int armor;
         [SerializeField] private EntityType entityType = EntityType.None;
+        [SerializeField] private GameObject entityView;
         #endregion
 
         #region Public Methods
@@ -87,7 +95,7 @@ namespace LKT268.Model.CommonBase
         {
             if (amount < 0)
             {
-                Debug.LogWarning("EntityBase - TakeDamage: Damage amount cannot be negative.");
+                LTK268Log.ManagerError("EntityBase - TakeDamage: Damage amount cannot be negative.");
                 return;
             }
 
@@ -112,7 +120,7 @@ namespace LKT268.Model.CommonBase
         {
             if (amount < 0)
             {
-                Debug.LogWarning("EntityBase - Heal: Heal amount cannot be negative.");
+                LTK268Log.ManagerError("EntityBase - Heal: Heal amount cannot be negative.");
                 return;
             }
             CurrentHealth += amount;
@@ -139,6 +147,17 @@ namespace LKT268.Model.CommonBase
             return $"EntityBase: Name={Name}, ID={Id}, Level={Level}, Health={CurrentHealth}/{MaxHealth}, Damage={Damage}, Armor={Armor}\n";
         }
 
+        public void InteractWithEntity(IEntity target)
+        {
+            OnInteractedByEntity(target);
+        }
+
+        public void OnInteractedByEntity(IEntity target)
+        {
+            LTK268Log.LogNotImplement(this);
+        }
+
+
         /// <summary>
         /// Initializes the entity with default values.
         /// </summary>
@@ -152,7 +171,7 @@ namespace LKT268.Model.CommonBase
             Damage = 10;
             Armor = 0;
             EntityType = EntityType.None;
-            Debug.Log($"EntityBase Initialized: {this}");
+            LTK268Log.ManagerLog($"EntityBase Initialized: {this}");
         }
         #endregion
 
@@ -170,6 +189,12 @@ namespace LKT268.Model.CommonBase
         public bool IsPlayer() => this.entityType == EntityType.Player;
 
         public bool IsObject() => this.entityType == EntityType.Object;
+
+        public void Attack()
+        {
+            LTK268Log.LogNotImplement(this);
+        }
+
         #endregion
     }
 }

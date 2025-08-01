@@ -56,8 +56,7 @@ namespace LTK268
                     currentInteractable = closestEntity as IEntity;
                     if (currentInteractable != null)
                     {
-                        var entityInteractable = closestEntity.GetComponent<EntityInteractable>();
-                        EntityUIManager.Instance.ShowEntityUI(entityInteractable);
+                        EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
                     }
                 }
             }
@@ -81,6 +80,8 @@ namespace LTK268
             if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
             Debug.Log("OnInteract called" + currentInteractable.Name);
             currentInteractable.InteractWithEntity(playerModel);
+            
+            EntityUIManager.Instance.ShowEntityUI(currentInteractable);
             currentInteractable = null;
         }
 

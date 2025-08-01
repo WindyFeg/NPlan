@@ -6,7 +6,6 @@ namespace UI.EntityUI
 {
     public class UIRequiredItem : MonoBehaviour
     {
-        
         public Image itemIcon;
         public TextMeshProUGUI text;
         

@@ -1,4 +1,5 @@
-﻿using Common_Utils;
+﻿using System.Collections.Generic;
+using Common_Utils;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,23 +26,16 @@ namespace UI.EntityUI
             }
         }
         
-        public void SetRequiredItemData(RequiredItemInteractable[] requiredItems, bool isRequiredItem)
-        
+        public void SetRequiredItemData(Dictionary<InteractableData, int> mats)
         {
-            // for (int i = 0; i < RequiredItems.Length; i++)
-            // {
-            //     if (i < requiredItems.Length && isRequiredItem)
-            //     {
-            //         var interactableData = requiredItems[i].interactableData;
-            //         RequiredItems[i].SetData(interactableData.cost, requiredItems[i].CurrentAmount);
-            //         RequiredItems[i].SetSprite(interactableData.objectData.resourceIcon);
-            //         RequiredItems[i].gameObject.SetActive(true);
-            //     }
-            //     else
-            //     {
-            //         RequiredItems[i].gameObject.SetActive(false);
-            //     }
-            // }
+            var idx = 0;
+            foreach (var mat in mats)
+            {
+                Debug.LogError(mat.Key.cost + " " + mat.Value);
+                RequiredItems[idx].SetData(mat.Key.cost, mat.Value);
+                RequiredItems[idx].SetSprite(mat.Key.objectData.resourceIcon);
+                RequiredItems[idx].gameObject.SetActive(true);
+            }
         }
     }
 }

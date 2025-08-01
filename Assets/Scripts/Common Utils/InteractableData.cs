@@ -8,8 +8,8 @@ namespace Common_Utils
     {
         public ObjectData objectData;
         public int cost;
-        public int currentAmount;
-        public string description;
+        // public int currentAmount;
+        // public string description;
         
     }
 }

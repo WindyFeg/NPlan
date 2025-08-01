@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Common_Utils;
 using LTK268.Interface;
 using LTK268.Model.CommonBase;
@@ -19,6 +20,9 @@ namespace LTK268.Manager
         private EntityUI entityUIInstance;
         private Transform originalParent;
         private int test = 0;
+
+        private Transform lastUIPosition;
+        private GameObject lastUIParent;
         #endregion
 
         #region Unity Methods
@@ -41,45 +45,56 @@ namespace LTK268.Manager
 
 
 #if UNITY_EDITOR
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                EntityInteractable[] interactables = FindObjectsOfType<EntityInteractable>();
-                if (interactables.Length > 0)
-                {
-                    ShowEntityUI(interactables[test]); // Just show for the first one for testing
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.F2))
-            {
-                HideEntityUI(null);
-            }
-            else if (Input.GetKeyDown(KeyCode.F3))
-            {
-                test++;
-                EntityInteractable[] interactables = FindObjectsOfType<EntityInteractable>();
-                if (test >= interactables.Length)
-                {
-                    test = 0; // Reset to first interactable
-                }
-                ShowEntityUI(interactables[test]);
-            }
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.F1))
+        //     {
+        //         EntityInteractable[] interactables = FindObjectsOfType<EntityInteractable>();
+        //         if (interactables.Length > 0)
+        //         {
+        //             ShowEntityUI(interactables[test]); // Just show for the first one for testing
+        //         }
+        //     }
+        //     else if (Input.GetKeyDown(KeyCode.F2))
+        //     {
+        //         HideEntityUI(null);
+        //     }
+        //     else if (Input.GetKeyDown(KeyCode.F3))
+        //     {
+        //         test++;
+        //         EntityInteractable[] interactables = FindObjectsOfType<EntityInteractable>();
+        //         if (test >= interactables.Length)
+        //         {
+        //             test = 0; // Reset to first interactable
+        //         }
+        //         ShowEntityUI(interactables[test], );
+        //     }
+        // }
 #endif
         #region Public Methods
         /// <summary>
         /// Show entity UI on a specific interactable entity.
         /// </summary>
-        public void ShowEntityUI(EntityInteractable target)
+        public void ShowEntityUI(IEntity target, Transform tf = null)
         {
-            if (!target) return;
+            if (tf == null)
+                tf = lastUIPosition;
+                
+            var objectBase = (BuildingBase)target;
+            Dictionary<InteractableData, int> mats = objectBase.BuildingMaterials;
             
-            Debug.Log("Showing Entity UI for: " + target.name);
-            entityUIInstance.transform.SetParent(target.transform);
-            entityUIInstance.transform.localPosition = new Vector3(0, target.YPositionOffset, 0);
-            entityUIInstance.SetActionData(target.Actions);
-            entityUIInstance.SetRequiredItemData(target.RequiredItems, target.isRequiredItem);
+            // Set position and parent of the entity UI
+            Debug.Log("ShowEntityUI: Check parent and position" + lastUIParent?.name);
+            if (tf)
+            {
+                lastUIPosition = tf;
+                lastUIParent = tf.gameObject;
+            }
+            entityUIInstance.transform.SetParent(tf? tf : lastUIParent?.transform);
+            var offsetY = 0.75f;
+            entityUIInstance.transform.localPosition = new Vector3(0, offsetY, 0);
+            
+            entityUIInstance.SetRequiredItemData(mats);
             entityUIInstance.gameObject.SetActive(true);
         }
 

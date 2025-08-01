@@ -63,10 +63,35 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     public new void OnInteractedByEntity(IEntity target)
     {
         //check if player has enough resources
-        if (PlayerManager.Instance.PlayerModel.HoldItems.Count == 0) return;
+        // if (PlayerManager.Instance.PlayerModel.HoldItems.Count == 0) return;
+        if (target.IsNpc())
+        {
+            Debug.LogWarning("TownHall interacted with NPC");
+            var model = (NpcModel)target;
+            if (model.HoldItems.Count == 0)
+            {
+                Debug.LogWarning("NPC has no items to store");
+                return;
+            }
+        }
+        else if (target.IsPlayer())
+        {
+            // Player interacted with Town Hall
+            var playerModel = (PlayerModel)target;
+            if (playerModel.HoldItems.Count == 0)
+            {
+                Debug.LogWarning("Player has no items to store");
+                return;
+            }
+        }
+        else
+        {
+            Debug.LogError("Invalid entity type interacting with Town Hall");
+            return;
+        }
+        
         Debug.Log("Town Hall Interacted");
-        AddMaterialToBuilding();
-        // if (this)
+        AddMaterialToBuilding(target);
     }
     public void Upgrade()
     {
@@ -115,23 +140,33 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     /// Set interactable data for the Town Hall.
     /// Could be used to Update when the building is upgraded or changed.
     /// </summary>
-    private void AddMaterialToBuilding()
+    private void AddMaterialToBuilding(IEntity target)
     {
-        ObjectBase item = PlayerManager.Instance.PlayerModel.HoldItems[0].gameObject.GetComponent<ObjectBase>();
-        foreach (var material in BuildingMaterials)
-        {   
-            Debug.Log(material.Key.objectData.resourceType);
-            Debug.Log(item.ObjectData.resourceType);
-            if (material.Key.objectData.resourceType == item.ObjectData.resourceType)
-            {
-                BuildingMaterials[material.Key] += 1;
-                PlayerManager.Instance.PlayerModel.RemoveHoldItem();
-                LTK268Log.LogInfo($"Added {item.Name} to {Name}. Total: {BuildingMaterials[material.Key]}");
-                if (CheckComplete())
+        ObjectBase oldItem = PlayerManager.Instance.PlayerModel.HoldItems[0].gameObject.GetComponent<ObjectBase>();
+
+        var humanBase = target as HumanBase;
+        if (humanBase != null)
+        {
+            var objectBase = humanBase.RemoveHoldItem().GetComponent<ObjectBase>();
+            foreach (var material in BuildingMaterials)
+            {   
+                if (material.Value > material.Key.cost)
                 {
-                    Upgrade();
+                    // Send back the item to the human
+                    humanBase.AddHoldItem(objectBase.gameObject);
+                    return;
                 }
-                return;
+                
+                // Add the material to the building
+                if (material.Key.objectData.resourceType == objectBase.ObjectData.resourceType)
+                {
+                    BuildingMaterials[material.Key] += 1;
+                    if (CheckComplete())
+                    {
+                        Upgrade();
+                    }
+                    return;
+                }
             }
         }
     }

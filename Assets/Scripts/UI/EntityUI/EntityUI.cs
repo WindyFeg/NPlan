@@ -26,7 +26,7 @@ namespace UI.EntityUI
             }
         }
 
-        public void SetRequiredItemData(Dictionary<InteractableData, int> mats)
+        public void SetRequiredItemData(IDictionary<InteractableData, int> mats)
         {
             var idx = 0;
             foreach (var mat in mats)

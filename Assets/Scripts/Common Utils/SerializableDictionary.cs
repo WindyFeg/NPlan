@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver,
+public abstract class SerializableDictionaryBase<TKey, TValue> : ISerializationCallbackReceiver,
                                                              IDictionary<TKey, TValue> // Implement the full IDictionary interface
 {
     [SerializeField]
@@ -76,3 +76,10 @@ public abstract class SerializableDictionary<TKey, TValue> : ISerializationCallb
         return GetEnumerator();
     }
 }
+
+// Generic concrete implementation that can be used directly
+[System.Serializable]
+public class SerializableDictionary<TKey, TValue> : SerializableDictionaryBase<TKey, TValue>
+{
+}
+

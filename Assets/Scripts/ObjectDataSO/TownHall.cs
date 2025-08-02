@@ -35,11 +35,10 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         Damage = ObjectData.damage;
         CurrentHealth = MaxHealth;
         EntityType = EntityType.Building;
-        BuildingMaterials = new Dictionary<InteractableData, int>();
+        BuildingMaterials = new SerializableDictionary<Common_Utils.InteractableData, int>();
         foreach (var item in ObjectData.interactableData)
         {
             BuildingMaterials.Add(item, 0);
-
         }
 
         // Initialize building materials if needed;

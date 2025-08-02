@@ -123,6 +123,7 @@ namespace LTK268.Manager
             lastUIParent = tf.gameObject;
             entityUIInstance.transform.SetParent(tf ? tf : lastUIParent?.transform);
             entityUIInstance.transform.localPosition = new Vector3(0, 0.75f, 0);
+            entityUIInstance.transform.localScale = Vector3.one / 100f; // Adjust scale as needed
             entityUIInstance.gameObject.SetActive(true);
         }
 

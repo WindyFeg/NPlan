@@ -14,8 +14,8 @@ namespace LTK268.Model.CommonBase
         [SerializeField] BuildingSize buildingSize = BuildingSize.None;
         [SerializeField] private NPCBase assignedWorker;
         [SerializeField] private List<EntityBase> residents = new List<EntityBase>();
-        [SerializeField] private Dictionary<InteractableData, int> buildingMaterials = new Dictionary<InteractableData, int>();
-        [SerializeField] private Dictionary<ResourceType, int> buildingStorage = new Dictionary<ResourceType, int>();
+        [SerializeField] private SerializableDictionary<InteractableData, int> buildingMaterials = new SerializableDictionary<InteractableData, int>();
+        [SerializeField] private SerializableDictionary<ResourceType, int> buildingStorage = new SerializableDictionary<ResourceType, int>();
         [SerializeField] private BuildingState buildingState = BuildingState.None;
         #endregion
 
@@ -35,12 +35,12 @@ namespace LTK268.Model.CommonBase
             get => assignedWorker;
             set => assignedWorker = value;
         }
-        public Dictionary<InteractableData, int> BuildingMaterials
+        public SerializableDictionary<InteractableData, int> BuildingMaterials
         {
             get => buildingMaterials;
             set => buildingMaterials = value;
         }
-        public Dictionary<ResourceType, int> BuildingStorage
+        public SerializableDictionary<ResourceType, int> BuildingStorage
         {
             get => buildingStorage;
             set => buildingStorage = value;

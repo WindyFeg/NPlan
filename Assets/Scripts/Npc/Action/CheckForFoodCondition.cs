@@ -16,10 +16,7 @@ public partial class CheckForFoodCondition : Condition
         if (obj == null)
             return false;
 
-        var hasIFood = obj.GetComponent<IFood>() != null;
-        var hasIObject = obj.GetComponent<IObject>() != null;
-
-        return hasIFood || hasIObject;
+        return obj.GetComponent<IEntity>().IsObject();
     }
 
     public override void OnStart()

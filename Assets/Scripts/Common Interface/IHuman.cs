@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LTK268.Interface
@@ -24,6 +25,8 @@ namespace LTK268.Interface
 
     public interface IHuman : IHumanCommonChecking, IHumanControl
     {
+        List<GameObject> HoldItems { get; set; }
+        int MaxNumberOfHoldItems { get; set; }
         /// <summary>
         /// List of items that the human is currently holding.
         /// </summary>

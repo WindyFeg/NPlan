@@ -68,7 +68,6 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         // if (PlayerManager.Instance.PlayerModel.HoldItems.Count == 0) return;
         if (target.IsNpc())
         {
-            Debug.LogWarning("TownHall interacted with NPC");
             var model = (NpcModel)target;
             if (model.HoldItems.Count == 0)
             {
@@ -78,7 +77,6 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         }
         else if (target.IsPlayer())
         {
-            // Player interacted with Town Hall
             var playerModel = (PlayerModel)target;
             if (playerModel.HoldItems.Count == 0)
             {
@@ -93,7 +91,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         }
 
         Debug.Log("Town Hall Interacted");
-        AddMaterialToBuilding(target);
+        AddMaterialToBuilding((IHuman)target);
     }
     public void Upgrade()
     {
@@ -135,6 +133,11 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
             LTK268Log.LogWarning("No item to store");
         }
     }
+
+    public new void PickedUpBy(IHuman human)
+    {
+        OnInteractedByEntity((IEntity)human);
+    }
     #endregion
     #region Private Methods
 
@@ -142,9 +145,9 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     /// Set interactable data for the Town Hall.
     /// Could be used to Update when the building is upgraded or changed.
     /// </summary>
-    private void AddMaterialToBuilding(IEntity target)
+    private void AddMaterialToBuilding(IHuman target)
     {
-        ObjectBase oldItem = PlayerManager.Instance.PlayerModel.HoldItems[0].gameObject.GetComponent<ObjectBase>();
+        ObjectBase oldItem = target.HoldItems[0].gameObject.GetComponent<ObjectBase>();
 
         var humanBase = target as HumanBase;
         if (humanBase != null)

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace LTK268.Manager
 {
     [System.Serializable]
-    public class PlayerManager : MonoBehaviour
+    public class PlayerManager : IDManager<PlayerModel>
     {
         public static PlayerManager Instance { get; private set; }
 
@@ -17,7 +17,6 @@ namespace LTK268.Manager
         private List<GameObject> listOfObjects = new List<GameObject>();
         [SerializeField]
         private PlayerModel playerModel;
-        private int nextId = 1;
 
         // Expose lists as public properties for code access
         public List<GameObject> ListOfFoods => listOfFoods;
@@ -99,20 +98,6 @@ namespace LTK268.Manager
                     ).SetEase(Ease.InOutQuad);
         }
 
-        /// <summary>
-        /// Gets the next available ID by finding the highest ID and adding 1
-        /// </summary>
-        /// <returns>The next available ID</returns>
-        private int GetNextAvailableId()
-        {
-            // For PlayerManager, we only have one player, so we can use a simple approach
-            // If playerModel exists and has an ID, return that ID + 1, otherwise return 1
-            if (playerModel != null && playerModel.Id > 0)
-            {
-                return playerModel.Id + 1;
-            }
-            return 1;
-        }
         #endregion
     }
 }

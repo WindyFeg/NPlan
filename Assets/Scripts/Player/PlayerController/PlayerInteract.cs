@@ -80,7 +80,7 @@ namespace LTK268
             if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
             Debug.Log("OnInteract called" + currentInteractable.Name);
             currentInteractable.InteractWithEntity(playerModel);
-            
+
             EntityUIManager.Instance.ShowEntityUI(currentInteractable);
             currentInteractable = null;
         }

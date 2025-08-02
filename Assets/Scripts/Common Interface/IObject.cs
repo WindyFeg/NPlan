@@ -34,5 +34,10 @@ namespace LTK268.Interface
         /// </summary>
         /// <param name="entity"></param>
         void DroppedBy(IHuman entity);
+
+        /// <summary>
+        /// Called when this object is hovered by an entity.
+        /// </summary>
+        void HoverBy(IHuman entity);
     }
 }

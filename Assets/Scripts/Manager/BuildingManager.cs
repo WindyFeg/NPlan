@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LTK268.Manager
 {
-    public class BuildingManager : MonoBehaviour
+    public class BuildingManager : IDManager<BuildingBase>
     {
         #region Public Properties
         public static BuildingManager Instance { get; private set; }
@@ -52,7 +52,7 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void RegisterBuilding(BuildingBase building)
         {
-            EntityIDManager.RegisterEntity(building, buildingBases, "Building");
+            RegisterEntity(building);
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace LTK268.Manager
         /// <param name="building"></param>
         public void UnregisterBuilding(BuildingBase building)
         {
-            EntityIDManager.UnregisterEntity(building, buildingBases, "Building");
+            UnregisterEntity(building);
         }
         #endregion
     }

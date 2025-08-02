@@ -23,7 +23,6 @@ namespace LTK268.Manager
         [SerializeField] private List<EnemyBase> enemyBases = new List<EnemyBase>();
         private Dictionary<EnemyType, EnemySpawner> spawnerByType = new();
         private bool isInEvent = false;
-        private int nextId = 1;
 
         #endregion
 

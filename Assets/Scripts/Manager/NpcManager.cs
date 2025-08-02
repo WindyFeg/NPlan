@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace LTK268.Manager
 {
-    public class NpcManager : MonoBehaviour
+    public class NpcManager : IDManager<NPCBase>
     {
         #region Public Properties
         public static NpcManager Instance { get; private set; }
@@ -38,7 +38,7 @@ namespace LTK268.Manager
         /// <param name="npc"></param>
         public void RegisterNPC(NPCBase npc)
         {
-            EntityIDManager.RegisterEntity(npc, npcBases, "NPC");
+            RegisterEntity(npc);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace LTK268.Manager
         /// <param name="npc"></param>
         public void UnregisterNPC(NPCBase npc)
         {
-            EntityIDManager.UnregisterEntity(npc, npcBases, "NPC");
+            UnregisterEntity(npc);
         }
 
         public void CameraPanForNpcs(float panSpeed, float tweenDuration)

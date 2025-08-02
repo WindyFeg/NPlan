@@ -79,10 +79,10 @@ namespace LTK268.Manager
         {
             if (tf == null)
                 tf = lastUIPosition;
-                
+
             var objectBase = (BuildingBase)target;
             Dictionary<InteractableData, int> mats = objectBase.BuildingMaterials;
-            
+
             // Set position and parent of the entity UI
             Debug.Log("ShowEntityUI: Check parent and position" + lastUIParent?.name);
             if (tf)
@@ -90,10 +90,10 @@ namespace LTK268.Manager
                 lastUIPosition = tf;
                 lastUIParent = tf.gameObject;
             }
-            entityUIInstance.transform.SetParent(tf? tf : lastUIParent?.transform);
+            entityUIInstance.transform.SetParent(tf ? tf : lastUIParent?.transform);
             var offsetY = 0.75f;
             entityUIInstance.transform.localPosition = new Vector3(0, offsetY, 0);
-            
+
             entityUIInstance.SetRequiredItemData(mats);
             entityUIInstance.gameObject.SetActive(true);
         }

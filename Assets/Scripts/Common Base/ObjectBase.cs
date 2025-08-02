@@ -44,6 +44,9 @@ namespace LTK268.Model.CommonBase
                 Debug.LogError("ObjectData is not assigned in ObjectBase.");
                 return;
             }
+
+            // Message bus
+            // MessageBus.Subscribe<ObjectData>(OnObjectDataReceived);
         }
         void OnValidate()
         {
@@ -106,11 +109,11 @@ namespace LTK268.Model.CommonBase
             LTK268Log.LogEntityAction(this, $"Picked up by {entity}");
             this.transform.DOScale(this.transform.localScale * 1.2f, 0.2f).OnComplete(() =>
             {
-                this.transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => 
+                this.transform.DOScale(Vector3.zero, 0.2f).OnComplete(() =>
                 {
-                     this.gameObject.SetActive(false);
+                    this.gameObject.SetActive(false);
                 });
-        
+
             });
 
         }
@@ -118,6 +121,11 @@ namespace LTK268.Model.CommonBase
         public void DroppedBy(IHuman entity)
         {
             throw new System.NotImplementedException();
+        }
+
+        public void HoverBy(IHuman entity)
+        {
+            //Looping
         }
 
         #endregion

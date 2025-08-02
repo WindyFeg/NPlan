@@ -53,6 +53,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         Initialization();
         entityInteractable = GetComponent<EntityInteractable>();
         BuildingManager.Instance.TownHall = this;
+        BuildingManager.Instance.RegisterBuilding(this);
     }
 
     #region Public Methods
@@ -89,7 +90,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
             Debug.LogError("Invalid entity type interacting with Town Hall");
             return;
         }
-        
+
         Debug.Log("Town Hall Interacted");
         AddMaterialToBuilding(target);
     }
@@ -149,14 +150,14 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         {
             var objectBase = humanBase.RemoveHoldItem().GetComponent<ObjectBase>();
             foreach (var material in BuildingMaterials)
-            {   
+            {
                 if (material.Value > material.Key.cost)
                 {
                     // Send back the item to the human
                     humanBase.AddHoldItem(objectBase.gameObject);
                     return;
                 }
-                
+
                 // Add the material to the building
                 if (material.Key.objectData.resourceType == objectBase.ObjectData.resourceType)
                 {

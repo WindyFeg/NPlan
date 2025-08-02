@@ -84,7 +84,7 @@ namespace LTK268.Manager
         protected virtual int GetNextAvailableId()
         {
             int maxId = 0;
-            
+
             // Find the highest ID among all entities
             foreach (var entity in entities)
             {
@@ -116,4 +116,4 @@ namespace LTK268.Manager
         }
         #endregion
     }
-} 
+}

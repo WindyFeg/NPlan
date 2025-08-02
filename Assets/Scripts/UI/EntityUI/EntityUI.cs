@@ -25,16 +25,24 @@ namespace UI.EntityUI
                 }
             }
         }
-        
+
         public void SetRequiredItemData(Dictionary<InteractableData, int> mats)
         {
             var idx = 0;
             foreach (var mat in mats)
             {
-                Debug.LogError(mat.Key.cost + " " + mat.Value);
+                // Debug.LogError(mat.Key.cost + " " + mat.Value);
                 RequiredItems[idx].SetData(mat.Key.cost, mat.Value);
                 RequiredItems[idx].SetSprite(mat.Key.objectData.resourceIcon);
                 RequiredItems[idx].gameObject.SetActive(true);
+            }
+        }
+
+        public void ClearRequiredItemData()
+        {
+            foreach (var item in RequiredItems)
+            {
+                item.gameObject.SetActive(false);
             }
         }
     }

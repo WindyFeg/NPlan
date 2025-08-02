@@ -32,8 +32,22 @@ public class ResourceObject : ObjectBase, IObject
 
     #endregion
 
-    #region Initialization
+    #region Unity Methods
+    void Start()
+    {
+        if (ObjectData == null)
+        {
+            Debug.LogError("ObjectData is not assigned in ResourceObject.");
+            return;
+        }
 
+        Initialization();
+        // Register the resource object with the ResourceManager
+        ResourceManager.Instance.RegisterObject(this);
+    }
+    #endregion
+
+    #region Public Methods
     /// <summary>
     /// Initializes the resource object from its associated data.
     /// </summary>
@@ -45,16 +59,13 @@ public class ResourceObject : ObjectBase, IObject
             Name = ObjectData.Name;
             MaxHealth = ObjectData.maxHealth;
             CurrentHealth = ObjectData.maxHealth;
+            EntityType = EntityType.Object;
         }
         else
         {
             Debug.LogError("ResourceData is not assigned.");
         }
     }
-
-    #endregion
-
-    #region Interaction Methods
 
     /// <summary>
     /// Called when an entity interacts with this resource.

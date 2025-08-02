@@ -13,7 +13,8 @@ namespace LTK268.Utils
         NPC = 2,
         Enemy = 3,
         Object = 4,
-        Animal = 5
+        Animal = 5,
+        Building = 6,
     }
 
     #region NPC

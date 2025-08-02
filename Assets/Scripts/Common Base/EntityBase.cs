@@ -183,12 +183,12 @@ namespace LTK268.Model.CommonBase
         #endregion
 
         #region Private Methods
-
         public bool IsNpc() => this.entityType == EntityType.NPC;
 
         public bool IsPlayer() => this.entityType == EntityType.Player;
 
         public bool IsObject() => this.entityType == EntityType.Object;
+        public bool IsBuilding() => this.entityType == EntityType.Building;
 
         public void Attack()
         {

@@ -77,24 +77,52 @@ namespace LTK268.Manager
         /// </summary>
         public void ShowEntityUI(IEntity target, Transform tf = null)
         {
+            // Check NULL
             if (tf == null)
-                tf = lastUIPosition;
-
-            var objectBase = (BuildingBase)target;
-            Dictionary<InteractableData, int> mats = objectBase.BuildingMaterials;
-
-            // Set position and parent of the entity UI
-            Debug.Log("ShowEntityUI: Check parent and position" + lastUIParent?.name);
-            if (tf)
             {
-                lastUIPosition = tf;
-                lastUIParent = tf.gameObject;
+                Debug.LogError("Transform is null. Cannot show Entity UI without a valid transform.");
             }
-            entityUIInstance.transform.SetParent(tf ? tf : lastUIParent?.transform);
-            var offsetY = 0.75f;
-            entityUIInstance.transform.localPosition = new Vector3(0, offsetY, 0);
+            if (target == null)
+            {
+                Debug.LogError("Target entity is null. Cannot show Entity UI.");
+                return;
+            }
 
-            entityUIInstance.SetRequiredItemData(mats);
+            entityUIInstance.ClearRequiredItemData();
+            if (target.IsBuilding())
+            {
+                var objectBase = (BuildingBase)target;
+                entityUIInstance.SetRequiredItemData(objectBase.BuildingMaterials);
+            }
+            else if (target.IsObject())
+            {
+                var ActionInteractable = new ActionInteractable
+                {
+                    Key = "E",
+                    Description = "Interact"
+                };
+                entityUIInstance.SetActionData(new ActionInteractable[] { ActionInteractable });
+            }
+            else if (target.IsNpc())
+            {
+                var ActionInteractable = new ActionInteractable
+                {
+                    Key = "E",
+                    Description = "Interact"
+                };
+                entityUIInstance.SetActionData(new ActionInteractable[] { ActionInteractable });
+            }
+            else
+            {
+                Debug.LogError("Invalid entity type for EntityUIManager: " + target.GetType());
+                return;
+            }
+
+            // Set entity UI data
+            lastUIPosition = tf;
+            lastUIParent = tf.gameObject;
+            entityUIInstance.transform.SetParent(tf ? tf : lastUIParent?.transform);
+            entityUIInstance.transform.localPosition = new Vector3(0, 0.75f, 0);
             entityUIInstance.gameObject.SetActive(true);
         }
 

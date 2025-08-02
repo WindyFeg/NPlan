@@ -54,6 +54,12 @@ namespace LTK268.Interface
         /// </summary>
         /// <returns></returns>
         public bool IsObject();
+
+        /// <summary>
+        /// Check if current entity is Object
+        /// </summary>
+        /// <returns></returns>
+        public bool IsBuilding();
     }
 
     public interface IEntity : IEntityModel, IEntityControl, IEntityCommonChecking

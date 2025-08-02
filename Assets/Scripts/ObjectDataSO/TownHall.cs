@@ -34,6 +34,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         Level = ObjectData.level;
         Damage = ObjectData.damage;
         CurrentHealth = MaxHealth;
+        EntityType = EntityType.Building;
         BuildingMaterials = new Dictionary<InteractableData, int>();
         foreach (var item in ObjectData.interactableData)
         {

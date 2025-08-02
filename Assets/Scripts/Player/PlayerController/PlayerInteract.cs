@@ -81,7 +81,7 @@ namespace LTK268
             Debug.Log("OnInteract called" + currentInteractable.Name);
             currentInteractable.InteractWithEntity(playerModel);
 
-            EntityUIManager.Instance.ShowEntityUI(currentInteractable);
+            EntityUIManager.Instance.ShowEntityUI(currentInteractable, closestEntity?.transform);
             currentInteractable = null;
         }
 

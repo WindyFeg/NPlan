@@ -208,14 +208,31 @@ MonoBehaviour:
   - rid: 6646562697584574693
   - rid: 6646562548273906006
   - rid: 6646562548273906007
-  - rid: 6646562548949189257
   - rid: 6646562697940304267
   - rid: 6646562697940304268
+  - rid: 1933159219417055396
+  - rid: 1933159222979592496
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
+    - rid: 1933159219417055396
+      type: {class: 'BlackboardVariable`1[[CharacterAnimation, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3173971738292300892
+          m_Value1: 3379550919483890159
+        Name: CharacterAnimation
+        m_Value: {fileID: 6144722244918996848}
+    - rid: 1933159222979592496
+      type: {class: 'BlackboardVariable`1[[LTK268.Model.CommonBase.EnemyBase, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4134231956610870070
+          m_Value1: 5876400431892453399
+        Name: EnemyBase
+        m_Value: {fileID: 6920839874937887126}
     - rid: 6646562223697952824
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -251,14 +268,6 @@ MonoBehaviour:
           m_Value1: 10711142585713970643
         Name: TriggerRange
         m_Value: 4
-    - rid: 6646562548949189257
-      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 4036391014455661182
-          m_Value1: 9517693237656727348
-        Name: isIdle
-        m_Value: 0
     - rid: 6646562697584574693
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -266,7 +275,7 @@ MonoBehaviour:
           m_Value0: 546778033362163517
           m_Value1: 5761400032868800362
         Name: AttackRange
-        m_Value: 1
+        m_Value: 1.5
     - rid: 6646562697940304267
       type: {class: 'BlackboardVariable`1[[RangeDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -340,7 +349,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -382,9 +391,17 @@ MonoBehaviour:
   navMeshAgent: {fileID: 1188157871614484950}
   anim: {fileID: 1556554823876606099}
   entityBase: {fileID: 6920839874937887126}
+  idle: 0
+  walking: 1
+  running: 0
+  pickup: 0
+  attack: 0
+  hit: 0
+  death: 0
   currentAnimation: 
   lastDirection: None
   currentDirection: None
+  currentAnimState: 0
 --- !u!1 &6111395948106336662
 GameObject:
   m_ObjectHideFlags: 0

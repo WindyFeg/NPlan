@@ -57,4 +57,5 @@ MonoBehaviour:
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
+  objectData: {fileID: 11400000, guid: b886a7d52df3b46a6be85b61f814098c, type: 2}
   buildingPrefab: {fileID: 1234835160587091850, guid: 69c9b5112ccd54c47ba83b872b4096ca, type: 3}

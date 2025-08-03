@@ -107,7 +107,6 @@ public class PlayerModel : HumanBase
                 break;
         }
 
-        Debug.Log("Character state changed to: " + currentState);
     }
 
 }

@@ -4,6 +4,7 @@ public enum ResourceType
     Wood,
     Stone,
     Food,
+    Blueprint
 }
 public class StorageManager : MonoBehaviour
 {

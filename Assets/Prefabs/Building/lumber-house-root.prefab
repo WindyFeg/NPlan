@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4904197029268898537}
   - component: {fileID: 7730673560570868654}
-  m_Layer: 0
+  - component: {fileID: 5069535626824274941}
+  m_Layer: 9
   m_Name: lumber-house-root
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -57,9 +58,36 @@ MonoBehaviour:
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
+  objectData: {fileID: 11400000, guid: 1e530c9c998fc4254bc0f176fe5dbac0, type: 2}
   buildingType: 0
   buildingSize: 0
   assignedWorker: {fileID: 0}
   residents: []
+  buildingMaterials:
+    keys: []
+    values: 
+  buildingStorage:
+    keys: 
+    values: 
   buildingState: 0
-  buildingData: {fileID: 11400000, guid: 1e530c9c998fc4254bc0f176fe5dbac0, type: 2}
+--- !u!65 &5069535626824274941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234835160587091850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

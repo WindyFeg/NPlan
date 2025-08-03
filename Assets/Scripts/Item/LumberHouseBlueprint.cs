@@ -8,6 +8,7 @@ public class LumberHouseBlueprint : ObjectBase, IObject
 {
     // This class is a placeholder for building blueprints.
     [SerializeField] private GameObject buildingPrefab;
+    // [SerializeField] private GameObject parentObject;
 
     public LumberHouseBlueprint(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
     {
@@ -99,7 +100,11 @@ public class LumberHouseBlueprint : ObjectBase, IObject
     public new void Use()
     {
         Debug.Log("LumberHouseBlueprint Use");
-        Instantiate(buildingPrefab, PlayerManager.Instance.PlayerModel.transform.position, Quaternion.identity);
-        PlayerManager.Instance.PlayerModel.HoldItems.Remove(this.gameObject);
+        if (ObjectData.buildingPrefabs == null)
+        {
+            return;
+        }
+        GameObject newBuilding = Instantiate(ObjectData.buildingPrefabs, PlayerManager.Instance.PlayerModel.transform.position, Quaternion.identity);
+        // newBuilding.transform.parent = parentObject.transform;
     }
 }

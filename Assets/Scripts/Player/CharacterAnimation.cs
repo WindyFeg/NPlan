@@ -3,17 +3,6 @@ using LTK268.Model.CommonBase;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum AnimState
-{
-    Idle,
-    Walking,
-    Running,
-    Pickup,
-    Attack,
-    Hit,
-    Death
-}
-
 /// <summary>
 /// Controls the animation states of a character based on direction and action.
 /// </summary>
@@ -41,6 +30,15 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     [SerializeField] private Animator anim;
     [SerializeField] private EntityBase entityBase;
 
+    [Header("Append Direction Suffix")] 
+    [SerializeField] private bool idle = true;
+    [SerializeField] private bool walking = true;
+    [SerializeField] private bool running = true;
+    [SerializeField] private bool pickup = true;
+    [SerializeField] private bool attack = true;
+    [SerializeField] private bool hit = true;
+    [SerializeField] private bool death = true;
+    
     #endregion
 
     #region Private Fields
@@ -48,7 +46,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     public string currentAnimation;
     public string lastDirection = "None";
     public string currentDirection = "None";
-    private AnimState currentAnimState = AnimState.Idle;
+    [SerializeField] private AnimState currentAnimState = AnimState.Idle;
 
     #endregion
 
@@ -78,11 +76,24 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         }
     }
 
-
-
     #endregion
 
     #region Animation Control
+    
+    private bool CheckAppendSuffix(AnimState state)
+    {
+        return state switch
+        {
+            AnimState.Idle => idle,
+            AnimState.Walking => walking,
+            AnimState.Running => running,
+            AnimState.Pickup => pickup,
+            AnimState.Attack => attack,
+            AnimState.Hit => hit,
+            AnimState.Death => death,
+            _ => false
+        };
+    }
 
     private void PlayAnimationByState(AnimState state)
     {
@@ -91,6 +102,8 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         {
             return;
         }
+
+        bool appendSuffix = CheckAppendSuffix(state);
         string baseName = state switch
         {
             AnimState.Idle => AnimNames.Idle,
@@ -103,21 +116,26 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
             _ => AnimNames.Idle
         };
 
-        PlayDirectionalAnimation(baseName);
+        PlayDirectionalAnimation(baseName, appendSuffix);
         currentAnimState = state;
 
     }
 
-    private void PlayDirectionalAnimation(string baseName)
+    private void PlayDirectionalAnimation(string baseName, bool appendSuffix)
     {
-        string animName = $"{entityBase.Name}_{baseName}{currentDirection}";
+        string animName = $"{entityBase.Name}_{baseName}";
+        if (appendSuffix)
+        {
+            animName += $"{currentDirection}";
+        }
+        
         // Không phát lại nếu đang phát đúng animation theo hướng
         if (currentAnimation == animName)
             return;
-        Debug.Log($"[PlayDirectionalAnimation] baseName: {baseName}, currentDirection: {currentDirection}, animName: {animName}");
+        // Debug.Log($"[PlayDirectionalAnimation] baseName: {baseName}, currentDirection: {currentDirection}, animName: {animName}");
         if (currentAnimation.StartsWith($"{entityBase.Name}_{baseName}") && lastDirection != currentDirection)
         {
-            Debug.Log($"[DirectionChanged] Switching direction from {lastDirection} to {currentDirection}");
+            // Debug.Log($"[DirectionChanged] Switching direction from {lastDirection} to {currentDirection}");
         }
         else if (currentAnimation.StartsWith($"{entityBase.Name}_{baseName}"))
         {
@@ -125,7 +143,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
             return;
         }
 
-        Debug.Log($"[AnimationPlay] Playing: {animName}");
+        // Debug.Log($"[AnimationPlay] Playing: {animName}");
         anim.Play(animName);
         currentAnimation = animName;
         lastDirection = currentDirection;
@@ -138,6 +156,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     public void SetAnimState(AnimState state)
     {
+        currentAnimState = state;
         Vector3 velocity = navMeshAgent != null ? navMeshAgent.velocity : rb.linearVelocity;
         UpdateDirectionFromVelocity(velocity);
         PlayAnimationByState(state);

@@ -6,19 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="b08ea1d4-4ab4-4f7a-858d-be7f4a950feb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NPlan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NPlan/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Game/Enemy/Wolf - WIP.aseprite.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Game/Enemy/Wolf - WIP.aseprite.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BehaviourGraph/Enemies/Wolf.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BehaviourGraph/Enemies/Wolf.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BehaviourGraph/Npcs/NpcJobLessBehaviour.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BehaviourGraph/Npcs/NpcJobLessBehaviour.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/Camera_RenderTexture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Camera_RenderTexture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/ConGa.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/ConGa.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Ga.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Ga.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 3.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 3.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 4.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 4.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 5.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 5.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Player/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Animation/Player/PlayerAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Player/Wolf - WIP.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Player/Wolf - WIP.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BehaviourGraph/Enemies/EnemyGraph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BehaviourGraph/Enemies/EnemyGraph.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Wolf.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Wolf.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NpcScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NpcScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/IsPlayerRefInRangeAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/IsPlayerRefInRangeAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common Base/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common Base/EntityBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CharacterAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CharacterAnimation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,14 +42,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../Behavior Demo For Unity/Assets/Code/Behavior/Enums/CharacterState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Behavior Demo For Unity/Assets/Code/Scripts/Agent/AI/AIAgent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../Behavior Demo For Unity/Library/PackageCache/com.unity.behavior@d6f162ad4429/Runtime/Execution/Nodes/Decorators/StartOnEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BahaviourAction/AttackTargetAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Npc/Action/NpcRangeDetectorAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/SetAnimStateAction.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -62,7 +72,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;basic-ui&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;25.24.001/staging&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -144,12 +154,17 @@
       <workItem from="1753013990255" duration="3430000" />
       <workItem from="1753023246571" duration="1136000" />
       <workItem from="1753496813372" duration="2913000" />
+      <workItem from="1754147436989" duration="617000" />
+      <workItem from="1754149139210" duration="733000" />
+      <workItem from="1754203820339" duration="6377000" />
+      <workItem from="1754217117418" duration="2277000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />

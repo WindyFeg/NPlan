@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ConGa
+  m_Name: Wolf_Idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 540122320888071077, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
+      value: {fileID: -9086003060792075238, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
     - time: 0.1
-      value: {fileID: -6832364777297370039, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
+      value: {fileID: 891723648623353767, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
     - time: 0.24
-      value: {fileID: -6832364777297370039, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
+      value: {fileID: 891723648623353767, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
     attribute: m_Sprite
-    path: 
+    path: Con soi thang lung
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -39,7 +39,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 2669204074
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -48,9 +48,9 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 540122320888071077, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-    - {fileID: -6832364777297370039, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
-    - {fileID: -6832364777297370039, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
+    - {fileID: -9086003060792075238, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
+    - {fileID: 891723648623353767, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
+    - {fileID: 891723648623353767, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

@@ -110,6 +110,7 @@ namespace LTK268.Model.CommonBase
             }
 
             CurrentHealth -= effectiveDamage;
+            Debug.Log($"EntityBase - TakeDamage: {Name} took {effectiveDamage} damage. Current Health: {CurrentHealth}/{MaxHealth}");
         }
 
         /// <summary>

@@ -25,3 +25,5 @@ MonoBehaviour:
   interactableData:
   - objectData: {fileID: 11400000, guid: d81b7f54c01d24096a5f53245a7ff33c, type: 2}
     cost: 2
+  - objectData: {fileID: 11400000, guid: 5b71a2b7d27e949c2bf216c854ea8012, type: 2}
+    cost: 1

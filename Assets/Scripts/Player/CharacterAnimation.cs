@@ -98,6 +98,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     private void PlayAnimationByState(AnimState state)
     {
         // Check if there is anmation playing dont play
+        if (state != AnimState.Walking && state == currentAnimState) return;
         if (state == currentAnimState && currentDirection == lastDirection)
         {
             return;
@@ -115,7 +116,6 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
             AnimState.Death => AnimNames.Death,
             _ => AnimNames.Idle
         };
-
         PlayDirectionalAnimation(baseName, appendSuffix);
         currentAnimState = state;
 
@@ -156,7 +156,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
 
     public void SetAnimState(AnimState state)
     {
-        currentAnimState = state;
+
         Vector3 velocity = navMeshAgent != null ? navMeshAgent.velocity : rb.linearVelocity;
         UpdateDirectionFromVelocity(velocity);
         PlayAnimationByState(state);

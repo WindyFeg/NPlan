@@ -101,9 +101,16 @@ namespace LTK268.Model.CommonBase
             throw new System.NotImplementedException();
         }
 
-        public void Upgrade(List<ObjectBase> buildingObject)
+        public void Upgrade()
         {
-            throw new System.NotImplementedException();
+            if (ObjectData.nextBuildingData == null)
+            {
+                Debug.Log("No next building data");
+                return;
+            }
+            ObjectData = ObjectData.nextBuildingData;
+            Initialization();
+            // throw new System.NotImplementedException();
         }
         public new void InteractWithEntity(IEntity target)
         {
@@ -123,5 +130,68 @@ namespace LTK268.Model.CommonBase
         {
             throw new System.NotImplementedException();
         }
+        public void AddBuildingMaterial(IHuman target)
+        {
+            if (BuildingMaterials.Count == 0)
+            {
+                LTK268Log.LogWarning("No building materials defined for this building.");
+                return;
+            }
+            ObjectBase oldItem = target.HoldItems[0].gameObject.GetComponent<ObjectBase>();
+
+            var humanBase = target as HumanBase;
+            if (humanBase != null)
+            {
+                var objectBase = humanBase.RemoveHoldItem().GetComponent<ObjectBase>();
+                foreach (var material in BuildingMaterials)
+                {
+                    if (material.Value > material.Key.cost)
+                    {
+                        // Send back the item to the human
+                        humanBase.AddHoldItem(objectBase.gameObject);
+                        return;
+                    }
+
+                    // Add the material to the building
+                    if (material.Key.objectData.resourceType == objectBase.ObjectData.resourceType && material.Value < material.Key.cost)
+                    {
+                        BuildingMaterials[material.Key] += 1;
+                        if (CheckComplete())
+                        {
+                            Upgrade();
+                        }
+                        return;
+                    }
+                    else
+                    {
+                        // Send back the item to the human
+                        humanBase.AddHoldItem(objectBase.gameObject);
+                        LTK268Log.LogWarning($"Material {objectBase.ObjectData.resourceType} does not match required type {material.Key.objectData.resourceType}");
+                        return;
+                    }
+                }
+            }
+        }
+            #region Private Methods
+
+    /// <summary>
+    /// Set interactable data for the Town Hall.
+    /// Could be used to Update when the building is upgraded or changed.
+    /// </summary>
+
+    private bool CheckComplete()
+    {
+        foreach (var material in BuildingMaterials)
+        {
+            if (material.Value < material.Key.cost)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    #endregion
+        
     }
 }

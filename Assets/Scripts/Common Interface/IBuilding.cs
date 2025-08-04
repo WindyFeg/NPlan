@@ -17,7 +17,7 @@ namespace LTK268.Interface
         /// Defines the basic operations that can be performed on a building entity,
         /// such as Upgrade
         /// </summary>
-        void Upgrade(List<ObjectBase> buildingObject);
+        void Upgrade();
         /// <summary>
         /// Defines the basic operations that can be performed on a building entity,
         /// such as Destroy
@@ -39,6 +39,8 @@ namespace LTK268.Interface
         /// </summary>
         /// <param name="worker"></param>
         void AssignWorker(NPCBase worker);
+
+        void AddBuildingMaterial(IHuman target);
     }
 
     public interface IBuildingStorage

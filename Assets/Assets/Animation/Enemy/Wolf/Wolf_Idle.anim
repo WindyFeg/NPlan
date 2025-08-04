@@ -27,7 +27,7 @@ AnimationClip:
     - time: 0.24
       value: {fileID: 891723648623353767, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
     attribute: m_Sprite
-    path: Con soi thang lung
+    path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -39,7 +39,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2669204074
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212

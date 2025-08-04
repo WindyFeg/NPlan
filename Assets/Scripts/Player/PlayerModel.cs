@@ -14,11 +14,11 @@ public enum State
     Dead
 }
 
-public class PlayerModel : HumanBase
+public class PlayerModel : HumanBase, IEntity
 {
-    private State currentState = State.Idle;
     private ICharacterAnimation characterAnimation;
     private string currentDirection = "Down";
+    private State currentState = State.Idle;
     public string CurrentDirection
     {
         get => currentDirection;
@@ -71,6 +71,8 @@ public class PlayerModel : HumanBase
         PlayerManager.Instance.UnregisterPlayer(this);
     }
     #endregion
+
+    #region Private Methods
     private void OnStateChanged()
     {
         if (characterAnimation == null) return;
@@ -108,5 +110,13 @@ public class PlayerModel : HumanBase
         }
 
     }
+    #endregion
 
+    #region Public Methods
+    public new void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        CurrentState = State.Hit;
+    }   
+    #endregion
 }

@@ -127,6 +127,38 @@ namespace LTK268.Manager
             entityUIInstance.gameObject.SetActive(true);
         }
 
+        public void ShowChangeItemUI(IEntity target, Transform tf = null)
+        {
+            // Check NULL
+            if (tf == null)
+            {
+                Debug.LogError("Transform is null. Cannot show Entity UI without a valid transform.");
+            }
+            if (target == null)
+            {
+                Debug.LogError("Target entity is null. Cannot show Entity UI.");
+                return;
+            }
+
+            entityUIInstance.ClearRequiredItemData();
+            if (target.IsObject())
+            {
+                var ActionInteractable = new ActionInteractable
+                {
+                    Key = "E",
+                    Description = "Change Item"
+                };
+                entityUIInstance.SetActionData(new ActionInteractable[] { ActionInteractable });
+            }
+                        // Set entity UI data
+            lastUIPosition = tf;
+            lastUIParent = tf.gameObject;
+            entityUIInstance.transform.SetParent(tf ? tf : lastUIParent?.transform);
+            entityUIInstance.transform.localPosition = new Vector3(0, 0.75f, 0);
+            entityUIInstance.transform.localScale = Vector3.one / 100f; // Adjust scale as needed
+            entityUIInstance.gameObject.SetActive(true);
+        }
+
         /// <summary>
         /// Hide the entity UI and return it to the UIManager.
         /// </summary>

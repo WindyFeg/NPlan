@@ -5,6 +5,7 @@ using LTK268.Manager;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
 using Common_Utils;
+using LTK268.Popups;
 namespace LTK268
 {
     /// <summary>
@@ -56,7 +57,14 @@ namespace LTK268
                     currentInteractable = closestEntity as IEntity;
                     if (currentInteractable != null)
                     {
-                        EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
+                        if (playerModel.HoldItems.Count > 0)
+                        {
+                            EntityUIManager.Instance.ShowChangeItemUI(currentInteractable, go?.transform);
+                        }
+                        else
+                        {
+                            EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
+                        }
                     }
                 }
             }
@@ -79,10 +87,22 @@ namespace LTK268
             // if (playerModel.HoldItems.Count > playerModel.MaxNumberOfHoldItems) return;
             if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
             Debug.Log("OnInteract called" + currentInteractable.Name);
+            if (currentInteractable.EntityType == EntityType.Object && playerModel.HoldItems.Count > 0)
+            {
+                var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
+                item.GetComponent<IObject>().DroppedBy(this.playerModel);
+            }
             currentInteractable.InteractWithEntity(playerModel);
 
             EntityUIManager.Instance.ShowEntityUI(currentInteractable, closestEntity?.transform);
             currentInteractable = null;
+        }
+
+        public void OnDrop()
+        {
+            if (playerModel.HoldItems.Count == 0) return;
+            var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
+            item.GetComponent<IObject>().DroppedBy(this.playerModel);
         }
 
         public void OnAttack()

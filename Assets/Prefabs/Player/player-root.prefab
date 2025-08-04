@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5d64c9b46904940a4334772c015e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementData: {fileID: 11400000, guid: d2013c76db7d64b4cafd1d8dc29ca900, type: 2}
+  movementSpeed: 3
   characterModel: {fileID: 8561586408860731043}
   rootTransform: {fileID: 7852711776189851391}
 --- !u!114 &1464163934467975292
@@ -171,6 +171,17 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   anim: {fileID: 1945040372688483756}
   entityBase: {fileID: 8561586408860731043}
+  idle: 1
+  walking: 1
+  running: 1
+  pickup: 1
+  attack: 1
+  hit: 1
+  death: 1
+  currentAnimation: 
+  lastDirection: None
+  currentDirection: None
+  currentAnimState: 0
 --- !u!1 &2111416262824611267
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +272,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 960
   entityDetector: {fileID: 8259621270371399503}
+  closestEntity: {fileID: 0}
 --- !u!114 &945401482815448640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,8 +377,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1958091715
-  m_SortingLayer: 3
+  m_SortingLayerID: -776629981
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -418960633, guid: 19f3e7e211694454f90b923f47ba36d4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

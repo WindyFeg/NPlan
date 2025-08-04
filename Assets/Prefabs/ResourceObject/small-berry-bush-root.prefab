@@ -143,6 +143,8 @@ MonoBehaviour:
   - Key: E
     Description: press E to Interact
   RequiredItems: []
+  objectBase: {fileID: 6774411013830991052}
+  humanBase: {fileID: 0}
 --- !u!114 &2224080706834646269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ MonoBehaviour:
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
-  resourceData: {fileID: 11400000, guid: 3b3db5b8a876f4e9d8f9fb8708cc06e8, type: 2}
+  objectData: {fileID: 0}
 --- !u!212 &8645591701747782366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -224,8 +226,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1958091715
-  m_SortingLayer: 3
+  m_SortingLayerID: -776629981
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1701441619, guid: 5408522e33a3e4b19b6004b9bf61127d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -282,7 +284,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

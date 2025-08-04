@@ -112,6 +112,7 @@ namespace LTK268.Model.CommonBase
                 this.transform.DOScale(Vector3.zero, 0.2f).OnComplete(() =>
                 {
                     this.gameObject.SetActive(false);
+                    this.transform.localScale = Vector3.one;
                 });
 
             });
@@ -120,7 +121,10 @@ namespace LTK268.Model.CommonBase
 
         public void DroppedBy(IHuman entity)
         {
-            throw new System.NotImplementedException();
+            EntityBase entityBase = entity as EntityBase;
+            this.transform.position = entityBase.transform.position;
+            this.active();
+            Debug.Log("Object dropped by " + entityBase.Name);
         }
 
         public void HoverBy(IHuman entity)

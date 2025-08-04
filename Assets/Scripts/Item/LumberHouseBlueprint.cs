@@ -51,60 +51,19 @@ public class LumberHouseBlueprint : ObjectBase, IObject
 
     public new void InteractWithEntity(IEntity target)
     {
-        Debug.Log("LumberHouseBlueprint InteractWithEntity");
+        if (PlayerManager.Instance.PlayerModel.HoldItems.Count > 0) return;
         OnInteractedByEntity(target);
-        throw new System.NotImplementedException();
     }
 
-    public new bool IsNpc()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public new bool IsObject()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public new bool IsPlayer()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public new void LevelUp()
-    {
-        throw new System.NotImplementedException();
-    }
 
     public new void OnInteractedByEntity(IEntity target)
     {
-        Use();
-        throw new System.NotImplementedException();
+        PickedUpBy((IHuman)target);
     }
 
-    public new void PickedUpBy(IHuman entity)
-    {
-        throw new System.NotImplementedException();
-    }
 
-    public new void Spawn()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public new void TakeDamage(int amount)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public new void Use()
-    {
-        Debug.Log("LumberHouseBlueprint Use");
-        if (ObjectData.buildingPrefabs == null)
-        {
-            return;
-        }
-        GameObject newBuilding = Instantiate(ObjectData.buildingPrefabs, PlayerManager.Instance.PlayerModel.transform.position, Quaternion.identity);
-        // newBuilding.transform.parent = parentObject.transform;
-    }
+    // public new void Use()
+    // {
+    //     Debug.Log("LumberHouseBlueprint Use");
+    // }
 }

@@ -85,7 +85,7 @@ namespace LTK268
         public void OnInteract()
         {
             // if (playerModel.HoldItems.Count > playerModel.MaxNumberOfHoldItems) return;
-            if (currentInteractable == null || ((MonoBehaviour)currentInteractable) == null) return;
+            if (currentInteractable == null) return;
             Debug.Log("OnInteract called" + currentInteractable.Name);
             if (currentInteractable.EntityType == EntityType.Object && playerModel.HoldItems.Count > 0)
             {
@@ -103,6 +103,22 @@ namespace LTK268
             if (playerModel.HoldItems.Count == 0) return;
             var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
             item.GetComponent<IObject>().DroppedBy(this.playerModel);
+        }
+        public void OnUse()
+        {
+            if (currentInteractable != null)
+            {
+                var item = currentInteractable as ObjectBase;
+                item.Use();
+                return;
+            }
+            else if (playerModel.HoldItems.Count > 0 && currentInteractable == null)
+            {
+                var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
+                item.GetComponent<IObject>().Use();
+            }
+
+            currentInteractable = null;
         }
 
         public void OnAttack()

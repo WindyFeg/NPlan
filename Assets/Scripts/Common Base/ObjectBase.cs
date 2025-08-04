@@ -2,6 +2,7 @@ using Common_Utils;
 using DG.Tweening;
 using LTK268.Interface;
 using LTK268.Manager;
+using LTK268.Popups;
 using LTK268.Utils;
 using UnityEngine;
 
@@ -86,7 +87,22 @@ namespace LTK268.Model.CommonBase
 
         public void Use()
         {
-            LTK268Log.LogNotImplement(this);
+            if (this.ObjectData.resourceType == ResourceType.Blueprint)
+            {
+                GameObject newBuilding = Instantiate(ObjectData.buildingPrefabs, PlayerManager.Instance.PlayerModel.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                PopupManager.Instance.Show(
+                    PopupType.Ok,
+                    $"You can't use {this.ObjectData.Name}",
+                    "Close"
+                );
+                return;
+            }
+            PlayerManager.Instance.ListOfObjects.Remove(this.gameObject);
+            this.deactive();
+            // LTK268Log.LogNotImplement(this);
         }
 
         public void Inspect()

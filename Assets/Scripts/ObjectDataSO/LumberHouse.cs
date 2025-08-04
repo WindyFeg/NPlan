@@ -80,62 +80,10 @@ public class LumberHouse : BuildingBase, IBuilding
             return;
         }
 
-        Debug.Log("Town Hall Interacted");
-        AddMaterialToBuilding((IHuman)target);
-    }
-    public void Upgrade()
-    {
-        if (ObjectData.nextBuildingData == null)
-        {
-            Debug.Log("No next building data");
-            return;
-        }
-        ObjectData = ObjectData.nextBuildingData;
-        Initialization();
 
+        AddBuildingMaterial((IHuman)target);
     }
 
-      private void AddMaterialToBuilding(IHuman target)
-    {
-        ObjectBase oldItem = target.HoldItems[0].gameObject.GetComponent<ObjectBase>();
-
-        var humanBase = target as HumanBase;
-        if (humanBase != null)
-        {
-            var objectBase = humanBase.RemoveHoldItem().GetComponent<ObjectBase>();
-            foreach (var material in BuildingMaterials)
-            {
-                if (material.Value > material.Key.cost)
-                {
-                    // Send back the item to the human
-                    humanBase.AddHoldItem(objectBase.gameObject);
-                    return;
-                }
-
-                // Add the material to the building
-                if (material.Key.objectData.resourceType == objectBase.ObjectData.resourceType)
-                {
-                    BuildingMaterials[material.Key] += 1;
-                    if (CheckComplete())
-                    {
-                        Upgrade();
-                    }
-                    return;
-                }
-            }
-        }
-    }
-    private bool CheckComplete()
-    {
-        foreach (var material in BuildingMaterials)
-        {
-            if (material.Value < material.Key.cost)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
     /// <summary>
     /// Crafting Blueprint
     /// </summary>

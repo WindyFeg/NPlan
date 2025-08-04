@@ -131,7 +131,7 @@
 //                     ""name"": ""Jump"",
 //                     ""type"": ""Button"",
 //                     ""id"": ""f1ba0d36-48eb-4cd5-b651-1c94a6531f70"",
-//                     ""expectedControlType"": ""Button"",
+//                     ""expectedControlType"": """",
 //                     ""processors"": """",
 //                     ""interactions"": """",
 //                     ""initialStateCheck"": false
@@ -140,7 +140,7 @@
 //                     ""name"": ""Previous"",
 //                     ""type"": ""Button"",
 //                     ""id"": ""2776c80d-3c14-4091-8c56-d04ced07a2b0"",
-//                     ""expectedControlType"": ""Button"",
+//                     ""expectedControlType"": """",
 //                     ""processors"": """",
 //                     ""interactions"": """",
 //                     ""initialStateCheck"": false
@@ -167,6 +167,15 @@
 //                     ""name"": ""Drop"",
 //                     ""type"": ""Button"",
 //                     ""id"": ""4caeaa59-27ab-4130-85cd-58d183ee29a8"",
+//                     ""expectedControlType"": """",
+//                     ""processors"": """",
+//                     ""interactions"": """",
+//                     ""initialStateCheck"": false
+//                 },
+//                 {
+//                     ""name"": ""Use"",
+//                     ""type"": ""Button"",
+//                     ""id"": ""4f930532-7bb9-4871-8d09-d7edcb024315"",
 //                     ""expectedControlType"": """",
 //                     ""processors"": """",
 //                     ""interactions"": """",
@@ -556,6 +565,28 @@
 //                     ""processors"": """",
 //                     ""groups"": """",
 //                     ""action"": ""Drop"",
+//                     ""isComposite"": false,
+//                     ""isPartOfComposite"": false
+//                 },
+//                 {
+//                     ""name"": """",
+//                     ""id"": ""accf3f18-5789-4e57-a8d5-fe62b22fbca9"",
+//                     ""path"": """",
+//                     ""interactions"": """",
+//                     ""processors"": """",
+//                     ""groups"": """",
+//                     ""action"": ""Use"",
+//                     ""isComposite"": false,
+//                     ""isPartOfComposite"": false
+//                 },
+//                 {
+//                     ""name"": """",
+//                     ""id"": ""8ea7455f-6a39-4b97-8213-a2bc0cca356c"",
+//                     ""path"": ""<Keyboard>/f"",
+//                     ""interactions"": """",
+//                     ""processors"": """",
+//                     ""groups"": """",
+//                     ""action"": ""Use"",
 //                     ""isComposite"": false,
 //                     ""isPartOfComposite"": false
 //                 }
@@ -1152,6 +1183,7 @@
 //         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
 //         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
 //         m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
+//         m_Player_Use = m_Player.FindAction("Use", throwIfNotFound: true);
 //         // UI
 //         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
 //         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1254,6 +1286,7 @@
 //     private readonly InputAction m_Player_Next;
 //     private readonly InputAction m_Player_Sprint;
 //     private readonly InputAction m_Player_Drop;
+//     private readonly InputAction m_Player_Use;
 //     /// <summary>
 //     /// Provides access to input actions defined in input action map "Player".
 //     /// </summary>
@@ -1301,6 +1334,10 @@
 //         /// Provides access to the underlying input action "Player/Drop".
 //         /// </summary>
 //         public InputAction @Drop => m_Wrapper.m_Player_Drop;
+//         /// <summary>
+//         /// Provides access to the underlying input action "Player/Use".
+//         /// </summary>
+//         public InputAction @Use => m_Wrapper.m_Player_Use;
 //         /// <summary>
 //         /// Provides access to the underlying input action map instance.
 //         /// </summary>
@@ -1354,6 +1391,9 @@
 //             @Drop.started += instance.OnDrop;
 //             @Drop.performed += instance.OnDrop;
 //             @Drop.canceled += instance.OnDrop;
+//             @Use.started += instance.OnUse;
+//             @Use.performed += instance.OnUse;
+//             @Use.canceled += instance.OnUse;
 //         }
 
 //         /// <summary>
@@ -1392,6 +1432,9 @@
 //             @Drop.started -= instance.OnDrop;
 //             @Drop.performed -= instance.OnDrop;
 //             @Drop.canceled -= instance.OnDrop;
+//             @Use.started -= instance.OnUse;
+//             @Use.performed -= instance.OnUse;
+//             @Use.canceled -= instance.OnUse;
 //         }
 
 //         /// <summary>
@@ -1755,6 +1798,13 @@
 //         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
 //         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
 //         void OnDrop(InputAction.CallbackContext context);
+//         /// <summary>
+//         /// Method invoked when associated input action "Use" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+//         /// </summary>
+//         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+//         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+//         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+//         void OnUse(InputAction.CallbackContext context);
 //     }
 //     /// <summary>
 //     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

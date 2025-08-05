@@ -88,6 +88,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
             Debug.LogError("Invalid entity type interacting with Town Hall");
             return;
         }
+        AddBuildingMaterial((IHuman)target);
     
         Debug.Log("Town Hall Interacted");
     }

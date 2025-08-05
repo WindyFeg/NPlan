@@ -246,7 +246,7 @@ MonoBehaviour:
   level: 0
   damage: 0
   armor: 0
-  entityType: 0
+  entityType: 4
   entityView: {fileID: 0}
   xPosStart: 0
   yPosStart: 0

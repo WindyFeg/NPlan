@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Common_Utils;
 using LTK268.Interface;
 using LTK268.Manager;
+using LTK268.Popups;
 using LTK268.Utils;
 using UnityEngine;
 
@@ -149,6 +150,11 @@ namespace LTK268.Model.CommonBase
                     {
                         // Send back the item to the human
                         humanBase.AddHoldItem(objectBase.gameObject);
+                        PopupManager.Instance.Show(
+                            PopupType.Ok,
+                            $"You can't use {objectBase.ObjectData.Name}",
+                            "Close"
+                        );
                         return;
                     }
 
@@ -165,11 +171,11 @@ namespace LTK268.Model.CommonBase
                     else
                     {
                         // Send back the item to the human
-                        humanBase.AddHoldItem(objectBase.gameObject);
-                        LTK268Log.LogWarning($"Material {objectBase.ObjectData.resourceType} does not match required type {material.Key.objectData.resourceType}");
-                        return;
+                        continue;
                     }
                 }
+                humanBase.AddHoldItem(objectBase.gameObject);
+                LTK268Log.LogWarning($"Material {objectBase.ObjectData.resourceType} does not match required types");
             }
         }
             #region Private Methods

@@ -110,14 +110,15 @@ namespace LTK268
             {
                 var item = currentInteractable as ObjectBase;
                 item.Use();
+                currentInteractable = null;
                 return;
             }
             else if (playerModel.HoldItems.Count > 0 && currentInteractable == null)
             {
                 var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
                 item.GetComponent<IObject>().Use();
+                return;
             }
-
             currentInteractable = null;
         }
 

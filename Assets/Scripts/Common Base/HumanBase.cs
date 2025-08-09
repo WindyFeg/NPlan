@@ -23,6 +23,7 @@ namespace LTK268.Model.CommonBase
         #region Private Fields
         [SerializeField] private List<GameObject> holdItems = new List<GameObject>();
         [SerializeField] private int maxNumberOfHoldItems = 1;
+        [SerializeField] private SpriteRenderer holdItemIcon;
         #endregion
 
         #region Public Constructors
@@ -58,6 +59,11 @@ namespace LTK268.Model.CommonBase
 
         public void AddHoldItem(GameObject item)
         {
+            if (holdItemIcon != null)
+            {
+                Debug.Log("Hold item icon is set", this);
+                holdItemIcon.sprite = item.GetComponent<SpriteRenderer>().sprite;
+            }
             holdItems.Add(item);
         }
 
@@ -67,6 +73,10 @@ namespace LTK268.Model.CommonBase
             {
                 Debug.LogWarning("No items to remove", this);
                 return null;
+            }
+            if (holdItemIcon != null)
+            {
+                holdItemIcon.sprite = null; // Clear the icon when removing an item
             }
             GameObject item = holdItems[0];
             holdItems.RemoveAt(0);

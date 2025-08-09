@@ -109,6 +109,8 @@ namespace LTK268.Utils
         Iron = 3,
         Food = 4,
         Gold = 5,
+        Blueprint = 6,
+        Sword = 7,
     }
     #endregion
 

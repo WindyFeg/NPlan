@@ -1,11 +1,12 @@
 using UnityEngine;
-public enum ResourceType
-{
-    Wood,
-    Stone,
-    Food,
-    Blueprint
-}
+using LTK268.Utils;
+// public enum ResourceType
+// {
+//     Wood,
+//     Stone,
+//     Food,
+//     Blueprint
+// }
 public class StorageManager : MonoBehaviour
 {
     public int wood = 0;

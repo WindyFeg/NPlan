@@ -113,6 +113,11 @@ MonoBehaviour:
   nPCWarriorType: 0
   happiness: 0
   pickupDistance: 1
+  sicknessBehaviorGraph: {fileID: -6074060054979948839, guid: b5654782c16a4ec4db3646a750077170, type: 2}
+  joblessBehaviorGraph: {fileID: -5027583417846632501, guid: f7fdc5cee9ca60b428d55fafa634c7d0, type: 2}
+  interactableDatas:
+  - objectData: {fileID: 0}
+    cost: 0
 --- !u!114 &3783908809484530377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,13 +168,38 @@ MonoBehaviour:
   m_Graph: {fileID: -5027583417846632501, guid: f7fdc5cee9ca60b428d55fafa634c7d0, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 2451612340809367869
-  - rid: 6116959818189897908
-  - rid: 6116959818189897909
+  - rid: 2175911035433648349
+  - rid: 2175911035433648350
+  - rid: 2175911035433648351
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
     version: 2
     RefIds:
+    - rid: 2175911035433648349
+      type: {class: 'BlackboardVariable`1[[EntityDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 3039363386536133645
+          m_Value1: 5212673749104027386
+        Name: Entity Detector
+        m_Value: {fileID: 8770211762042509678}
+    - rid: 2175911035433648350
+      type: {class: 'BlackboardVariable`1[[LTK268.Model.CommonBase.NpcModel, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 9902439921529912337
+          m_Value1: 16139703951963291083
+        Name: Model
+        m_Value: {fileID: 1272321186969891503}
+    - rid: 2175911035433648351
+      type: {class: 'BlackboardVariable`1[[CharacterAnimation, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 16996285001946116035
+          m_Value1: 17071407837395027440
+        Name: CharactorAnimation
+        m_Value: {fileID: 4018375896174312859}
     - rid: 2451612340809367869
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -178,22 +208,6 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 770025913466669864}
-    - rid: 6116959818189897908
-      type: {class: 'BlackboardVariable`1[[EntityDetector, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 3039363386536133645
-          m_Value1: 5212673749104027386
-        Name: Entity Detector
-        m_Value: {fileID: 8770211762042509678}
-    - rid: 6116959818189897909
-      type: {class: 'BlackboardVariable`1[[LTK268.Model.CommonBase.NpcModel, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 9902439921529912337
-          m_Value1: 16139703951963291083
-        Name: Model
-        m_Value: {fileID: 1272321186969891503}
 --- !u!114 &4018375896174312859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +224,17 @@ MonoBehaviour:
   navMeshAgent: {fileID: 3178965445660654782}
   anim: {fileID: 8778264442025403812}
   entityBase: {fileID: 1272321186969891503}
+  idle: 1
+  walking: 1
+  running: 1
+  pickup: 1
+  attack: 1
+  hit: 1
+  death: 1
+  currentAnimation: 
+  lastDirection: None
+  currentDirection: None
+  currentAnimState: 0
 --- !u!114 &865611218772792357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,11 +253,12 @@ MonoBehaviour:
   - Key: E
     Description: Interact
   RequiredItems:
-  - resourceData: {fileID: 11400000, guid: a939cf55b0b8f4f38831daf900678e92, type: 2}
-    ItemId: 0
-    Icon: {fileID: 0}
-    Amount: 2
+  - interactableData:
+      objectData: {fileID: 0}
+      cost: 0
     CurrentAmount: 0
+  objectBase: {fileID: 0}
+  humanBase: {fileID: 1272321186969891503}
 --- !u!65 &2220678937578921964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -417,8 +443,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1958091715
-  m_SortingLayer: 3
+  m_SortingLayerID: -776629981
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 8716057218885856023, guid: 69d998afb466e42889d9f81808a8b126, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -441,7 +467,7 @@ Animator:
   m_GameObject: {fileID: 8248041708744802567}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0026c038900596a40b9c0b4194220e7c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ac7d4123c744e548ad2ba6f16d0655b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

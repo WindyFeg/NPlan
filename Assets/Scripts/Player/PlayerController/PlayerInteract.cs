@@ -50,23 +50,7 @@ namespace LTK268
             if (!objectsInTrigger.Contains(other))
             {
                 objectsInTrigger.Add(other);
-                if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
-                {
-                    var go = entityDetector.GetClosestEntity();
-                    closestEntity = go?.GetComponent<EntityBase>();
-                    currentInteractable = closestEntity as IEntity;
-                    if (currentInteractable != null)
-                    {
-                        if (playerModel.HoldItems.Count > 0)
-                        {
-                            EntityUIManager.Instance.ShowChangeItemUI(currentInteractable, go?.transform);
-                        }
-                        else
-                        {
-                            EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
-                        }
-                    }
-                }
+                ShowUIOnEntity(other);
             }
         }
 
@@ -137,6 +121,29 @@ namespace LTK268
         {
             // Implement logic for next interaction if needed.
             // this.notify_event((int)EventID.Game.OnSwipeRightJobList);
+        }
+
+        private void ShowUIOnEntity(Collider other)
+        {
+            if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
+            {
+                var go = entityDetector.GetClosestEntity();
+                closestEntity = go?.GetComponent<EntityBase>();
+                currentInteractable = closestEntity as IEntity;
+                if (currentInteractable != null)
+                {
+                    if (playerModel.HoldItems.Count > 0)
+                    {
+                        EntityUIManager.Instance.ShowChangeItemUI(currentInteractable, go?.transform);
+                        InfoPopupController.Instance.SetInfoPopupController(closestEntity as EntityBase);
+                    }
+                    else
+                    {
+                        EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
+                        InfoPopupController.Instance.SetInfoPopupController(closestEntity as EntityBase);
+                    }
+                }
+            }
         }
 
         #endregion

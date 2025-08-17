@@ -39,7 +39,7 @@ namespace LTK268
         #endregion
 
         #region Unity Methods
-        List<Collider> objectsInTrigger = new List<Collider>();
+        [SerializeField] List<Collider> objectsInTrigger = new List<Collider>();
         private void Start()
         {
             if (playerModel == null)
@@ -54,7 +54,6 @@ namespace LTK268
             if (!objectsInTrigger.Contains(other))
             {
                 objectsInTrigger.Add(other);
-                Debug.Log($"OnTriggerStay: {other.name}");
                 ShowUIOnEntity(other);
             }
         }
@@ -66,7 +65,9 @@ namespace LTK268
             if (objectsInTrigger.Contains(other))
             {
                 EntityUIManager.Instance.HideEntityUI(null);
+                objectsInTrigger.RemoveAll(item => item == null);
                 objectsInTrigger.Remove(other);
+                closestEntity = null;
             }
             
         }

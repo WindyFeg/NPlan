@@ -160,6 +160,7 @@ MonoBehaviour:
   maxNumberOfHoldItems: 0
   holdItemIcon: {fileID: 1660221150965352446}
   weaponSpriteRenderer: {fileID: 3654855830964675678}
+  weaponBehaviour: {fileID: 6266044319365250956}
 --- !u!114 &9016226625399662469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +280,7 @@ MonoBehaviour:
   entityDetector: {fileID: 8259621270371399503}
   weaponAnimator: {fileID: 6435980684212718395}
   closestEntity: {fileID: 0}
+  objectsInTrigger: []
 --- !u!114 &945401482815448640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,9 +552,11 @@ GameObject:
   - component: {fileID: 2462865663780957015}
   - component: {fileID: 3654855830964675678}
   - component: {fileID: 6435980684212718395}
-  m_Layer: 10
+  - component: {fileID: 9073404899849271818}
+  - component: {fileID: 6266044319365250956}
+  m_Layer: 8
   m_Name: weapon
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,3 +653,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &9073404899849271818
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245356062234302325}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.2}
+  m_Center: {x: 0.0000019073486, y: 0, z: 0}
+--- !u!114 &6266044319365250956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6245356062234302325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdfae06c7e4e8947b4f329fafa96d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnimator: {fileID: 6435980684212718395}

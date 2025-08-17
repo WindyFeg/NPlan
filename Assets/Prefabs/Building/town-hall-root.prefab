@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6463724791322179887}
   - component: {fileID: 8191147300052261787}
   - component: {fileID: 7344294447182961904}
+  - component: {fileID: 3404399014651038517}
   m_Layer: 9
   m_Name: town-hall-root
   m_TagString: Building
@@ -48,11 +49,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 1, z: 3}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 1}
 --- !u!114 &7344294447182961904
 MonoBehaviour:
@@ -75,13 +76,40 @@ MonoBehaviour:
   armor: 0
   entityType: 0
   entityView: {fileID: 0}
+  entitySpriteRenderer: {fileID: 0}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
+  objectData: {fileID: 11400000, guid: 6428c500cf67642eea922655b601aa6c, type: 2}
   buildingType: 0
   buildingSize: 0
   assignedWorker: {fileID: 0}
   residents: []
+  buildingMaterials:
+    keys: []
+    values: 
+  buildingStorage:
+    keys: 
+    values: 
   buildingState: 0
-  buildingData: {fileID: 11400000, guid: 6428c500cf67642eea922655b601aa6c, type: 2}
+--- !u!114 &3404399014651038517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8255801143630672968}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2737efb1ec941708e34f32afc22aef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  YPositionOffset: 0.75
+  isRequiredItem: 1
+  Actions:
+  - Key: E
+    Description: Build
+  RequiredItems: []
+  objectBase: {fileID: 7344294447182961904}
+  humanBase: {fileID: 0}

@@ -5,30 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b08ea1d4-4ab4-4f7a-858d-be7f4a950feb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/LightingManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/LightingManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/TimeManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/TimeManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Popups/ToastPopup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Popups/ToastPopup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/LightingPreset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/LightingPreset.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NPlan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NPlan/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/ConGa.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/ConGa.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Ga.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Ga.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 2.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 2.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 3.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 3.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 4.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 4.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 5.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Enemy/Wolf - WIP_Clip 5.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Player/PlayerAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Animation/Player/PlayerAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Player/Wolf - WIP.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Animation/Player/Wolf - WIP.controller.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BehaviourGraph/Enemies/EnemyGraph.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BehaviourGraph/Enemies/EnemyGraph.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Wolf.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/Wolf.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common Base/EntityBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common Base/EntityBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CharacterAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CharacterAnimation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BehaviorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Item/Lumber_House_Blueprint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Item/Lumber_House_Blueprint.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EnemyScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/EnemyScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BahaviourAction/AttackTargetAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BahaviourAction/AttackTargetAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Common Base/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Common Base/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Define/GameDefine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Define/GameDefine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/AI/Wolf.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/AI/Wolf.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/AI/WolfModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/AI/WolfModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/LookingForTownHallAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/LookingForTownHallAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Event/KillMonsterEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Event/KillMonsterEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game/Building/TownHall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game/Building/TownHall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/BuildingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/BuildingManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/EnemyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/NpcManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/NpcManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager/PopupManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager/PopupManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Npc/Action/DepositTownHallAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Npc/Action/DepositTownHallAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController/PlayerInteract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Popups/PopupType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/Popups/PopupType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +55,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BahaviourAction/AttackTargetAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager/PopupManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Npc/Action/NpcRangeDetectorAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/SetAnimStateAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c01a2e87500f4b88b40eba7308bfcbe61df600/7e/300edd70/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -91,6 +107,22 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.49f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Unity\NPlan -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Unity\NPlan" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.49f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Unity\NPlan -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Unity\NPlan" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.49f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Unity\NPlan -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -106,6 +138,34 @@
       <option name="projectPathOnTarget" />
       <option name="runtimes">
         <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11712">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="11712" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -158,6 +218,11 @@
       <workItem from="1754149139210" duration="733000" />
       <workItem from="1754203820339" duration="6377000" />
       <workItem from="1754217117418" duration="2277000" />
+      <workItem from="1754226050960" duration="3537000" />
+      <workItem from="1754406864580" duration="2297000" />
+      <workItem from="1754793382649" duration="4999000" />
+      <workItem from="1755340755181" duration="5992000" />
+      <workItem from="1755393579704" duration="23310000" />
     </task>
     <servers />
   </component>
@@ -172,8 +237,26 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#LTK268.Model.CommonBase.EnemyBase" memberName="EnemyType" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

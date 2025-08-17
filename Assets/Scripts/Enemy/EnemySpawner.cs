@@ -1,4 +1,5 @@
 ﻿using System;
+using LTK268.Model.CommonBase;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -12,23 +13,23 @@ namespace LTK268.Enemy
         [HideInInspector] public int killCounter;
 
         #region Serialized Fields
-        [SerializeField] private EnemyBehaviour enemyPrefab;
+        [SerializeField] private EnemyBase enemyPrefab;
         [SerializeField] private int defaultCapacity = 10;
         [SerializeField] private int maxCapacity = 50;
         #endregion
 
-        public Action<EnemyBehaviour> onInit;
-        public Action<EnemyBehaviour> onDead;
+        public Action<EnemyBase> onInit;
+        // public Action<EnemyBase> onDead;
 
         #region Private Fields
-        private ObjectPool<EnemyBehaviour> enemyPool;
+        private ObjectPool<EnemyBase> enemyPool;
         #endregion
 
         #region Unity Methods
 
         private void Awake()
         {
-            enemyPool = new ObjectPool<EnemyBehaviour>(
+            enemyPool = new ObjectPool<EnemyBase>(
                 CreateEnemy,
                 OnGetEnemy,
                 OnReleaseEnemy,
@@ -42,19 +43,21 @@ namespace LTK268.Enemy
 
         #region Public Methods
 
-        public void SpawnEnemy(Vector3 position)
+        public EnemyBase SpawnEnemy(Vector3 position)
         {
             var enemy = enemyPool.Get();
             enemy.transform.position = position;
             enemy.transform.parent = transform;
-            onInit?.Invoke(enemy);
+            // onInit?.Invoke(enemy);
+            return enemy;
         }
 
-        public void DespawnEnemy(EnemyBehaviour enemy)
+        public void DespawnEnemy(EnemyBase enemy)
         {
             if (enemy) Debug.Log("> Despawn");
+            enemy.Death();
             killCounter++;
-            onDead?.Invoke(enemy);
+            // onDead?.Invoke(enemy);
             enemyPool.Release(enemy);
         }
         
@@ -62,25 +65,25 @@ namespace LTK268.Enemy
 
         #region Pool Callbacks
 
-        private EnemyBehaviour CreateEnemy()
+        private EnemyBase CreateEnemy()
         {
             var enemy = Instantiate(enemyPrefab);
             enemy.Pool = enemyPool;
             return enemy;
         }
 
-        private void OnGetEnemy(EnemyBehaviour enemy)
+        private void OnGetEnemy(EnemyBase enemy)
         {
             enemy.gameObject.SetActive(true);
         }
 
-        private void OnReleaseEnemy(EnemyBehaviour enemy)
+        private void OnReleaseEnemy(EnemyBase enemy)
         {
             if (enemy) Debug.Log("> OnReleaseEnemy");
             enemy.gameObject.SetActive(false);
         }
 
-        private void OnDestroyEnemy(EnemyBehaviour enemy)
+        private void OnDestroyEnemy(EnemyBase enemy)
         {
             Destroy(enemy.gameObject);
         }

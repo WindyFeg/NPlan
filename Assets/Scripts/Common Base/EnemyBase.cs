@@ -1,14 +1,18 @@
+using System;
+using LTK268.Enemy;
 using LTK268.Interface;
 using LTK268.Manager;
-using LTK268.Utils;
-using Unity.VisualScripting;
-using UnityEngine;
+using UnityEngine.Pool;
 
 namespace LTK268.Model.CommonBase
 {
     [System.Serializable]
     public class EnemyBase : AnimalBase, IEnemy
     {
+        public EnemyType EnemyType;
+        public IObjectPool<EnemyBase> Pool { get; set; }
+        public event Action<EnemyBase> OnDead;
+        
         public EnemyBase(int id, string name, int maxHealth, int level, int damage) : base(id, name, maxHealth, level, damage)
         {
         }
@@ -23,6 +27,7 @@ namespace LTK268.Model.CommonBase
         {
             EnemyManager.Instance.UnregisterEnemy(this);
         }
+        
         void OnValidate()
         {
             if (!gameObject.CompareTag("Enemy"))
@@ -31,5 +36,10 @@ namespace LTK268.Model.CommonBase
             }
         }
         #endregion
+        
+        public void Death()
+        {
+            OnDead?.Invoke(this);
+        }
     }
 }

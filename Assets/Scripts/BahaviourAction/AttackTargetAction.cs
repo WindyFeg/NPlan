@@ -1,5 +1,6 @@
 using LTK268.Model.CommonBase;
 using System;
+using LTK268.Interface;
 using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
@@ -20,7 +21,7 @@ public partial class AttackTargetAction : Action
             return Status.Failure;
         }
 
-        var targetEntity = target.Value.GetComponent<EntityBase>();
+        var targetEntity = target.Value.GetComponent<IEntity>();
         if (targetEntity == null)
         {
             Debug.LogError("Target does not have an EntityBase component, cannot perform attack action.");

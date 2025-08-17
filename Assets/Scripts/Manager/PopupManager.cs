@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using LTK268.Utils;
+using LTK268.Define;
 using LTK268.Popups;
+using LTK268.Utils;
 using UnityEngine;
 
 namespace LTK268.Manager
@@ -102,11 +103,38 @@ namespace LTK268.Manager
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
-                Show(
-                    PopupType.Ok,
-                    "Are you ok?",
-                    "Super ok!"
-                );
+                popups.TryGetValue(PopupType.Toast, out var popup);
+                if (popup != null)
+                {
+                    var toastPopup = (ToastPopup)popup;
+                    toastPopup.SetFontSize(TextSize.ExtraLarge); // Set custom duration
+                    toastPopup.SetDisplayDuration(3f); // Set custom duration
+                    toastPopup.SetBackgroundSize(300, 100); // Set custom background size
+                    toastPopup.ShowWithArgs(new object[] { "This is a custom toast message!" });
+                }
+                else
+                {
+                    Debug.LogWarning("Can't found popup!");
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.B))
+            {
+                // PopupManager.Instance.Show(
+                //     PopupType.Toast,
+                //     "Level up!"
+                // );
+                popups.TryGetValue(PopupType.Toast, out var popup);
+                if (popup != null)
+                {
+                    var toastPopup = (ToastPopup)popup;
+                    toastPopup.ShowWithArgs(new object[] { "Level Up!" });
+                    toastPopup.ShowWithArgs(new object[] { "Warning", "Low Health" });
+                    toastPopup.ShowWithArgs(new object[] { "Disconnected", "Reconnecting..." });
+                }
+                else
+                {
+                    Debug.LogWarning("Can't found popup!");
+                }
             }
         }
 #endif

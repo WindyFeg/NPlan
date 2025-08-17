@@ -13,12 +13,12 @@ public partial class LookingForTownHallAction : Action
 
     protected override Status OnStart()
     {
-        if (BuildingManager.Instance.TownHall == null)
-        {
-            Debug.LogWarning("TownHall is not available.");
-            return Status.Failure;
-        }
-        Target.Value = BuildingManager.Instance.TownHall.gameObject;
+        // if (BuildingManager.Instance.TownHall == null)
+        // {
+        //     Debug.LogWarning("TownHall is not available.");
+        //     return Status.Failure;
+        // }
+        // Target.Value = BuildingManager.Instance.TownHall.gameObject;
         return Status.Success;
     }
 

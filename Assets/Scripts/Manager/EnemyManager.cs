@@ -3,7 +3,9 @@ using DG.Tweening;
 using LTK268.Enemy;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace LTK268.Manager
 {
@@ -16,9 +18,12 @@ namespace LTK268.Manager
 
         public static EnemyManager Instance { get; private set; }
         public List<EnemyBase> EnemyBases => enemyBases;
+        public NavMeshSurface navMesh;
+
         #endregion
 
         #region Private Properties
+
         [SerializeField] private List<EnemySpawnerEntry> spawnerEntries = new();
         [SerializeField] private List<EnemyBase> enemyBases = new List<EnemyBase>();
         private Dictionary<EnemyType, EnemySpawner> spawnerByType = new();
@@ -33,7 +38,7 @@ namespace LTK268.Manager
             if (Instance == null)
             {
                 Instance = this;
-                // InitializeSpawnerDictionary();
+                InitializeSpawnerDictionary();
             }
             else
             {
@@ -51,20 +56,99 @@ namespace LTK268.Manager
             ResetKillCounter();
         }
 
-        public void SpawnEnemy(EnemyType type, Vector3 position)
+        public EnemySpawner GetEnemySpawner(EnemyType enemyType)
         {
-            if (spawnerByType.TryGetValue(type, out var spawner))
+            return spawnerByType.GetValueOrDefault(enemyType);
+        }
+
+
+        public EnemyBase SpawnEnemy(
+            EnemyType type,
+            Vector3? position = null,
+            Transform target = null,
+            float radius = 0f)
+        {
+            if (!spawnerByType.TryGetValue(type, out var spawner))
             {
-                spawner.SpawnEnemy(position);
-                LTK268Log.ManagerLog($"Enemy spawned: {type} at {position}");
+                LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
+                return null;
+            }
+
+            Vector3 spawnPos;
+
+            if (target != null && radius > 0f)
+            {
+                // Case 1: random around target
+                if (!RandomNavmeshLocation(target.position, radius, out spawnPos))
+                {
+                    spawnPos = target.position;
+                    LTK268Log.LogWarning($"Could not find NavMesh pos near {target.name}, spawning at target instead.");
+                }
+            }
+            else if (position.HasValue)
+            {
+                // Case 2: exact position provided
+                spawnPos = position.Value;
             }
             else
             {
-                LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
+                // Case 3: fully random within navMesh.bounds
+                if (!RandomNavmeshInSurface(navMesh, out spawnPos))
+                {
+                    spawnPos = navMesh.transform.position; // fallback
+                    LTK268Log.LogWarning("Could not find random NavMesh position, spawning at navMesh center instead.");
+                }
             }
+
+            var enemyBase = spawner.SpawnEnemy(spawnPos);
+            LTK268Log.ManagerLog($"Enemy spawned: {type} at {spawnPos}");
+            return enemyBase;
         }
 
-        public void DespawnEnemy(EnemyType type, EnemyBehaviour enemy)
+        /// <summary>
+        /// Find a random point on NavMesh within a radius around an origin.
+        /// </summary>
+        private bool RandomNavmeshLocation(Vector3 origin, float radius, out Vector3 result)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                Vector3 randomDirection = Random.insideUnitSphere * radius + origin;
+                if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+                {
+                    result = hit.position;
+                    return true;
+                }
+            }
+
+            result = origin;
+            return false;
+        }
+
+        /// <summary>
+        /// Pick a random point inside a NavMeshSurface bounds.
+        /// </summary>
+        private bool RandomNavmeshInSurface(NavMeshSurface surface, out Vector3 result)
+        {
+            var bounds = surface.navMeshData.sourceBounds;
+
+            for (int i = 0; i < 20; i++)
+            {
+                float randX = Random.Range(bounds.min.x, bounds.max.x);
+                float randZ = Random.Range(bounds.min.z, bounds.max.z);
+                Vector3 randomPoint = new Vector3(randX, bounds.center.y, randZ);
+
+                if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
+                {
+                    result = hit.position;
+                    return true;
+                }
+            }
+
+            result = surface.transform.position;
+            return false;
+        }
+
+        public void DespawnEnemy(EnemyType type, EnemyBase enemy)
         {
             if (enemy == null)
             {
@@ -82,6 +166,7 @@ namespace LTK268.Manager
                 LTK268Log.ManagerError($"No spawner found for enemy type: {type}");
             }
         }
+
         /// <summary>
         /// Call this from EnemyBase's OnEnable
         /// </summary>
@@ -143,10 +228,12 @@ namespace LTK268.Manager
                 }
                 catch (System.Exception)
                 {
-                    LTK268Log.ManagerError($"[EnemyManager] CameraPanForEnemies: {enemy.name} has no EntityView assigned.");
+                    LTK268Log.ManagerError(
+                        $"[EnemyManager] CameraPanForEnemies: {enemy.name} has no EntityView assigned.");
                 }
             }
         }
+
         #endregion
 
         #region Private Methods
@@ -223,12 +310,7 @@ namespace LTK268.Manager
 #if UNITY_EDITOR
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                var rnd = Random.Range(0f, 5f);
-                SpawnEnemy(EnemyType.Wolf, new Vector3(rnd, 0f, rnd));
-            }
-            else if (Input.GetKeyDown(KeyCode.L))
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 var spawner = spawnerByType[EnemyType.Wolf];
                 for (var i = 0; i < spawner.transform.childCount; i++)
@@ -236,7 +318,7 @@ namespace LTK268.Manager
                     var enemy = spawner.transform.GetChild(i).gameObject;
                     if (enemy.activeSelf)
                     {
-                        DespawnEnemy(EnemyType.Wolf, enemy.GetComponent<EnemyBehaviour>());
+                        DespawnEnemy(EnemyType.Wolf, enemy.GetComponent<EnemyBase>());
                         break;
                     }
                 }

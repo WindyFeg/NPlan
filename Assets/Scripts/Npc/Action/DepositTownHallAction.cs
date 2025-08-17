@@ -20,7 +20,7 @@ public partial class DepositTownHallAction : Action
         }
 
         var npcBase = Self.Value.GetComponent<IHuman>();
-        BuildingManager.Instance.TownHall.InteractWithEntity((IEntity)npcBase);
+        // BuildingManager.Instance.TownHall.InteractWithEntity((IEntity)npcBase);
         return Status.Running;
     }
 

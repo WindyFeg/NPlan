@@ -52,7 +52,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     {
         Initialization();
         entityInteractable = GetComponent<EntityInteractable>();
-        BuildingManager.Instance.TownHall = this;
+        // BuildingManager.Instance.TownHall = this;
         BuildingManager.Instance.RegisterBuilding(this);
     }
 

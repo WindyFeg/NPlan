@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using LTK268.Utils;
-
-using System;
-using System.Collections.Generic;
-using LTK268.Enemy;
 using LTK268.Event;
+using LTK268.Popups;
+using Unity.AppUI.UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,8 +10,9 @@ namespace LTK268.Manager
 {
     public class EventManager : MonoBehaviour
     {
+        [Tooltip("Event chance = 1 / eventRate. (e.g. 2 = 50%, 4 = 25%)")]
+        public int eventRate = 6;
         public static EventManager Instance;
-
         public List<EventBase> events;
 
         private EventBase currentEvent;
@@ -28,12 +26,19 @@ namespace LTK268.Manager
 
             Instance = this;
         }
-
+        
         public void TriggerRandomEvent()
         {
             if (events == null || events.Count == 0)
             {
-                //LTK268Log.ManagerError("TriggerRandomEvent: No events available");
+                return;
+            }
+            
+            // Roll the eventRate dice
+            var rnd = Random.Range(0, eventRate);
+            if (rnd != 0)
+            {
+                LTK268Log.LogInfo($"EventManager: {rnd} => There is no event tonight");
                 return;
             }
 
@@ -48,6 +53,7 @@ namespace LTK268.Manager
             currentEvent.OnEndEvent += CompleteCurrentEvent; // Register end event action
             EnemyManager.Instance.SetIsInEvent(true);
             LTK268Log.ManagerLog($"Random event triggered: {currentEvent.GetType().Name}");
+            PopupManager.Instance.Show(PopupType.Toast, $"{currentEvent.eventName}", $"{currentEvent.description}");
         }
 
         public void CompleteCurrentEvent()
@@ -58,7 +64,7 @@ namespace LTK268.Manager
                 return;
             }
 
-            currentEvent.EndEvent();
+            PopupManager.Instance.Show(PopupType.Toast, "Event Completed!");
             LTK268Log.ManagerLog($"Event completed: {currentEvent.GetType().Name}");
             currentEvent = null;
             EnemyManager.Instance.SetIsInEvent(false);
@@ -67,7 +73,7 @@ namespace LTK268.Manager
 #if UNITY_EDITOR
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 TriggerRandomEvent();
             }

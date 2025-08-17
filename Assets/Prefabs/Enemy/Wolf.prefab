@@ -96,7 +96,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8822932804179116037}
-  - component: {fileID: 6710518678541033073}
   - component: {fileID: 6920839874937887126}
   - component: {fileID: 1188157871614484950}
   - component: {fileID: 2533358120964842486}
@@ -128,23 +127,6 @@ Transform:
   - {fileID: 6809972846920776566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6710518678541033073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822930797892529999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c94fccac9744cbaf9188e6ff12a319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityBase: {fileID: 6920839874937887126}
-  entityType: 3
-  enemyType: 1
-  stats: {fileID: 11400000, guid: 5248f16c8d93b134baf4e0e2ff3219fe, type: 2}
-  speed: 5
 --- !u!114 &6920839874937887126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +148,11 @@ MonoBehaviour:
   armor: 1
   entityType: 3
   entityView: {fileID: 4822930797892529999}
+  EnemyType: 1
   speed: 5
+  behaviorGraphAgent: {fileID: 0}
+  patrolRadius: 0
+  pointCount: 0
 --- !u!195 &1188157871614484950
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -256,10 +242,7 @@ MonoBehaviour:
           m_Value0: 11995227964178071391
           m_Value1: 5421322762654144303
         Name: Waypoints
-        m_Value:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
+        m_Value: []
     - rid: 6646562548273906007
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:

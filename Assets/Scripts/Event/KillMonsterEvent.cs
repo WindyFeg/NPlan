@@ -1,6 +1,9 @@
 ﻿using LTK268.Enemy;
 using System.Collections.Generic;
+using LTK268.Manager;
+using LTK268.Model.CommonBase;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace LTK268.Event
 {
@@ -13,21 +16,31 @@ namespace LTK268.Event
 
         public override void BeginEvent()
         {
-            Debug.Log("Multiple Enemy Hunt Started!");
+            Debug.Log("Kill Enemy Event Started!");
             killProgress.Clear();
+
             foreach (var target in killTargets)
             {
                 killProgress[target.enemyType] = 0;
-                Debug.Log($"Kill {target.killRequired} of {target.enemyType}");
+
+                for (int i = 0; i < target.killRequired; i++)
+                {
+                    // Random spawn position
+                    var enemyBase = EnemyManager.Instance.SpawnEnemy(target.enemyType);
+                    enemyBase.OnDead += RegisterKill;
+                }
             }
         }
 
-        public void RegisterKill(EnemyType killedType)
+        public void RegisterKill(EnemyBase enemyBase)
         {
+            enemyBase.OnDead -= RegisterKill; // Unsubscribe immediately
+            
+            var killedType = enemyBase.EnemyType;
             if (!killProgress.ContainsKey(killedType)) return;
 
             killProgress[killedType]++;
-            Debug.Log($"{killedType} killed. {killProgress[killedType]}/{GetRequiredKill(killedType)}");
+            Debug.Log($"RegisterKill: {killedType} killed. {killProgress[killedType]}/{GetRequiredKill(killedType)}");
 
             if (IsAllTargetsCompleted())
             {

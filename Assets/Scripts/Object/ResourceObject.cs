@@ -45,6 +45,17 @@ public class ResourceObject : ObjectBase, IObject
         // Register the resource object with the ResourceManager
         ResourceManager.Instance.RegisterObject(this);
     }
+
+    private void OnValidate() {
+        if (EntitySpriteRenderer == null)
+        {
+            EntitySpriteRenderer = GetComponent<SpriteRenderer>();
+            if (EntitySpriteRenderer == null)
+            {
+                EntitySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            }            
+        }    
+    }
     #endregion
 
     #region Public Methods
@@ -84,29 +95,8 @@ public class ResourceObject : ObjectBase, IObject
     /// <param name="target">The interacting entity.</param>
     public new void OnInteractedByEntity(IEntity target)
     {
-        // Update storage with the resource provided
-        // StorageManager.Instance.UpdateResource(resourceData.SupplyQuantity, resourceData.ResourceType);
-        // if (target.IsPlayer())
-        // {
-        //     PickedUpBy((IHuman)target);
-        // }
-        // else if (target.IsNpc())
-        // {
-        //     PickedUpBy((IHuman)target);
-        // }
-        // else
-        // {
-        //     Debug.Log("ResourceObject: Interaction with non-human entity is not supported.");
-        //     return;
-        // }
         if (PlayerManager.Instance.PlayerModel.HoldItems.Count > 0) return;
         PickedUpBy((IHuman)target);
-        // Reduce health and check for destruction
-        // CurrentHealth -= 1;
-        // if (CurrentHealth <= 0)
-        // {
-        //     Destroy(gameObject);
-        // }
     }
 
     #endregion

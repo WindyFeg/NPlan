@@ -4,6 +4,10 @@ using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Model.CommonBase;
 using LTK268.Utils;
+using Common_Utils;
+using LTK268.Popups;
+using System.Collections;
+
 namespace LTK268
 {
     /// <summary>
@@ -23,17 +27,19 @@ namespace LTK268
         [Tooltip("EntityDetector to manage entity detection.")]
         [SerializeField] private EntityDetector entityDetector;
 
+        [SerializeField] private Animator weaponAnimator;
+
         #endregion
 
         #region Private Fields
 
-        private IEntity currentInteractable;
+        private IEntity currentInteractable;    
         [SerializeField] private EntityBase closestEntity;
 
         #endregion
 
         #region Unity Methods
-        List<Collider> objectsInTrigger = new List<Collider>();
+        [SerializeField] List<Collider> objectsInTrigger = new List<Collider>();
         private void Start()
         {
             if (playerModel == null)
@@ -48,33 +54,22 @@ namespace LTK268
             if (!objectsInTrigger.Contains(other))
             {
                 objectsInTrigger.Add(other);
-                if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
-                {
-                    var go = entityDetector.GetClosestEntity();
-                    closestEntity = go?.GetComponent<EntityBase>();
-                    currentInteractable = closestEntity as IEntity;
-                    if (currentInteractable != null)
-                    {
-                        if (playerModel.HoldItems.Count > 0)
-                        {
-                            EntityUIManager.Instance.ShowChangeItemUI(currentInteractable, go?.transform);
-                        }
-                        else
-                        {
-                            EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
-                        }
-                    }
-                }
+                ShowUIOnEntity(other);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
+            InfoPopupController.Instance.HideInfoPopup();
+
             if (objectsInTrigger.Contains(other))
             {
                 EntityUIManager.Instance.HideEntityUI(null);
+                objectsInTrigger.RemoveAll(item => item == null);
                 objectsInTrigger.Remove(other);
+                closestEntity = null;
             }
+            
         }
         #endregion
 
@@ -107,14 +102,14 @@ namespace LTK268
             if (currentInteractable != null)
             {
                 var item = currentInteractable as ObjectBase;
-                item.Use();
+                item.Use(playerModel);
                 currentInteractable = null;
                 return;
             }
             else if (playerModel.HoldItems.Count > 0 && currentInteractable == null)
             {
                 var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
-                item.GetComponent<IObject>().Use();
+                item.GetComponent<IObject>().Use(playerModel);
                 return;
             }
             currentInteractable = null;
@@ -122,8 +117,8 @@ namespace LTK268
 
         public void OnAttack()
         {
-            // this.notify_event((int)EventID.Game.OnOpenJobList, NPCFunctionType.Lumber);
-            // Implement attack logic if needed.
+            Debug.Log("OnAttack called, setting IsSwinging to true");
+            weaponAnimator.SetTrigger("Attack");
         }
 
         public void OnPrevious()
@@ -135,6 +130,29 @@ namespace LTK268
         {
             // Implement logic for next interaction if needed.
             // this.notify_event((int)EventID.Game.OnSwipeRightJobList);
+        }
+
+        private void ShowUIOnEntity(Collider other)
+        {
+            if (other.gameObject.layer != LayerMask.NameToLayer("Default"))
+            {
+                var go = entityDetector.GetClosestEntity();
+                closestEntity = go?.GetComponent<EntityBase>();
+                currentInteractable = closestEntity as IEntity;
+                if (currentInteractable != null)
+                {
+                    if (playerModel.HoldItems.Count > 0)
+                    {
+                        EntityUIManager.Instance.ShowChangeItemUI(currentInteractable, go?.transform);
+                        InfoPopupController.Instance.SetInfoPopupController(closestEntity as EntityBase);
+                    }
+                    else
+                    {
+                        EntityUIManager.Instance.ShowEntityUI(currentInteractable, go?.transform);
+                        InfoPopupController.Instance.SetInfoPopupController(closestEntity as EntityBase);
+                    }
+                }
+            }
         }
 
         #endregion

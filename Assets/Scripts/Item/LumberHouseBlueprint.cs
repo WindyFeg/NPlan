@@ -62,7 +62,7 @@ public class LumberHouseBlueprint : ObjectBase, IObject
     }
 
 
-    // public new void Use()
+    // public new void Use(IHuman entity
     // {
     //     Debug.Log("LumberHouseBlueprint Use");
     // }

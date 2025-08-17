@@ -180,11 +180,12 @@ MonoBehaviour:
   armor: 0
   entityType: 0
   entityView: {fileID: 0}
+  entitySpriteRenderer: {fileID: 1396836039302254197}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
-  objectData: {fileID: 0}
+  objectData: {fileID: 11400000, guid: d81b7f54c01d24096a5f53245a7ff33c, type: 2}
 --- !u!212 &1396836039302254197
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -776629981
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6}
@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 2406674374852789257}
   - component: {fileID: 7332971622398822482}
   - component: {fileID: 6144722244918996848}
+  - component: {fileID: 6314401658634031844}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Enemy
@@ -148,6 +149,7 @@ MonoBehaviour:
   armor: 1
   entityType: 3
   entityView: {fileID: 4822930797892529999}
+  entitySpriteRenderer: {fileID: 7066665102360464597}
   EnemyType: 1
   speed: 5
   behaviorGraphAgent: {fileID: 0}
@@ -385,6 +387,19 @@ MonoBehaviour:
   lastDirection: None
   currentDirection: None
   currentAnimState: 0
+--- !u!114 &6314401658634031844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822930797892529999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c9b790c08c10bf45b1920a06971a754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 1188157871614484950}
 --- !u!1 &6111395948106336662
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,8 +476,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -776629981
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6460217435296365722, guid: 321c51530df194f0ba2b22def4b15a1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

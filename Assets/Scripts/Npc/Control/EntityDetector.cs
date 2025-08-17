@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using LTK268.Utils;
 using UnityEngine;
+using LTK268.Model.CommonBase;
 
 public class EntityDetector : MonoBehaviour
 {
@@ -33,6 +34,11 @@ public class EntityDetector : MonoBehaviour
                 c.gameObject.CompareTag("Food") ||
                 c.gameObject.CompareTag("Object") ||
                 c.gameObject.CompareTag("Building")
+        );
+
+        filtered = System.Array.FindAll(
+            filtered,
+            c => c.GetComponent<EntityBase>() != null
         );
 
         return new List<GameObject>(System.Array.ConvertAll(filtered, c => c.gameObject));

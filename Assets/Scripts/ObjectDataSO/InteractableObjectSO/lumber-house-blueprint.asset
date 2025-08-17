@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHealth: 0
   level: 0
   damage: 0
-  resourceType: 3
+  resourceType: 6
   resourceIcon: {fileID: 0}
   requirements: 0
   buildingPrefabs: {fileID: 1234835160587091850, guid: 69c9b5112ccd54c47ba83b872b4096ca, type: 3}

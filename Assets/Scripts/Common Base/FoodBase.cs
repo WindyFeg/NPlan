@@ -47,7 +47,6 @@ namespace LTK268.Model.CommonBase
         public new void PickedUpBy(IHuman entity)
         {
             PlayerManager.Instance.ListOfFoods.Add(this.gameObject);
-            // LTK268Log.LogEntityAction(this, $"Picked up by {entity.Name}");
             this.gameObject.SetActive(false);
         }
     }

@@ -142,7 +142,11 @@ MonoBehaviour:
   Actions:
   - Key: E
     Description: press E to Interact
-  RequiredItems: []
+  RequiredItems:
+  - interactableData:
+      objectData: {fileID: 0}
+      cost: 1
+    CurrentAmount: 0
   objectBase: {fileID: 6774411013830991052}
   humanBase: {fileID: 0}
 --- !u!114 &2224080706834646269
@@ -180,11 +184,12 @@ MonoBehaviour:
   armor: 0
   entityType: 0
   entityView: {fileID: 0}
+  entitySpriteRenderer: {fileID: 8645591701747782366}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0
   yPosEnd: 0
-  objectData: {fileID: 0}
+  objectData: {fileID: 11400000, guid: 5c1b48f4458574e0aaac6b3d800d17ac, type: 2}
 --- !u!212 &8645591701747782366
 SpriteRenderer:
   m_ObjectHideFlags: 0

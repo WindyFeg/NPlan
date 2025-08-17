@@ -18,7 +18,7 @@ namespace LTK268.Interface
         /// <summary>
         /// Use when this object belong to some entity
         /// </summary>
-        void Use();
+        void Use(IHuman entity);
 
         /// <summary>
         /// use to inspect the information of the object

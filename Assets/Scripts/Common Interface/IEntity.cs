@@ -35,6 +35,10 @@ namespace LTK268.Interface
         /// Upgrade player model
         /// </summary>
         void LevelUp();
+        /// <summary>
+        /// Handle logic for when the entity is dead
+        /// </summary>
+        void Dead();
     }
 
     public interface IEntityCommonChecking

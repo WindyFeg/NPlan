@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using LTK268.Interface;
 using LTK268.Utils;
+using DG.Tweening;
 
 namespace LTK268.Model.CommonBase
 {
@@ -58,6 +59,11 @@ namespace LTK268.Model.CommonBase
             get => entityView;
             set => entityView = value;
         }
+        public SpriteRenderer EntitySpriteRenderer
+        {
+            get => entitySpriteRenderer;
+            set => entitySpriteRenderer = value;
+        }
         #endregion
 
         #region Private Fields
@@ -70,6 +76,7 @@ namespace LTK268.Model.CommonBase
         [SerializeField] private int armor;
         [SerializeField] private EntityType entityType = EntityType.None;
         [SerializeField] private GameObject entityView;
+        [SerializeField] private SpriteRenderer entitySpriteRenderer;
         #endregion
 
         #region Public Methods
@@ -110,6 +117,18 @@ namespace LTK268.Model.CommonBase
             }
 
             CurrentHealth -= effectiveDamage;
+
+
+            if (entitySpriteRenderer != null)
+            {
+                entitySpriteRenderer.DOColor(Color.red, 0.1f).SetLoops(2, LoopType.Yoyo);
+            }
+
+            if (CurrentHealth <= 0)
+            {
+                CurrentHealth = 0; // Ensure health does not go below zero
+                Dead();
+            }
             Debug.Log($"EntityBase - TakeDamage: {Name} took {effectiveDamage} damage. Current Health: {CurrentHealth}/{MaxHealth}");
         }
 
@@ -138,6 +157,25 @@ namespace LTK268.Model.CommonBase
         {
             Level++;
             CurrentHealth = MaxHealth;
+        }
+
+        public virtual void Dead()
+        {
+            Debug.Log($"EntityBase - Dead: {Name} has died.");
+            if (entitySpriteRenderer != null)
+            {
+                entitySpriteRenderer.DOColor(Color.white, 0.1f).OnComplete(() =>
+                {
+                    entitySpriteRenderer.DOColor(Color.red, 0.1f).OnComplete(() =>
+                    {
+                        Destroy(gameObject);
+                    });
+                });
+            }
+            else
+            {
+                Destroy(gameObject); 
+            }
         }
 
         /// <summary>

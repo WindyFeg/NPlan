@@ -85,7 +85,7 @@ namespace LTK268.Model.CommonBase
             LTK268Log.LogNotImplement(this);
         }
 
-        public void Use()
+        public void Use(IHuman entity)
         {
             if (this.ObjectData.resourceType == ResourceType.Blueprint)
             {

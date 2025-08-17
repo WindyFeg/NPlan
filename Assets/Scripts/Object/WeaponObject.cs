@@ -4,28 +4,20 @@ using LTK268.Model.CommonBase;
 using LTK268.Utils;
 using UnityEngine;
 
+
 /// <summary>
-/// Represents a resource object in the game world that can be interacted with by entities (e.g., the player).
-/// On interaction, it supplies resources and decreases its own health. Destroys itself when depleted.
+/// Represents a weapon object in the game.
 /// </summary>
-public class ResourceObject : ObjectBase, IObject
+public class WeaponObject : ObjectBase, IObject
 {
     #region Serialized Fields
-
-
     #endregion
 
     #region Constructors
-
     /// <summary>
     /// Constructor to initialize basic stats via inheritance.
     /// </summary>
-    /// <param name="id">Unique ID of the object.</param>
-    /// <param name="name">Name of the object.</param>
-    /// <param name="maxHealth">Maximum health of the object.</param>
-    /// <param name="level">Level of the object.</param>
-    /// <param name="damage">Damage value (if applicable).</param>
-    public ResourceObject(int id, string name, int maxHealth, int level, int damage)
+    public WeaponObject(int id, string name, int maxHealth, int level, int damage)
         : base(id, name, maxHealth, level, damage)
     {
     }
@@ -44,17 +36,6 @@ public class ResourceObject : ObjectBase, IObject
         Initialization();
         // Register the resource object with the ResourceManager
         ResourceManager.Instance.RegisterObject(this);
-    }
-
-    private void OnValidate() {
-        if (EntitySpriteRenderer == null)
-        {
-            EntitySpriteRenderer = GetComponent<SpriteRenderer>();
-            if (EntitySpriteRenderer == null)
-            {
-                EntitySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            }            
-        }    
     }
     #endregion
 
@@ -99,5 +80,17 @@ public class ResourceObject : ObjectBase, IObject
         PickedUpBy((IHuman)target);
     }
 
+    public void Use(IHuman entity)
+    {
+        Debug.Log($"Weapon used by {((EntityBase)entity).Name}");
+        if (((IEntity)entity).IsPlayer())
+        {
+            PlayerManager.Instance.PlayerModel.EquipWeapon(this);
+        }
+        else
+        {
+            Debug.LogWarning($"Weapon used by non-player entity: {((EntityBase)entity).Name}");
+        }
+    }
     #endregion
 }

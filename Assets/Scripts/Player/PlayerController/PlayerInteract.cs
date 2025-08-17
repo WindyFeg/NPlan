@@ -6,6 +6,8 @@ using LTK268.Model.CommonBase;
 using LTK268.Utils;
 using Common_Utils;
 using LTK268.Popups;
+using System.Collections;
+
 namespace LTK268
 {
     /// <summary>
@@ -25,11 +27,13 @@ namespace LTK268
         [Tooltip("EntityDetector to manage entity detection.")]
         [SerializeField] private EntityDetector entityDetector;
 
+        [SerializeField] private Animator weaponAnimator;
+
         #endregion
 
         #region Private Fields
 
-        private IEntity currentInteractable;
+        private IEntity currentInteractable;    
         [SerializeField] private EntityBase closestEntity;
 
         #endregion
@@ -50,17 +54,21 @@ namespace LTK268
             if (!objectsInTrigger.Contains(other))
             {
                 objectsInTrigger.Add(other);
+                Debug.Log($"OnTriggerStay: {other.name}");
                 ShowUIOnEntity(other);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
+            InfoPopupController.Instance.HideInfoPopup();
+
             if (objectsInTrigger.Contains(other))
             {
                 EntityUIManager.Instance.HideEntityUI(null);
                 objectsInTrigger.Remove(other);
             }
+            
         }
         #endregion
 
@@ -93,14 +101,14 @@ namespace LTK268
             if (currentInteractable != null)
             {
                 var item = currentInteractable as ObjectBase;
-                item.Use();
+                item.Use(playerModel);
                 currentInteractable = null;
                 return;
             }
             else if (playerModel.HoldItems.Count > 0 && currentInteractable == null)
             {
                 var item = playerModel.GetComponent<IHuman>().RemoveHoldItem();
-                item.GetComponent<IObject>().Use();
+                item.GetComponent<IObject>().Use(playerModel);
                 return;
             }
             currentInteractable = null;
@@ -108,8 +116,8 @@ namespace LTK268
 
         public void OnAttack()
         {
-            // this.notify_event((int)EventID.Game.OnOpenJobList, NPCFunctionType.Lumber);
-            // Implement attack logic if needed.
+            Debug.Log("OnAttack called, setting IsSwinging to true");
+            weaponAnimator.SetTrigger("Attack");
         }
 
         public void OnPrevious()

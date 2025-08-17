@@ -117,5 +117,16 @@ namespace LTK268.Utils
             Debug.Log(logMessage);
         }
 
+        public static void LogError(string message,
+            [CallerFilePath] string filePath = "",
+            [CallerLineNumber] int lineNumber = 0,
+            [CallerMemberName] string memberName = "")
+        {
+            string fileName = Path.GetFileName(filePath);
+            // Format the log so that the file and line are clickable in Unity Console
+            string logMessage = $"[258LTK LOG] - ERROR: {message} \n({fileName}:{lineNumber}) in {memberName}";
+            Debug.LogError(logMessage, null); // The null context allows Unity to make the file:line clickable
+        }
+
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4727591912401394459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.18615, y: 0, z: -2.290294}
+  m_LocalPosition: {x: -35.358692, y: 0, z: -2.5729318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -56,6 +56,7 @@ MonoBehaviour:
   armor: 0
   entityType: 4
   entityView: {fileID: 0}
+  entitySpriteRenderer: {fileID: 0}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0

@@ -1,5 +1,6 @@
 using LTK268.Interface;
 using LTK268.Model.CommonBase;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
         public const string Attack = "Attack";
         public const string Hit = "Hit";
         public const string Death = "Death";
+        public const string Cure = "Cure";
     }
 
     #endregion
@@ -38,6 +40,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     [SerializeField] private bool attack = true;
     [SerializeField] private bool hit = true;
     [SerializeField] private bool death = true;
+    [SerializeField] private bool cure = true;
     
     #endregion
 
@@ -79,7 +82,11 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     #endregion
 
     #region Animation Control
-    
+    public void SetAnimator(AnimatorController animatorController)
+    {
+        anim.runtimeAnimatorController = animatorController;
+    }
+
     private bool CheckAppendSuffix(AnimState state)
     {
         return state switch
@@ -91,6 +98,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
             AnimState.Attack => attack,
             AnimState.Hit => hit,
             AnimState.Death => death,
+            AnimState.Cure => cure,
             _ => false
         };
     }
@@ -114,6 +122,7 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
             AnimState.Attack => AnimNames.Attack,
             AnimState.Hit => AnimNames.Hit,
             AnimState.Death => AnimNames.Death,
+            AnimState.Cure => AnimNames.Cure,
             _ => AnimNames.Idle
         };
         PlayDirectionalAnimation(baseName, appendSuffix);
@@ -124,10 +133,12 @@ public class CharacterAnimation : MonoBehaviour, ICharacterAnimation
     private void PlayDirectionalAnimation(string baseName, bool appendSuffix)
     {
         string animName = $"{entityBase.Name}_{baseName}";
+        // Debug.Log($"[PlayDirectionalAnimation] animName: {animName}");
         if (appendSuffix)
         {
             animName += $"{currentDirection}";
         }
+        Debug.Log($"[PlayDirectionalAnimation] animName: {animName}");
         
         // Không phát lại nếu đang phát đúng animation theo hướng
         if (currentAnimation == animName)

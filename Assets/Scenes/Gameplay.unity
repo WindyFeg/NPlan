@@ -23849,17 +23849,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8822932804179116037, guid: 3502fce8165ba984bba88ee2c9f92fee, type: 3}
   m_PrefabInstance: {fileID: 338809333}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &338809335 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6710518678541033073, guid: 3502fce8165ba984bba88ee2c9f92fee, type: 3}
-  m_PrefabInstance: {fileID: 338809333}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34c94fccac9744cbaf9188e6ff12a319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &347977940
 GameObject:
   m_ObjectHideFlags: 0
@@ -25265,7 +25254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entities: []
   buildingBases: []
-  townHall: {fileID: 0}
 --- !u!1 &721701989
 GameObject:
   m_ObjectHideFlags: 0
@@ -25431,6 +25419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f7ff59a4234142af2ab25800051f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMesh: {fileID: 0}
   spawnerEntries: []
   enemyBases: []
 --- !u!4 &757432883
@@ -28511,7 +28500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killCounter: 0
-  enemyPrefab: {fileID: 338809335}
+  enemyPrefab: {fileID: 0}
   defaultCapacity: 10
   maxCapacity: 50
 --- !u!1 &1828339024
@@ -28859,6 +28848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8570ae9ad06e774ba9258fc925f5086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventRate: 6
   events: []
 --- !u!1 &1902693528
 GameObject:
@@ -29733,9 +29723,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1262670109}
     m_Modifications:
+    - target: {fileID: 410794703936162067, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410794703936162067, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8716057218885856023, guid: 69d998afb466e42889d9f81808a8b126, type: 3}
     - target: {fileID: 770025913466669864, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: m_Name
       value: NpcDefault
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178965445660654782, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_BaseOffset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3980433094304705190, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29775,6 +29777,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3980433094304705190, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215941049894393480, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215941049894393480, guid: 74e0a33c01577954f8d4f805a4866019, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

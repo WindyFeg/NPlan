@@ -118,13 +118,14 @@ namespace LTK268.Model.CommonBase
             NPCWarriorType = _type;
         }
 
-        public void CureSickness()
+        public virtual void CureSickness()
         {
-            Debug.Log($"Curing sickness for NPC: {Name}");
+            // Debug.Log($"Curing sickness for NPC: {Name}");
             NpcType = NPCType.Jobless;
             try
             {
-                Debug.Log($"Setting NPCState to Wandering for NPC: {Name}");
+                this.Name = "Jobless_NPC";
+                // Debug.Log($"Setting NPCState to Wandering for NPC: {Name}");
                 GetComponent<BehaviorGraphAgent>().BlackboardReference.SetVariableValue("NPCState", NPCState.Wandering);
             }
             catch (System.Exception e)

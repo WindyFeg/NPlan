@@ -2,7 +2,9 @@ using Common_Utils;
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Utils;
+using System.Collections;
 using Unity.Behavior;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace LTK268.Model.CommonBase
@@ -17,6 +19,9 @@ namespace LTK268.Model.CommonBase
         [SerializeField] private int pickupDistance = 2;
         [SerializeField] private BehaviorGraph sicknessBehaviorGraph;
         [SerializeField] private BehaviorGraph joblessBehaviorGraph;
+        [SerializeField] private AnimatorController joblessAnimator;
+        [SerializeField] private AnimatorController sicknessAnimator;
+        [SerializeField] private CharacterAnimation characterAnimation;
         #endregion
 
         #region Public Constructors
@@ -42,7 +47,7 @@ namespace LTK268.Model.CommonBase
         {
             // This is temp initialization all if the init will be handle by game manager
             Id = 1;
-            Name = "Jobless_NPC";
+            Name = "Sickness_NPC";
             MaxHealth = 100;
             CurrentHealth = MaxHealth;
             Level = 1;
@@ -51,6 +56,20 @@ namespace LTK268.Model.CommonBase
             EntityType = EntityType.NPC;
             this.NpcType = NPCType.Sickness;
             pickupDistance = 2;
+        }
+
+        public override void CureSickness()
+        {
+            characterAnimation.SetAnimState(AnimState.Cure);
+            StartCoroutine(CureSicknessCoroutine());
+        }
+
+        private IEnumerator CureSicknessCoroutine()
+        {
+            // wait 1 second to play cure animation
+            yield return new WaitForSeconds(1);
+            base.CureSickness();
+            characterAnimation.SetAnimator(joblessAnimator);
         }
         #endregion
     }

@@ -111,6 +111,7 @@ namespace LTK268.Model.CommonBase
             }
             ObjectData = ObjectData.nextBuildingData;
             Initialization();
+            BuildingState = BuildingState.Complete;
             // throw new System.NotImplementedException();
         }
         public new void InteractWithEntity(IEntity target)

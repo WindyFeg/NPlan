@@ -4,6 +4,7 @@ using LTK268;
 using LTK268.Interface;
 using LTK268.Manager;
 using LTK268.Model.CommonBase;
+using LTK268.Popups;
 using LTK268.Utils;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -40,6 +41,7 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
         {
             BuildingMaterials.Add(item, 0);
         }
+        BuildingState = BuildingState.Building;
 
         // Initialize building materials if needed;
         // BuildingMaterials = buildingData.buildingMaterials;
@@ -63,23 +65,44 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
     }
     public new void OnInteractedByEntity(IEntity target)
     {
-        //check if player has enough resources
-        // if (PlayerManager.Instance.PlayerModel.HoldItems.Count == 0) return;
-        if (target.IsNpc())
+        EntityResrouceCheck(target);
+
+        if (BuildingState == BuildingState.Building)
         {
-            var model = (NpcModel)target;
+            AddBuildingMaterial((IHuman)target);
+        }
+        else if (BuildingState == BuildingState.Complete)
+        {
+            StoreItem((IHuman)target);
+        }
+        else
+        {
+            PopupManager.Instance.Show(PopupType.Ok, $"This Building state is {BuildingState} and can't be interacted", "OK");
+        }
+    }
+
+    private void EntityResrouceCheck(IEntity entity)
+    {
+        if (entity.IsNpc())
+        {
+            var model = (NpcModel)entity;
             if (model.HoldItems.Count == 0)
             {
                 Debug.LogWarning("NPC has no items to store");
                 return;
             }
         }
-        else if (target.IsPlayer())
+        else if (entity.IsPlayer())
         {
-            var playerModel = (PlayerModel)target;
+            var playerModel = (PlayerModel)entity;
             if (playerModel.HoldItems.Count == 0)
             {
                 Debug.LogWarning("Player has no items to store");
+                PopupManager.Instance.Show(
+                    PopupType.Ok,
+                    $"Player has no items to store",
+                    "OK"
+                );
                 return;
             }
         }
@@ -88,10 +111,8 @@ public class TownHall : BuildingBase, IBuilding, IBuildingStorage
             Debug.LogError("Invalid entity type interacting with Town Hall");
             return;
         }
-        AddBuildingMaterial((IHuman)target);
-    
-        Debug.Log("Town Hall Interacted");
     }
+
     // public void Upgrade()
     // {
     //     if (ObjectData.nextBuildingData == null)

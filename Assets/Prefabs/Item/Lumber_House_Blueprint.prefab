@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1900166833445165090
 Transform:
   m_ObjectHideFlags: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
   damage: 0
   armor: 0
   entityType: 4
-  entityView: {fileID: 0}
-  entitySpriteRenderer: {fileID: 0}
+  entityView: {fileID: 6342173674724768189}
+  entitySpriteRenderer: {fileID: 8258842874362790505}
   xPosStart: 0
   yPosStart: 0
   xPosEnd: 0

@@ -69,7 +69,8 @@ namespace LTK268.Model.CommonBase
             if (holdItemIcon != null)
             {
                 Debug.Log("Hold item icon is set", this);
-                holdItemIcon.sprite = item.GetComponent<SpriteRenderer>().sprite;
+                holdItemIcon.sprite = item.GetComponent<ObjectBase>().EntitySpriteRenderer.sprite;
+
             }
             holdItems.Add(item);
         }
